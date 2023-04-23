@@ -1,0 +1,33 @@
+﻿.LoginSection {
+    margin-top: 30px;
+    width: 100%;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    max-width: 370px;
+}
+
+.h2s {
+    text-align: center;
+    font-family: 'MontserratMedium';
+}
+.h3s{
+    color:#ffffff;
+}
+label {
+    font-family: 'MontserratMedium';
+    font-size:14px;
+}
+.checkbox{
+    display:flex;
+}
+.loginbut {
+    display:flex;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    justify-content: center;
+}
+.infos p, .infos h2 {
+    text-align: center;
+    font-family: 'MontserratMedium';
+    color: #ffffff;
+}

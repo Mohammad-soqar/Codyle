@@ -1,0 +1,180 @@
+﻿@model CodyleOffical.Models.ViewModels.ServicesVM
+@using Microsoft.AspNetCore.Identity
+
+@inject UserManager<IdentityUser> UserManager
+<head>
+    <link rel="stylesheet" href="~/css/form.scss" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/form.css" asp-append-version="true" />
+
+    <script src="~/js/tableJs.js"></script>
+</head>
+
+<section class="WebSection">
+    <form method="post" asp-action="Upsert" enctype="multipart/form-data" class="WebForm">
+        <input asp-for="Services.Id" hidden />
+        <div class="Left-Side">
+            <div class="title">
+                <img src="~/Photos/logoicon.png" width="120px">
+                <h1>Graphic Design</h1>
+            </div>
+            <div class="inputQue">
+                <label>Business Name</label>
+                <input asp-for="Services.BusinessName" type="text">
+                <span asp-validation-for="Services.BusinessName" class="alert-warning"></span>
+
+            </div>
+            <select asp-for="Services.Type" hidden>
+                <option selected>Graphic Design</option>
+            </select>
+
+
+
+            <div class="inputQue">
+                <div class="twoInRowC">
+                    <div class="tworow1C">
+                        <label>Build A New Design Or Redesign An Existing One?</label>
+                        <select asp-for="Services.TypeOfService">
+                            <option selected disabled>Select </option>
+                            <option>Brand New Designs</option>
+                            <option>Redesign Existing Identity</option>
+                        </select>
+                        <span asp-validation-for="Services.TypeOfService" class="alert-warning"></span>
+
+                    </div>
+                    <div class="tworow2C">
+                        <label>Insert One Of Your Social Media Accounts If Available</label>
+                        <input asp-for="Services.WebsiteUrl" type="text" placeholder="Link ">
+                        <span asp-validation-for="Services.WebsiteUrl" class="alert-warning"></span>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="inputQue">
+                <label>Would You Like Us To Provide Social Media Management?</label>
+                <select asp-for="Services.SocialMediaM">
+                    <option selected disabled>Select</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+                <span asp-validation-for="Services.SocialMediaM" class="alert-warning"></span>
+
+            </div>
+
+            <div class="inputQue">
+                <label>Who Is Your Target Audience?</label>
+                <input asp-for="Services.SMPlatforms" type="text">
+                <span asp-validation-for="Services.SMPlatforms" class="alert-warning"></span>
+
+            </div>
+
+
+            <div class="inputQue">
+                <label>Describe Your Business In A Few Sentences</label>
+                <input asp-for="Services.Description" type="text">
+                <span asp-validation-for="Services.Description" class="alert-warning"></span>
+
+            </div>
+
+
+            <div class="inputQue">
+                <label>What Services / Products Do You Offer?</label>
+                <input asp-for="Services.ProductService" type="text">
+                <span asp-validation-for="Services.ProductService" class="alert-warning"></span>
+
+            </div>
+
+
+
+
+
+            <div class="inputQue">
+                <div class="twoInRow">
+                    <div class="tworow1">
+                        <label>Do You Have Any Existing Style Guides And Guidelines?</label>
+                        <select asp-for="Services.Guidelines">
+                            <option selected disabled>Select</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                        <span asp-validation-for="Services.Guidelines" class="alert-warning"></span>
+
+                    </div>
+                    <div class="hover-text tworow2">
+                        <img src="~/icons/Layer 2.png" width="20px">
+                        <span class="tooltip-text" id="top">I'm a tooltip!</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="inputQue">
+                <label>Your Prefered Contact Information</label>
+
+                <input asp-for="Services.Email" type="text" value="@UserManager.GetUserName(User)">
+                <span asp-validation-for="Services.Email" class="alert-warning"></span>
+
+            </div>
+
+            <div class="inputQue">
+                <label>What Is Your Budget?</label>
+                <select asp-for="Services.Budget">
+                    <option selected disabled>Select</option>
+                    <option>0$ - 500 $</option>
+                    <option>500$ - 1000 $</option>
+                    <option>1000$ - 1500 $</option>
+                    <option>+1500$</option>
+                </select>
+                <span asp-validation-for="Services.Budget" class="alert-warning"></span>
+
+            </div>
+            <div class="inputQue">
+                <label>When Do You Want Us To Start Working With You</label>
+                <input asp-for="Services.LaunchDate" type="date">
+                <span asp-validation-for="Services.LaunchDate" class="alert-warning"></span>
+
+            </div>
+
+            <button oneclick="return ValidateInput()" type="submit">Submit</button>
+
+            <a class="can" asp-controller="Home" asp-action="Services">Cancel</a>
+
+
+        </div>
+
+    </form>
+</section>
+
+
+      
+
+
+
+@section Scripts{
+    @{
+    <partial name="_ValidationScriptsPartial" />
+    }
+
+
+    <script>
+
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'advlist autolink lists link image charmap',
+
+            toolbar_mode: 'floating',
+
+        });
+
+        function ValidateInput() {
+            if (document.getElementById("uploadBox").value == "") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please upload an image',
+
+                })
+            }
+        }
+    </script>
+        }
+

@@ -1,0 +1,173 @@
+﻿@page
+@using CodyleOffical.Utility
+
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+<head>
+
+
+  
+    <link rel="stylesheet" href="~/css/register.css" asp-append-version="true" />
+     
+        <title>Register</title>
+       
+</head>
+<section class="RegisterSection">
+
+    <form class="RegisterForm" id="account" method="post">
+
+        <div class="Left-Side">
+            <div class="title">
+                <img src="~/Photos/logoicon.png" width="120px">
+                <h1>Create A New Account</h1>
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="inputQue">
+                <div class="twoInRowC">
+                    <div class="tworow1C">
+                        <label>Name</label>
+                        <input asp-for="Input.Name" class="form-control" aria-required="true" />
+                        <span asp-validation-for="Input.Name" class="text-danger"></span>
+                    </div>
+                    <div class="tworow2C">
+                        <label>Surname</label>
+                        <input asp-for="Input.Surname" class="form-control" aria-required="true" />
+                        <span asp-validation-for="Input.Surname" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="inputQue">
+                <label>Email</label>
+                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+
+            <div class="inputQue">
+                <label>Phone Number</label>
+                <input asp-for="Input.PhoneNumber" class="form-control" id="phone" placeholder="Phone Number"
+                       aria-required="true" />
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>
+
+
+            <div class="inputQue">
+                <label>Password</label>
+                <input UseSubmitBehavior="false" type="password" id="password-field" asp-for="Input.Password" class="form-control" autocomplete="new-password"
+                       aria-required="true" />
+                <span style=" -webkit-user-select: none; 
+    -ms-user-select: none;
+    user-select: none;" toggle="#password-field" class="hello toggle-password">
+                    Show Password</span>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+
+            <div class="inputQue">
+                <label>Confirm Password</label>
+                <input UseSubmitBehavior="false" asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password"
+                       aria-required="true" />
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+
+
+
+            @if (User.IsInRole(SD.Role_Admin))
+            {
+                
+            <div class="form-floating">
+                <select asp-for="Input.Role" asp-items="@Model.Input.RoleList" class="form-control">
+                    <option disabled selected>Select Role</option>
+                </select>
+            </div>
+
+            <div class="form-floating">
+                <select asp-for="Input.CompanyId" style="display:none;" asp-items="@Model.Input.CompanyList"
+                    class="form-control">
+                    <option disabled selected>Select Company</option>
+                </select>
+            </div>
+            }
+
+            <button id="registerSubmit" type ="submit" class="">Register</button>
+        </div>
+
+    </form>
+
+    @if (!User.IsInRole(SD.Role_Admin))
+    {
+
+        <section class="externalSection">
+            <h3>Use another service to register.</h3>
+            <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post"
+              class="form-horizontal">
+
+                <div class="externalbuttons">
+                    <div class="button">
+                        <button type="submit" class="ExternalLogins" name="provider" value="Google"
+                            title="Log in using your Google account">
+                            <img src="~/Photos/socialMedia/Google.png"
+                             height="34px" />
+                        </button>
+                    </div>
+                    <div class="button">
+                        <button type="submit" class="ExternalLogins" name="provider" value="Facebook"
+                            title="Log in using your Facebook account">
+                            <img src="~/Photos/socialMedia/Facebook.png"
+                             height="34px" />
+                        </button>
+                    </div>
+
+
+
+                </div>
+            </form>
+        </section>
+    }
+
+
+
+
+</section>
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(document).ready(function(){
+            $('#Input_Role').change(function(){
+                var selection= $('#Input_Role Option:Selected').text();
+                if(selection != 'Company')
+                {
+                    $('#Input_CompanyId').hide();
+                }
+                else{
+                    $('#Input_CompanyId').show();
+                }
+            })
+        })
+      
+
+        $(".toggle-password").click(function () {
+
+            $(this).toggleClass("hello");
+            var input = $($(this).attr("toggle"));
+            if (input.attr("type") == "password") {
+                input.attr("type", "text");
+                    
+
+            } else {
+                input.attr("type", "password");
+                //document.getElementById("spans").InnerHTML = "<img src="~/icons/eye.png">";
+            }
+          
+        });
+
+       
+    </script>
+}

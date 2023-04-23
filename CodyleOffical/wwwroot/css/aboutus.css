@@ -1,0 +1,222 @@
+﻿body {
+    background-image: url("~/Photos/Mainpage2.jpg") !important;
+}
+
+.office {
+    margin-top: 40px;
+}
+
+
+
+.howwestarted2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+
+
+
+
+
+
+.team {
+    margin: 100px 0px 0px 0px;
+}
+
+.card {
+    width: max-content;
+    border-radius: 5.67px;
+    padding-bottom: 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background: linear-gradient(#DE1749 60%, #FF2E63);
+    box-shadow: 0 -1px 13px 0 #ff2e6270;
+}
+
+.cardcontent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card img {
+    box-sizing: border-box;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+
+
+.cardcontent h3 {
+    margin: 10px 0px;
+    font-size: 20px;
+    box-sizing: border-box;
+    color: #ffffff;
+    font-family: 'MontserratMedium';
+}
+
+.cardcontent p {
+    margin: 8px 0px;
+    box-sizing: border-box;
+    color: #ffffff;
+    font-weight: 400;
+    text-align: center;
+    font-family: 'MontserratMedium';
+}
+
+.cardcontent a {
+    margin: 8px 0px;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
+    font-family: 'MontserratMedium';
+}
+
+.socialMedia {
+    display: flex;
+    justify-content: space-between;
+}
+
+    .socialMedia a {
+        box-sizing: border-box;
+        margin: 10px 10px 0px 10px;
+        text-decoration: none;
+    }
+
+.welcome p {
+    text-align: center;
+    color: #ffffff;
+  
+    font-family: 'MontserratMedium';
+}
+
+.first {
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.second {
+    font-size: 14px;
+    opacity: 80%;
+    font-weight: 300;
+}
+
+.aboutcodyle {
+    margin: 80px 0px 0px 0px;
+}
+
+.howwestartedtext {
+    color: #eaeaea;
+    font-family: MontserratMedium;
+}
+
+.team h1 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 40px;
+    font-family: 'MontserratMedium';
+    margin: 0px 0px 0px 0px;
+}
+
+@media only screen and (min-width: 750px) {
+    .welcome {
+        margin: 30px 0px 0px 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        align-content: center;
+    }
+
+    .howwestart img {
+        height: 270px;
+    }
+
+    .howwestarted {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    .howwestartedtext {
+        width: 30%;
+        margin: 0px 0px 0px 50px;
+    }
+
+    .whyus {
+        text-align: center;
+        margin-top: 50px;
+        margin-left: 0px !important;
+    }
+
+        .whyus p {
+            font-size: 16px;
+        }
+
+        .whyus h2 {
+            font-size: 26px;
+        }
+
+    .CardBox {
+        margin: 60px 0px 0px 0px;
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        justify-items: center;
+    }
+
+    .welcome p {
+        width: 30%;
+    }
+}
+
+
+
+@media only screen and (max-width: 750px) {
+    .welcome {
+        margin: 20px 20px 0px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        align-content: center;
+    }
+
+
+        .welcome h2 {
+            position: absolute;
+            z-index: 3;
+            font-family: 'MontserratMedium';
+            font-size: 38px;
+            color: #ffffff;
+        }
+
+    .howwestart img {
+        height: 150px;
+    }
+
+    .howwestarted {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+
+    .howwestartedtext {
+        text-align: center;
+        width: 80%;
+        margin: 0px 0px 0px 0px;
+    }
+
+    .CardBox {
+        margin: 60px 0px 0px 0px;
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        justify-items: center;
+    }
+}

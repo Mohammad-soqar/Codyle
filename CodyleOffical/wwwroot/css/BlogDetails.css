@@ -1,0 +1,129 @@
+﻿@font-face {
+    font-family: 'MontserratMedium';
+    src: local('Montserrat-Medium'),url('../fonts/medium/Montserrat-Medium.ttf') format('truetype');
+}
+body {
+    font-family: MontserratMedium;
+    color: #ffffff;
+    background-color: #252A34;
+}
+
+a {
+    font-family: MontserratMedium;
+    text-decoration: underline;
+    color: #ffffff !important;
+}
+
+    a:hover {
+        font-family: MontserratMedium;
+        color: #FF2E63 !important;
+        transition: 0.3s;
+    }
+@media only screen and (max-width: 750px) {
+    .blogmain {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 30px 20px 30px 20px;
+    }
+    .coverPhoto img {
+        width: 300px !important;
+    }
+    .coverPhoto {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    .line1 {
+        display: flex;
+        flex-direction:column;
+    }
+
+    .secnd {
+       margin-left: 0px;
+    }
+}
+
+@media only screen and (min-width: 750px) {
+    .blogmain {
+        display: flex;
+        justify-content: space-between;
+        margin: 30px 100px 30px 100px;
+    }
+    .coverPhoto img {
+        width: 500px !important;
+    }
+    .coverPhoto {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+    }
+
+    .line1 {
+        display: flex;
+    }
+
+    .secnd {
+        margin-left: 50px;
+    }
+}
+    
+
+    .blog {
+    }
+
+    p, h1, div, span, h2, h3, h4, h5, label {
+        font-family: MontserratMedium;
+        color: #ffffff !important;
+    }
+
+    .content {
+        background-color: #252a34a4;
+    }
+
+
+
+        .coverPhoto img {
+            border-radius: 12px;
+        }
+
+        .coverPhoto h1 {
+            font-size: 28px;
+            display: block;
+            font-family: MontserratMedium;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 14px;
+            position: absolute;
+            background-color: #ff2e6297;
+            margin: 0px 0px 10px 30px;
+        }
+
+    .blog {
+        width: 100%;
+    }
+
+    .ads {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+        .ads p {
+            border: solid #ffffff1d;
+            width: 80%;
+            height: 100%;
+        }
+
+    .info {
+        width: 100%;
+        border-radius: 12px;
+        background-color: #0000001f;
+    }
+
+    .infoContent {
+        margin: 20px 40px 0px 40px;
+        padding-bottom: 20px;
+    }
+

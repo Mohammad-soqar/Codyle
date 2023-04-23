@@ -1,0 +1,103 @@
+﻿@model CodyleOffical.Models.ViewModels.BlogVM
+@{
+
+}
+<head>
+    <script src="https://cdn.tiny.cloud/1/17ey362kygya3onsmqifoumhul549v4sc5s58njdpa731on7/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <link rel="stylesheet" href="~/css/form.css" asp-append-version="true" />
+   
+  
+    <script src="~/js/tableJs.js"></script>
+    <title>Create a blog</title>
+</head>
+
+<div class="WebSection">
+ 
+    <div class="logo-image" width="50%">
+        <img src="@Model.blog.ImageUrl" width="60%" />
+    </div>
+  
+    <form width="100%" method="post" class="WebForm" asp-action="Upsert" enctype="multipart/form-data">
+        <input asp-for="blog.Id" hidden />
+        <div class="Left-Side">
+        <h2 class="">@(Model.blog.Id != 0 ? "Update" : "Create") Blog</h2>
+
+        <div class="inputQue">
+                <label>Title</label>
+        <input asp-for="blog.Title" placeholder="Title">
+        <span asp-validation-for="blog.Title" class="alert-warning"></span>
+        </div>
+
+        <div class="inputQue">
+                <label>Blog Content</label>
+
+        <textarea asp-for="blog.blogContent" rows="3" placeholder="blogContent"></textarea>
+        <span asp-validation-for="blog.blogContent" class="alert-warning"></span>
+        </div>
+            <div class="inputQue">
+                <label>Author</label>
+
+        <input type="name" asp-for="blog.Author" placeholder="Author">
+        <span asp-validation-for="blog.Author" class="alert-warning"></span>
+        </div>
+        <div class="inputQue">
+                <label>Date</label>
+
+        <input type="date" asp-for="blog.Date" placeholder="Date">
+        <span asp-validation-for="blog.Date" class="alert-warning"></span>
+        </div>
+                    <div class="inputQue">
+                <label>Thumbnail</label>
+
+        <input asp-for="blog.ImageUrl" id="uploadBox" type="file" name="file" placeholder="ImageUrl">
+        </div>
+
+        <div class="inputQue">
+                <label>Category</label>
+
+        <select asp-for="blog.CategoryId" asp-items="@Model.CategoryList" class="selectC">
+            <option disabled selected>Select Category</option>
+        </select>
+        <span asp-validation-for="blog.CategoryId" class="alert-warning"></span>
+        </div>
+        @if (Model.blog.Id != 0)
+        {
+            <button type="submit">Update</button>
+        }
+        else
+        {
+            <button oneclick="return ValidateInput()" type="submit">Create</button>
+        }
+        <a class="can" asp-controller="blog" asp-action="Index">Cancel</a>
+        </div>
+    </form>
+
+</div>
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+
+    <script>
+
+          tinymce.init({
+      selector: 'textarea',
+      plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+    });
+
+        function ValidateInput() {
+            if (document.getElementById("uploadBox").value == "") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please upload an image',
+
+                })
+            }
+        }
+    </script>
+        }
+

@@ -1,0 +1,38 @@
+﻿.acolor {
+    background-color: #FF2E63;
+    margin: 0px 10px 0px 10px;
+    padding: 10px 15px 10px 15px;
+    border-radius: 10px;
+    color: #eaeaea;
+    font-family: 'MontserratMedium';
+    cursor: pointer;
+    text-decoration:none;
+}
+#logout {
+    background-color: #FF2E63;
+    margin: 0px 10px 0px 10px;
+    border-radius: 10px;
+    color: #eaeaea;
+    border: unset;
+    font-family: 'MontserratMedium';
+    cursor: pointer;
+    text-decoration: none;
+}
+.nav-item {
+    background-color: #FF2E63;
+    margin: 0px 10px 0px 10px;
+    padding: 10px 15px 10px 15px;
+    border-radius: 10px;
+    color: #eaeaea;
+    font-family: 'MontserratMedium';
+    cursor: pointer;
+    list-style: none;
+}
+ul {
+    padding: 0px 0px 0px 0px;
+    display: flex;
+    font-size: 16px;
+    flex-direction: row;
+    list-style: none;
+    align-items: center;
+}

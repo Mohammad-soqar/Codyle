@@ -1,0 +1,48 @@
+﻿
+@model CodyleOffical.Models.ViewModels.CompanyVM
+@{
+
+}
+<head>
+    <link rel="stylesheet" href="~/css/tableDesign.scss" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/tableDesign.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/st.css" asp-append-version="true" />
+    <script src="~/js/tableJs.js"></script>
+</head>
+<div class="formpage">
+    <div class="logo-image" width="50%">
+        <img src="@Model.Company.ImageUrl" width="60%" />
+    </div>
+    <form width="100%" method="post" class="form" asp-action="Upsert" enctype="multipart/form-data">
+        <input asp-for="Company.Id" hidden />
+        <input asp-for="Company.ImageUrl" hidden />
+        <h2 class="">@(Model.Company.Id != 0 ? "Update" : "Add") Company</h2>
+        <input asp-for="Company.Name" placeholder="Name">
+        <span asp-validation-for="Company.Name" class="alert-warning"></span>
+
+
+
+        <input asp-for="Company.PhoneNumber" placeholder="Phone Number">
+        <span asp-validation-for="Company.PhoneNumber" class="alert-warning"></span>
+
+
+        <input asp-for="Company.ImageUrl" id="uploadBox" type="file" name="file" placeholder="ImageUrl">
+
+        <select asp-for="Company.CompTypeId" asp-items="@Model.ApplicationCompanyList" class="selectC">
+            <option disabled selected>Company type</option>
+        </select>
+
+        <span asp-validation-for="Company.CompTypeId" class="alert-warning"></span>
+        @if (Model.Company.Id != 0)
+        {
+            <button type="submit">Update</button>
+        }
+        else
+        {
+            <button oneclick="return ValidateInput()" type="submit">Create</button>
+        }
+        <a class="cancel" asp-controller="Event" asp-action="Index">Cancel</a>
+
+    </form>
+
+</div>

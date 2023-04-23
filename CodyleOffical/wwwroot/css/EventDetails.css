@@ -1,0 +1,123 @@
+﻿
+
+body {
+
+    background-color: #252A34;
+}
+
+
+.EventForm a:hover {
+    transition: 0.3s;
+    color: #FF2E63;
+}
+
+.tickett {
+    background-color: transparent;
+    width: 40px;
+    height: 30px;
+    border: solid #FF2E63 2px;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0 0px 5px 0 #ff2e6270;
+}
+
+
+
+.eventwriting h1,
+a,
+p,h2 {
+    color: white;
+    font-family: MontserratMedium;
+}
+
+.dateimg {
+    margin: 0px;
+}
+
+
+
+
+.ticket {
+    box-shadow: 0 0px 5px 0 #ff2e6270;
+    text-decoration: none;
+    color: white !important;
+    background-color: #FF2E63;
+    margin: 0px 10px 0px 0px;
+    padding: 10px 15px 10px 15px;
+    border: none !important;
+    border-radius: 10px;
+    font-family: MontserratMedium;
+    cursor: pointer;
+}
+
+
+
+.sponsors h2 {
+    color: white;
+    font-family: MontserratMedium;
+}
+
+
+
+@media only screen and (min-width: 750px) {
+    .event {
+        margin: 60px 0px 0px 40px;
+        align-items: center;
+        display: flex;
+    }
+
+    .eventwriting {
+        display: flex;
+        flex-direction: column;
+        align-content: flex-start;
+        margin-left: 90px;
+    }
+
+    .eventpic {
+        height: 380px;
+    }
+
+    .eventdetails p {
+        width: 40%;
+        font-family: MontserratMedium;
+    }
+
+    .eventdetails {
+        margin: 40px 0px 0px 40px;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .event {
+        margin: 60px 0px 0px 30px;
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .eventwriting {
+        display: flex;
+        flex-direction: column;
+        align-content: flex-start;
+    }
+
+    .eventpic {
+        height: 250px;
+    }
+
+
+
+    .eventdetails p {
+        width: 90%;
+        font-family: MontserratMedium;
+    }
+
+    .eventdetails {
+        margin: 60px 0px 0px 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

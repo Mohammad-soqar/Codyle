@@ -1,0 +1,178 @@
+﻿@font-face {
+    font-family: 'MontserratMedium';
+    src: local('Montserrat-Medium'),url('../fonts/medium/Montserrat-Medium.ttf') format('truetype');
+}
+
+/*--------------welcome-web browser--------*/
+@media only screen and (min-width: 750px) {
+    .welcomegrid {
+        display: flex;
+        margin: 50px 0px 0px 0px;
+        justify-content: space-around;
+        flex-direction: row-reverse;
+        align-items: center;
+    }
+
+    .welcome h1 {
+        color: #ffffff;
+        font-size: 60px;
+        font-family: 'MontserratMedium';
+    }
+
+    .welcometext {
+        color: #ffffff;
+        font-size: 18px;
+        font-family: 'MontserratMedium';
+    }
+
+    .welcometext2 {
+        color: #ffffff;
+        font-size: 16px;
+        font-family: 'MontserratMedium';
+    }
+
+    .weclomephoto {
+        height: 500px;
+    }
+
+    .textandstartbutton {
+        width: 34%;
+    }
+
+    .Roadslinks {
+        margin: 150px 0px 0px 0px;
+        display: grid;
+        grid-gap: 80px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+        .Roadslinks h2 {
+            font-size: 28px;
+            font-family: 'MontserratMedium';
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+
+        .Roadslinks a {
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            background: linear-gradient(#DE1749, #FF2E63);
+            padding: 30px;
+            border-radius: 10px;
+            position: relative;
+            box-shadow: 0 -1px 10px 0 #ff2e6270;
+        }
+
+        .Roadslinks p {
+            color: #ffffff;
+            font-size: 16px;
+            font-family: 'MontserratMedium';
+        }
+
+    .roadmapSection {
+        width: 100%;
+        margin-inline-start: auto;
+        margin-inline-end: auto;
+        max-width: 1080px;
+        padding-inline-start: 1rem;
+        padding-inline-end: 1rem;
+    }
+
+}
+
+/*--------------welcome-mobile--------*/
+@media only screen and (max-width: 750px) {
+    .welcomegrid {
+        display: grid;
+        justify-items: center;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        margin: 50px 0px 0px 0px;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .welcome h1 {
+        color: #ffffff;
+        font-size: 60px;
+        font-family: 'MontserratMedium';
+    }
+
+
+    .Roadslinks {
+        margin: 150px 0px 0px 0px;
+        display: grid;
+        grid-gap: 80px;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    .welcometext2 {
+        color: #ffffff;
+        font-size: 16px;
+        font-family: 'MontserratMedium';
+    }
+    .weclomephoto {
+        height: 300px;
+    }
+
+    .welcometext {
+        color: #ffffff;
+        font-size: 40px;
+        font-family: 'MontserratMedium';
+    }
+
+    .textandstartbutton a {
+        background: linear-gradient(#DE1749, #FF2E63);
+        padding: 5px 15px 5px 15px;
+        border-radius: 10px;
+        font-size: 16px;
+        color: #ffffff;
+        font-family: 'MontserratMedium';
+        cursor: pointer;
+    }
+    .Roadslinks h2 {
+        font-size: 28px;
+        font-family: 'MontserratMedium';
+        margin-bottom: 5px;
+        color: #ffffff;
+    }
+
+    .Roadslinks a {
+        cursor: pointer;
+        text-decoration: none;
+        color: inherit;
+        background: linear-gradient(#DE1749, #FF2E63);
+        padding: 30px;
+        border-radius: 10px;
+        position: relative;
+        box-shadow: 0 -1px 10px 0 #ff2e6270;
+    }
+
+    .Roadslinks p {
+        color: #ffffff;
+        font-size: 16px;
+        font-family: 'MontserratMedium';
+    }
+
+    .roadmapSection {
+      
+        margin-inline-start: auto;
+        margin-inline-end: auto;
+        margin: 0px 20px 0px 20px;
+        max-width: 1080px;
+        padding-inline-start: 1rem;
+        padding-inline-end: 1rem;
+    }
+
+}
+
+.roadmapSection {
+    padding: 0px 0px 50px 0px;
+}
+
+.linksHeader {
+    display: flex;
+}
+
+
+
+
+

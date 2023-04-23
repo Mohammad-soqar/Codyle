@@ -1,0 +1,125 @@
+﻿@page
+@model IndexModel
+@inject SignInManager<IdentityUser> SignInManager
+@{
+    var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+    ViewData["Title"] = "Profile";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+
+<head>
+    <title>Profile</title>
+    <link rel="stylesheet" href="~/css/profile.css" asp-append-version="true" />
+</head>
+
+
+<partial name="_StatusMessage" for="StatusMessage" />
+<section class="profile">
+    <div class="linksSide">
+        <div class="links">
+            
+            <a asp-page="./Index"><img class="anchorImg" draggable="false" src="~/Photos/icons/profile.png" height="30px">Profile</a>
+        </div>
+
+        <div class="links">
+            <a asp-page="./ChangePassword">
+                <img class="anchorImg" draggable="false" src="~/Photos/icons/password.png" height="30px">Password
+            </a>
+        </div>
+        @if (hasExternalLogins)
+        {
+                     <div class="links">
+
+                <a asp-page="./ExternalLogins"><img class="anchorImg" draggable="false" src="~/Photos/icons/external.png" height="30px">External logins</a>
+                    </div>
+        }
+        
+
+      
+
+        <div class="links">
+          
+            <a asp-page="./PersonalData">  <img class="anchorImg" draggable="false" src="~/Photos/icons/datainfo.png" height="30px">Personal data</a>
+        </div>
+
+        <div class="links">
+            
+            <a href="mailto: support@codyle.com"><img class="anchorImg" draggable="false" src="~/Photos/icons/support.png" height="30px">Support</a>
+        </div>
+
+        
+        <div class="links">
+          
+             <form id="logoutForm"  asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button id="logout" type="submit">  <img class="anchorImg" draggable="false" src="~/Photos/icons/logout.png" height="30px">Logout</button>
+                            </form>
+            
+           
+        </div>
+
+    </div>
+    <div class="inputSide">
+        <form class="WebForm">
+            <h1>Profile</h1>
+            <div class="inputQue">
+                <div class="twoInRowC">
+                 @*  <div class="tworow1C">
+                        <label>Name</label>
+                        <input asp-for="Input.Name" type="text">
+                        <span asp-validation-for="Input.Name" class="text-danger"></span>
+
+                    </div>
+                    <div class="tworow2C">
+                        <label>Surname</label>
+                        <input asp-for="Input.Surname" type="text">
+                        <span asp-validation-for="Input.Surname" class="text-danger"></span>
+
+                    </div>
+                    </div>*@
+                </div>
+            <div class="inputQue">
+                <label>Email</label>
+                <input asp-for="Username" type="text" disabled>
+            </div>
+            <div class="inputQue">
+                <label>Phone Number</label>
+                    <input asp-for="Input.PhoneNumber" type="text" disabled>
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+
+            </div>
+        
+            <button>Save</button>
+        </form>
+    </div>
+
+</section>
+
+      @*  <form id="profile-form" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-floating">
+                <input asp-for="Username" class="form-control" disabled />
+                <label asp-for="Username" class="form-label"></label>
+            </div>
+            <div class="form-floating">
+                <input asp-for="Input.PhoneNumber" class="form-control" />
+                <label asp-for="Input.PhoneNumber" class="form-label"></label>
+            </div>
+            <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">Save</button>
+        </form>
+        <ul class="nav nav-pills flex-column">
+            <li class="nav-item"><a class="nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="profile" asp-page="./Index">Profile</a></li>
+            <li class="nav-item"><a class="nav-link @ManageNavPages.EmailNavClass(ViewContext)" id="email" asp-page="./Email">Email</a></li>
+            <li class="nav-item"><a class="nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password" asp-page="./ChangePassword">Password</a></li>
+            @if (hasExternalLogins)
+            {
+                <li id="external-logins" class="nav-item"><a id="external-login" class="nav-link @ManageNavPages.ExternalLoginsNavClass(ViewContext)" asp-page="./ExternalLogins">External logins</a></li>
+            }
+            <li class="nav-item"><a class="nav-link @ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)" id="two-factor" asp-page="./TwoFactorAuthentication">Two-factor authentication</a></li>
+            <li class="nav-item"><a class="nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data" asp-page="./PersonalData">Personal data</a></li>
+        </ul>
+    *@
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

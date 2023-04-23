@@ -1,0 +1,77 @@
+﻿@model CodyleOffical.Models.ViewModels.ClubMembersVM
+@using Microsoft.AspNetCore.Identity
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Codyle Student Club</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="~/css/form.css">
+
+</head>
+
+<body>
+    <section class="WebSection">
+        <form method="post"  enctype="multipart/form-data" class="WebForm">
+            <input asp-for="ClubMembers.Id" hidden />
+            <div class="Left-Side">
+                <div class="title">
+                    <img src="~/Photos/logoicon.png" width="120px">
+                    <h1>Join Our Club</h1>
+
+                </div>
+
+                <div class="inputQue">
+                    <div class="twoInRowC new2">
+                        <div class="tworow1C">
+                            <label>First Name</label>
+                            <input asp-for="ClubMembers.Name"  type="text" placeholder="Write your First Name">
+                            <span asp-validation-for="ClubMembers.Name" class="alert-warning"></span>
+                        </div>
+                        <div class="tworow2C">
+                            <label>Last Name</label>
+                            <input asp-for="ClubMembers.LastName" type="text" placeholder="Write your Last Name">
+                            <span asp-validation-for="ClubMembers.LastName" class="alert-warning"></span>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="inputQue">
+                    <label>ÜÜ Student Id</label>
+                    <input asp-for="ClubMembers.StudentId" type="text" placeholder="Write your Uskudar University Id Number">
+                    <span asp-validation-for="ClubMembers.StudentId" class="alert-warning" ></span>
+
+                </div>
+                <div class="inputQue">
+                    <label>ÜÜ Student Email</label>
+                    <input asp-for="ClubMembers.StudentEmail" type="text" placeholder="endes with... @@st.uskudar.edu.tr">
+                    <span asp-validation-for="ClubMembers.StudentEmail" class="alert-warning" ></span>
+
+                </div>
+                <div class="inputQue">
+                    <label>Your Phone Number</label>
+                    <input asp-for="ClubMembers.PhoneNumber" type="text" placeholder="Write your Phone Number">
+                    <span asp-validation-for="ClubMembers.PhoneNumber" class="alert-warning" ></span>
+
+                </div>
+            
+
+
+
+
+
+
+
+                <button oneclick="return ValidateInput()" type="submit">Submit</button>
+
+                <a class="can" asp-controller="Home" asp-action="index">Cancel</a>
+
+
+            </div>
+
+        </form>
+    </section>
+</body>

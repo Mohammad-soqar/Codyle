@@ -1,0 +1,143 @@
+﻿@model CodyleOffical.Models.ViewModels.EventVM
+@{
+
+}
+<head>
+    <script src="https://cdn.tiny.cloud/1/17ey362kygya3onsmqifoumhul549v4sc5s58njdpa731on7/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <link rel="stylesheet" href="~/css/form.css" asp-append-version="true" />
+    <script src="~/js/tableJs.js"></script>
+    <title>Create an Event</title>
+</head>
+<div class="WebSection">
+    <div class="logo-image" width="50%">
+
+        <img src="@Model.Event.ImageUrl" width="60%" />
+
+    </div>
+    <form width="100%" method="post" class="WebForm" asp-action="Upsert" enctype="multipart/form-data">
+        <input asp-for="Event.Id" hidden />
+        <input asp-for="Event.ImageUrl" hidden />
+        <div class="Left-Side">
+
+            <h2 class="">@(Model.Event.Id != 0 ? "Update" : "Create") Event</h2>
+
+            <div class="inputQue">
+                <label>Title</label>
+                <input asp-for="Event.Title" placeholder="Title">
+                <span asp-validation-for="Event.Title" class="alert-warning"></span>
+            </div>
+            <div class="inputQue">
+                <label>Description</label>
+                <textarea asp-for="Event.Description" rows="3" placeholder="Description"></textarea>
+                <span asp-validation-for="Event.Description" class="alert-warning"></span>
+            </div>
+            <div class="inputQue">
+                <label>Date</label>
+                <input type="datetime-local" asp-for="Event.Date" placeholder="Date">
+                <span asp-validation-for="Event.Date" class="alert-warning"></span>
+            </div>
+            <div class="inputQue">
+                <label>Location</label>
+                <input asp-for="Event.Location" placeholder="Location">
+                <span asp-validation-for="Event.Location" class="alert-warning"></span>
+            </div>
+            <div class="inputQue">
+                <label>Location Url</label>
+                <input asp-for="Event.LocationUrl" placeholder="LocationUrl">
+                <span asp-validation-for="Event.LocationUrl" class="alert-warning"></span>
+            </div>
+            <div class="inputQue">
+                <label>Price</label>
+                <input asp-for="Event.Price">
+                <span asp-validation-for="Event.Price" class="alert-warning"></span>
+            </div>
+            <div class="inputQue">
+                <label>Event Slides</label>
+                <input asp-for="Event.Slides">
+                <span asp-validation-for="Event.Slides" class="alert-warning"></span>
+            </div>
+
+
+            <div class="inputQue">
+                <label>Is the event Finished</label>
+                <select asp-for="Event.Finished" class="selectC">
+                    <option disabled selected>Select</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+            </div>
+            <div class="inputQue">
+                <label>Date Posted</label>
+                <input id="datePicker" asp-for="Event.DatePosted" type="date" placeholder="Price5">
+                <span asp-validation-for="Event.DatePosted" class="alert-warning"></span>
+            </div>
+
+            <div class="inputQue">
+                <label>Number Of Ticket</label>
+                <select asp-for="Event.NumberOfTickets" class="selectC">
+                    <option disabled selected>Select</option>
+                    <option>50</option>
+                    <option>100</option>
+                    <option>150</option>
+                    <option>200</option>
+
+
+                </select>
+            </div>
+            <div class="inputQue">
+                <label>Thumbnail</label>
+                <input asp-for="Event.ImageUrl" id="uploadBox" type="file" name="file" placeholder="ImageUrl">
+
+                <div class="inputQue">
+                    <label>Category</label>
+                    <select asp-for="Event.CategoryId" asp-items="@Model.CategoryList" class="selectC">
+                        <option disabled selected>Select Category</option>
+                    </select>
+                    <span asp-validation-for="Event.CategoryId" class="alert-warning"></span>
+
+                </div>
+
+                @if (Model.Event.Id != 0)
+                {
+                    <button type="submit">Update</button>
+                }
+                else
+                {
+                    <button oneclick="return ValidateInput()" type="submit">Create</button>
+                }
+
+
+
+                <a class="can" asp-controller="Event" asp-action="Index">Cancel</a>
+            </div>
+    </form>
+
+</div>
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+
+    <script>
+        //document.getElementById('datePicker').valueAsDate = new Date();
+
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+        });
+
+        function ValidateInput() {
+            if (document.getElementById("uploadBox").value == "") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please upload an image',
+
+                })
+            }
+        }
+    </script>
+        }
+

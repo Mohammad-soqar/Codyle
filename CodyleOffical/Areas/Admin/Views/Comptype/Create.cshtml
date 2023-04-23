@@ -1,0 +1,22 @@
+﻿@model CompType
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <link rel="stylesheet"  href="~/css/tableDesign.scss" asp-append-version="true" />
+     <link rel="stylesheet"  href="~/css/tableDesign.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/st.css" asp-append-version="true" />
+
+     <script src="~/js/tableJs.js"></script>
+</head>
+
+
+
+        <form action=""  method="post" class="form">
+
+            <input asp-for="Name" type="name" id="name" name="name" placeholder="Name" autocomplete="given-name">
+            <span asp-validation-for="Name" class="alert-warning"></span>
+            <button type="submit">Create</button>
+        
+        </form>

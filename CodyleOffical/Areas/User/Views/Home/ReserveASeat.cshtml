@@ -1,0 +1,88 @@
+﻿@model CodyleOffical.Models.ViewModels.AttendenceVM
+@using Microsoft.AspNetCore.Identity
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Reserve a Seat</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="~/css/form.css">
+
+</head>
+
+<body>
+    <section class="WebSection">
+        <form method="post"  enctype="multipart/form-data" class="WebForm">
+            <input asp-for="@Model.Attendence.Id" hidden />
+            <div class="Left-Side">
+                <div class="title">
+                    <img src="~/Photos/logoicon.png" width="120px">
+                    <h1>Reserve a seat</h1>
+
+                </div>
+
+                <div class="inputQue">
+                    <div class="twoInRowC new2">
+                        <div class="tworow1C">
+                            <label>First Name</label>
+                            <input asp-for="@Model.Attendence.Name" type="text" placeholder="Write your first name">
+                            <span asp-validation-for="@Model.Attendence.Name" class="alert-warning"></span>
+                        </div>
+                        <div class="tworow2C">
+                            <label>Last Name</label>
+                            <input asp-for="@Model.Attendence.LastName" type="text" placeholder="Write your last name">
+                            <span asp-validation-for="@Model.Attendence.LastName" class="alert-warning"></span>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            
+
+
+                <label>
+                    Are you a student at <strong>
+                        Üsküdar Üniversitesi?
+
+                        <div class="hover-text new tworow2">
+                            <img src="~/icons/Layer 2.png" width="15px">
+                            <span class="tooltip-text" id="top">
+                                If you are not a student at Üsküdar Üniversitesi please
+                                select no so we can let you in!
+                            </span>
+                        </div>
+                    </strong>
+                </label>
+
+                <select asp-for="@Model.Attendence.typeOfAttendence">
+                    <option selected disabled>Select </option>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+                <span asp-validation-for="@Model.Attendence.typeOfAttendence" class="alert-warning"></span>
+
+
+
+                <select hidden asp-for="@Model.Attendence.EventId" class="selectC">
+                    <option  selected>16</option>
+                </select>
+                <select hidden asp-for="@Model.Attendence.Event" class="selectC">
+                    <option selected>
+                        Visual Communication
+                    </option>
+                </select>
+
+
+                <button oneclick="return ValidateInput()" type="submit">Reserve a seat!</button>
+
+                <a class="can" asp-controller="Home" asp-action="index">Cancel</a>
+
+
+            </div>
+
+        </form>
+    </section>
+</body>

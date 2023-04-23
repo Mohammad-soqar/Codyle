@@ -1,0 +1,166 @@
+﻿
+
+body {
+    margin: 0px;
+    background-color: #252A34;
+}
+
+
+@media only screen and (min-width: 750px) {
+    .profile {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 60px 0px 0px 0px;
+    }
+    .linksSide {
+        display: flex;
+        flex-direction: column;
+        background-color: #1a1d24bb;
+        padding: 40px 50px;
+        border-radius: 16px;
+        margin: 0px 80px 0px 0px;
+    }
+    .WebForm p {
+        width: 50%;
+    }
+
+}
+@media only screen and (max-width: 750px) {
+    .profile {
+        display: grid;
+
+      
+        margin: 60px 20px 0px 20px;
+    }
+    .linksSide {
+        display: flex;
+        flex-direction: column;
+        background-color: #1a1d24bb;
+        padding: 40px 50px;
+        border-radius: 16px;
+        margin: 0px 0px 0px 0px;
+    }
+    .WebForm p {
+        text-align:center;
+    }
+
+}
+    label {
+        display: block;
+        font-size: 20px;
+    }
+
+    input {
+        box-sizing: border-box;
+        border: solid #FF2E63 2px;
+        border-radius: 10px;
+        padding: 8px 15px;
+    }
+
+    input,
+    label {
+        box-sizing: border-box;
+        width: 100%;
+        margin: .2rem 0;
+        font: 14px 'MontserratMedium', sans-serif;
+    }
+
+    .inputQue {
+        margin: 10px 0px 0px 0px;
+    }
+
+
+   
+
+    .ExternalLogins {
+        background-color: transparent !important;
+    }
+
+    .links a, .links button {
+        display: flex;
+        margin: 20px 0px 20px 0px;
+        align-items: center;
+    }
+
+   
+    .DeleteButton {
+        text-align: center;
+        text-decoration: none;
+        box-sizing: border-box;
+        border: none;
+        color: #ffffff;
+        background-color: #a6a6a6;
+        width: 100%;
+        padding: 10px 15px;
+        margin: 30px 0px 0px 0px;
+        border-radius: 16px;
+        font: 20px 'MontserratMedium', sans-serif;
+    }
+
+    .links a {
+        color: #ffffff;
+        text-decoration: none;
+        font-family: 'MontserratMedium';
+    }
+
+    .links button {
+        color: #FF2E63;
+        text-decoration: none;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        font-size: 14px;
+        font-family: 'MontserratMedium';
+        margin: 0px 0px 0px 0px;
+    }
+
+    .anchorImg {
+        margin: 0px 10px 0px 0px
+    }
+
+    .inputSide {
+        font: 14px 'MontserratMedium', sans-serif;
+        background-color: #ffffff;
+        border-radius: 18px;
+        margin: 20px 0px;
+    }
+
+    .WebForm {
+        padding: 60px 0px;
+        display: flex;
+        flex-direction: column;
+        margin: 0px 50px;
+        align-items: flex-start;
+    }
+
+        .WebForm h1 {
+            text-align: center;
+            align-items: flex-start;
+        }
+
+    .twoInRowC {
+        display: flex;
+        margin: 0px 0px 5px 0px;
+    }
+
+    .tworow1C {
+        margin: 0px 20px 0px 0px;
+    }
+
+    .tworow2C {
+        margin: 0px 0px 0px 20px;
+    }
+
+
+    .WebForm button {
+        box-sizing: border-box;
+        border: none;
+        color: #ffffff;
+        background-color: #FF2E63;
+        width: 100%;
+        padding: 10px 15px;
+        margin: 30px 0px 0px 0px;
+        border-radius: 16px;
+        font: 20px 'MontserratMedium', sans-serif;
+    }

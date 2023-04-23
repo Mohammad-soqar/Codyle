@@ -1,0 +1,45 @@
+﻿   @{
+        ViewData["Title"] = "Index";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Admin Dashboard</title>
+    
+    <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
+    </head>
+
+
+
+
+    <div class="adminButtons">
+
+        <a asp-area="Admin" asp-controller="Event" asp-action="Index"><img src="~/icons/Event.png" height="100px">Create / Edit Event</a>
+    <a asp-area="Admin" asp-controller="Blog" asp-action="Index"><img src="~/icons/Blog.png" height="100px">Create / Edit Blog</a>
+    <a asp-area="Admin" asp-controller="Servicesadmin" asp-action="Index"><img src="~/icons/Service.png" height="100px">Services</a>
+    <a asp-area="Admin" asp-controller="Company" asp-action="Index"><img src="~/icons/Company.png" height="100px">Add Company</a>
+    <a asp-area="Identity" asp-page="/Account/Register"><img src="~/icons/User.png" height="100px">Add User</a>
+    <a asp-area="Admin" asp-controller="Category" asp-action="Index"><img src="~/icons/Category.png" height="100px">Create Category</a>
+    
+    <a asp-area="Admin" asp-controller="CompType" asp-action="Index"><img src="~/icons/CompType.png" height="100px">Company Types</a>
+    <a asp-area="Admin" asp-controller="Attendence" asp-action="Index"><img src="~/icons/people.png" height="100px">Attendence</a>
+    <a asp-area="Admin" asp-controller="ClubMembers" asp-action="Index"><img src="~/icons/people.png" height="100px">Attendence</a>
+
+    </div>
+
+    <div class="SocialJoin">
+        <h1>Join Codyle Team On :</h1>
+        <div class="Social">
+            <a href="https://chat.whatsapp.com/HwfBKB7KQD3J5gUZb7mgrp" target="_blank"><img src="~/Photos/socialMedia/Whatsapp.png" height="100px">Whatsapp</a>
+        <a href="https://discord.gg/v2hutfFf7C" target="_blank"><img src="~/Photos/socialMedia/Discord.png" height="100px">Discord</a>
+        <a href="https://codyle.monday.com/boards/3078832293" target="_blank"><img src="~/Photos/socialMedia/Monday.png" height="100px">Monday</a>
+        <a href="https://t.me/+eeVbSvGwVBhmYmE0" target="_blank"><img src="~/Photos/socialMedia/Telegram.png" height="100px">Telegram</a>
+        </div>
+
+    </div>
+
+
+
+

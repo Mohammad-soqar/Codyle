@@ -1,0 +1,46 @@
+﻿
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-direction: column;
+    margin : 0px 0px 0px 50px;
+}
+input, textarea , select{
+    margin-top: 10px;
+    border: #FF2E63 solid;
+    border-radius: 12px;
+    font-size: 16px;
+    padding: 4px 20px;
+    font-family: 'MontserratMedium';
+}
+.tox{
+    margin-top :10px ;
+    border : solid #FF2E63;
+}
+button, .cancel {
+    color: #ffffff;
+    margin-top: 10px;
+    background-color: #FF2E63;
+    border-radius: 12px;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: transparent;
+    text-decoration: none;
+    text-align:center;
+    font-family: 'MontserratMedium';
+}
+
+.formpage {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.logo-image {
+    display: flex;
+    background-color: transparent;
+    padding: 5px 5px;
+    border-radius: 4px;
+    align-items: center;
+    justify-content: center;
+}

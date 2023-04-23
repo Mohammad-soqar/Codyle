@@ -1,0 +1,62 @@
+﻿body {
+    font-size: 24px;
+    font-family: 'Helvetica', Arial, sans-serif;
+    margin: 0;
+}
+
+.container {
+    width: 800px;
+    height: 250px;
+    margin: 0 auto;
+    border-radius: 4px;
+    background-color: #252A34;
+    box-shadow: 0 8px 16px rgba(35, 51, 64, 0.25);
+}
+
+.column-1 {
+    float: left;
+    width: 550px;
+    height: 250px;
+    border-right: 2px dashed #fff;
+}
+
+.column-2 {
+    float: right;
+    width: 225px;
+    height: 200px;
+}
+
+.text-frame {
+    padding: 40px 0px 0px 40px;
+    height: 120px;
+}
+
+.qr-holder {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    text-align: center;
+    line-height: 30px;
+    z-index: 1;
+}
+
+
+
+.event {
+    font-size: 28px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.date {
+    font-size: 22px;
+    line-height: 30px;
+    color: #FF2E63;
+}
+
+.name,
+.ticket-id {
+    font-size: 20px;
+    line-height: 22px;
+    color: #fff;
+}

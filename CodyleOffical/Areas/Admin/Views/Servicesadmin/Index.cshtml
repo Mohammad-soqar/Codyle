@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Services>
+@{
+    ViewData["Title"] = "WebdesignCreation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="~/css/tableDesign.scss" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/tableDesign.css" asp-append-version="true" />
+    <script src="~/js/tableJs.js"></script>
+    <title>Services</title>
+</head>
+
+
+<div class="container">
+    
+   
+    <table id="tbldata" class="" style="width: 100%">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Id</th>
+                <th>Business Name</th>
+                <th>Email</th>
+                <th>Budget</th>
+                <th>Launch Date</th>
+                <th>Website’s URL</th>
+                <th></th>
+
+            </tr>
+        </thead>
+
+    </table>
+
+</div>
+
+@section Scripts{
+    <script src="~/js/Services.js"></script>
+}

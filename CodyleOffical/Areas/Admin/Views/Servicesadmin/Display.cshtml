@@ -1,0 +1,153 @@
+﻿@model CodyleOffical.Models.ViewModels.ServicesVM
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/css/form.css" asp-append-version="true" />
+</head>
+
+<div>
+
+ 
+    <p></p>
+    <p></p>
+</div>
+
+<section class="WebSection">
+    <div class="WebForm">
+
+        <div class="Left-Side">
+            <div class="title">
+                <img src="~/Photos/logoicon.png" width="120px">
+                <h1>@Model.Services.Type</h1>
+            </div>
+            <div class="inputQue">
+                <label>BusinessName</label>
+                <input readonly type="text" value="@Model.Services.BusinessName">
+
+
+            </div>
+
+
+
+            <div class="inputQue">
+                <div class="twoInRowC">
+                    <div class="tworow1C">
+                        <label>Build a new Design or Redisign an Existing one?</label>
+                        <select>
+                            <option selected>@Model.Services.TypeOfService </option>
+                        </select>
+
+
+                    </div>
+                    <div class="tworow2C">
+                        <label>Website Url</label>
+                        <input readonly type="text" value="@Model.Services.WebsiteUrl">
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="inputQue">
+                <label>Would you like us to provide Social Media Management?</label>
+                <select readonly>
+                    <option selected>@Model.Services.SocialMediaM</option>
+                </select>
+
+            </div>
+
+            <div class="inputQue">
+                <label>Who is your Target Audience?</label>
+                <input readonly type="text" value="@Model.Services.SMPlatforms">
+
+
+            </div>
+
+
+            <div class="inputQue">
+                <label>Describe your Business in a Few sentances</label>
+                <input readonly type="text" value="@Model.Services.Description">
+
+            </div>
+
+
+            <div class="inputQue">
+                <label>What Services / Products do you Offer?</label>
+                <input readonly type="text" value="@Model.Services.ProductService">
+
+
+            </div>
+
+
+            <div class="inputQue">
+                <div class="twoInRow">
+                    <div class="tworow1">
+                        <label>Do you have any existing Style Guides and Guidelines?</label>
+                        <select>
+                            <option selected>@Model.Services.Guidelines</option>
+                        </select>
+
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="inputQue ThInput">
+                <label>What are Three of your Favorite Websites? Paste URL</label>
+                <input readonly type="text" placeholder="1." value="@Model.Services.FavoritewebUrl1">
+
+
+                <input readonly type="text" placeholder="2." value="@Model.Services.FavoritewebUrl2">
+
+
+                <input readonly type="text" placeholder="3." value="@Model.Services.FavoritewebUrl3">
+
+
+            </div>
+
+            <div class="inputQue">
+                <div class="twoInRow">
+                    <div class="tworow1">
+                        <label>Would you like us to provide Ongoing Support and Maintenance?</label>
+                        <select>
+                            <option selected disabled>@Model.Services.Maintenance</option>
+
+                        </select>
+
+
+                    </div>
+                    <div class="hover-text tworow2">
+                        <img src="~/icons/Layer 2.png" width="20px">
+                        <span class="tooltip-text" id="top">I'm a tooltip!</span>
+                    </div>
+                </div>
+            </div>
+
+           
+
+            <div class="inputQue">
+                <label>What is your Budget?</label>
+                <select>
+                    <option selected>@Model.Services.Budget</option>
+                </select>
+
+
+            </div>
+            <div class="inputQue">
+                <label>When do you want us to start work with you</label>
+                <input readonly type="date" value="@Model.Services.LaunchDate">
+            </div>
+
+
+            <a href="mailto: @Model.Services.Email">Send Email</a>
+            <a class="can" asp-controller="Servicesadmin" asp-action="Index">Go back to list</a>
+
+
+        </div>
+
+    </div>
+</section>
+

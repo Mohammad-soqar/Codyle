@@ -1,0 +1,123 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+<head>
+    <link rel="stylesheet" href="~/css/register.css" asp-append-version="true" />
+   
+    <title>Login</title>
+
+</head>
+
+
+        <section class="RegisterSection2">
+            <form class="RegisterForm" id="account" method="post">
+        <div class="Left-Side">
+        <div class="title">
+            <img src="~/Photos/logoicon.png" width="120px">
+            <h1>Login</h1>
+        </div>
+                <div class="inputQue">
+                <label>Email</label>
+                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+
+                <div class="inputQue">
+                    <label>Password</label>
+                    <input UseSubmitBehavior="false" type="password" id="password-field" asp-for="Input.Password" class="form-control" autocomplete="new-password"
+                           aria-required="true" />
+                    <span style=" -webkit-user-select: none;
+                -ms-user-select: none;
+                user-select: none;" toggle="#password-field" class="hello toggle-password">
+                        Show Password
+                    </span>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+
+
+                <div>
+                    <div class="checkbox">
+                        <label asp-for="Input.RememberMe" class="form-label" style="display:flex; align-items:center;">
+                            <input class="form-check-input" asp-for="Input.RememberMe" />
+                            @Html.DisplayNameFor(m => m.Input.RememberMe)
+                        </label>
+                    </div>
+                </div>
+
+
+                <div>
+                    <button id="login-submit" type="submit" class="loginbut">Log in</button>
+                </div>
+
+
+                <div class="under">
+                    <p>
+                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                    </p>
+                    <p>
+                        Don't have an account?
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl"> Register</a>
+                    </p>
+                    
+                </div>
+
+
+        </div>
+            </form>
+
+    <section class="externalSection">
+        <h3>Login with</h3>
+
+        <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post"
+              class="form-horizontal">
+
+            <div class="externalbuttons">
+                <div class="button">
+                    <button type="submit" class="ExternalLogins" name="provider" value="Google"
+                            title="Log in using your Google account">
+                        <img src="~/Photos/socialMedia/Google.png"
+                             height="34px" />
+                    </button>
+                </div>
+                <div class="button">
+                    <button type="submit" class="ExternalLogins" name="provider" value="Facebook"
+                            title="Log in using your Facebook account">
+                        <img src="~/Photos/socialMedia/Facebook.png"
+                             height="34px" />
+                    </button>
+                </div>
+
+
+
+            </div>
+        </form>
+    </section>
+        </section>
+   
+
+ 
+
+
+@section Scripts {
+  
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(".toggle-password").click(function () {
+
+            $(this).toggleClass("hello");
+            var input = $($(this).attr("toggle"));
+            if (input.attr("type") == "password") {
+                input.attr("type", "text");
+
+
+            } else {
+                input.attr("type", "password");
+                //document.getElementById("spans").InnerHTML = "<img src="~/icons/eye.png">";
+            }
+
+        });
+    </script>
+}

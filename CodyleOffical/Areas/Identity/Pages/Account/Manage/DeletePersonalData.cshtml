@@ -1,0 +1,89 @@
+﻿@page
+@model DeletePersonalDataModel
+@inject SignInManager<IdentityUser> SignInManager
+
+
+  
+@{
+    var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+    ViewData["Title"] = "Delete Personal Data";
+    ViewData["ActivePage"] = ManageNavPages.PersonalData;
+}
+<head>
+    <title>Delete Account</title>
+    <link rel="stylesheet" href="~/css/profile.css" asp-append-version="true" />
+</head>
+
+<div class="profile">
+    <div class="linksSide">
+        <div class="links">
+
+            <a asp-page="./Index"><img class="anchorImg" draggable="false" src="~/Photos/icons/profile.png" height="30px">Profile</a>
+        </div>
+
+        <div class="links">
+            <a asp-page="./ChangePassword">
+                <img class="anchorImg" draggable="false" src="~/Photos/icons/password.png" height="30px">Password
+            </a>
+        </div>
+        @if (hasExternalLogins)
+        {
+            <div class="links">
+
+                <a asp-page="./ExternalLogins"><img class="anchorImg" draggable="false" src="~/Photos/icons/external.png" height="30px">External logins</a>
+            </div>
+        }
+
+
+
+
+        <div class="links">
+
+            <a asp-page="./PersonalData">  <img class="anchorImg" draggable="false" src="~/Photos/icons/datainfo.png" height="30px">Personal data</a>
+        </div>
+
+        <div class="links">
+
+            <a href="mailto: support@codyle.com"><img class="anchorImg" draggable="false" src="~/Photos/icons/support.png" height="30px">Support</a>
+        </div>
+
+
+        <div class="links">
+
+            <form id="logoutForm" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button id="logout" type="submit">  <img class="anchorImg" draggable="false" src="~/Photos/icons/logout.png" height="30px">Logout</button>
+            </form>
+
+
+        </div>
+
+    </div>
+
+
+
+    <div class="inputSide">
+    
+    <form class="WebForm" id="delete-user" method="post">
+         
+            <h3>@ViewData["Title"]</h3>
+            <div class="alert alert-warning" role="alert">
+                <p>
+                    <strong>Deleting this data will permanently remove your account, and this cannot be recovered.</strong>
+                </p>
+            </div>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @if (Model.RequirePassword)
+        {
+            <div class="form-floating">
+                <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" />
+                <label asp-for="Input.Password" class="form-label"></label>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+        }
+        <button class="w-100 btn btn-lg btn-danger" type="submit">Delete data and close my account</button>
+    </form>
+</div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

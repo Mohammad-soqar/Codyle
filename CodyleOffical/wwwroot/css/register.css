@@ -1,0 +1,260 @@
+﻿* {
+    -webkit-tap-highlight-color: transparent;
+    /* to stop blue highlight while clicking on mobile phones */
+}
+
+@font-face {
+    font-family: MontserratMedium;
+    src: url(fonts/medium/Montserrat-Medium.ttf);
+}
+
+body {
+    margin: 0px;
+    background-image: url(photos/Mainpage.jpg);
+    background-color: #252A34;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+    .title h1 {
+        color: #252A34;
+    }
+
+
+
+.RegisterForm button {
+    box-sizing: border-box;
+    border: none;
+    background-color: #FF2E63;
+    color: #ffffff;
+    width: 100%;
+    padding: 10px 15px;
+    margin: 20px 0px 20px 0px;
+    border-radius: 16px;
+    font: 20px 'MontserratMedium', sans-serif;
+}
+.signin button, .atag {
+    box-sizing: border-box;
+    border: none;
+    text-decoration:none;
+    background-color: #FF2E63;
+    color: #ffffff;
+    width: 100%;
+    padding: 10px 15px;
+    margin: 30px 0px 30px 0px;
+    border-radius: 16px;
+    font: 20px 'MontserratMedium', sans-serif;
+}
+
+
+
+
+.inputQue {
+    margin: 20px 0px 0px 0px;
+}
+
+.inputQue span {
+    margin: 0px 0px 20px 0px;
+}
+
+label {
+    display: block;
+    font-size: 20px;
+}
+
+input,
+select {
+    box-sizing: border-box;
+    border: solid #FF2E63 2px;
+    border-radius: 10px;
+    padding: 10px 15px;
+}
+
+input,
+label,
+select {
+    box-sizing: border-box;
+    width: 100%;
+    margin: .2rem 0;
+    font: 14px 'MontserratMedium', sans-serif;
+}
+
+    input:focus {
+        outline: none !important;
+        border-bottom: solid #252A34 3.5px;
+    }
+
+.ThInput {
+    display: flex;
+    flex-direction: column;
+}
+
+.twoInRow {
+    display: flex;
+}
+
+.tworow1 {
+    margin: 0px 20px 0px 0px;
+}
+
+.tworow2 {
+    margin: 0px 0px 0px 20px;
+}
+
+
+.under{
+    text-align: center;
+}
+    .under a {
+        text-decoration: none;
+        color: #FF2E63;
+    }
+.form-floating label{
+    color: #ffffff !important;
+}
+
+
+
+    @media only screen and (min-width: 750px) {
+        .RegisterSection {
+            font: 14px 'MontserratMedium', sans-serif;
+            background-color: #ffffff;
+            border-radius: 18px;
+            margin: 60px 300px 90px 300px;
+        }
+
+        .RegisterSection2 {
+            font: 14px 'MontserratMedium', sans-serif;
+            background-color: #ffffff;
+            border-radius: 18px;
+            margin: 60px 300px 90px 300px;
+        }
+
+        .RegisterForm {
+            padding: 20px 0px 0px 0px;
+            display: flex;
+            flex-direction: column;
+            margin: 0px 50px;
+            align-items: center;
+        }
+
+        .hover-text {
+            box-sizing: border-box;
+            position: relative;
+            display: inline-block;
+            margin: 40px 0px 40px 0px;
+            font-family: 'MontserratMedium', sans-serif;
+            text-align: center;
+        }
+
+        .twoInRowC {
+            display: flex;
+            margin: 0px 0px 30px 0px;
+        }
+
+        .tworow1C {
+            margin: 0px 20px 0px 0px;
+        }
+
+        .tworow2C {
+            margin: 0px 0px 0px 20px;
+        }
+    }
+
+    @media only screen and (max-width: 750px) {
+        .RegisterSection, .RegisterSection2 {
+            font: 14px 'MontserratMedium', sans-serif;
+            background-color: #ffffff;
+            border-radius: 18px;
+            margin: 60px 20px;
+        }
+
+        .RegisterForm {
+            padding: 60px 0px 0px 0px;
+            display: flex;
+            flex-direction: column;
+            margin: 0px 30px;
+            align-items: center;
+        }
+
+        .hover-text {
+            box-sizing: border-box;
+            position: relative;
+            display: inline-block;
+            margin: 55px 0px 40px 0px;
+            font-family: 'MontserratMedium', sans-serif;
+            text-align: center;
+        }
+
+        .twoInRowC {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tworow1C {
+            margin: 0px;
+        }
+
+        .tworow2C {
+            margin: 10px 0px 0px 0px;
+        }
+    }
+
+    .form-floating {
+        margin: 20px 0px 0px 0px;
+    }
+
+    .ExternalLogins {
+        width: 0% !important;
+        padding: 0px !important;
+        margin: 0px !important;
+        background-color: transparent !important;
+        border: none !important;
+        cursor: pointer;
+    }
+
+    .button {
+        margin: 0px 5px 0px 5px;
+    }
+
+    .externalbuttons {
+        display: flex;
+        justify-content: center;
+    }
+
+    .externalSection {
+        padding: 0px 0px 20px 0px;
+    }
+
+        .externalSection h3 {
+            font-family: 'MontserratMedium';
+            text-align: center;
+            font-size: 14px;
+        }
+
+    .privacycheckbox {
+        display: flex;
+        align-items: center;
+    }
+
+    .checkboxc {
+        box-sizing: border-box;
+        width: auto;
+    }
+
+    .checkbox {
+        margin: 20px 0px 0px 0px
+    }
+
+    .hello {
+        color: #FF2E63;
+        text-decoration: underline;
+    }
+
+    .form-check-input {
+        width: 10%;
+    }

@@ -1,0 +1,337 @@
+﻿
+
+@font-face {
+    font-family: MontserratMedium;
+    src: local(MontserratMedium),url('../fonts/medium/Montserrat-Medium.ttf') format('truetype');
+}
+
+
+body {
+    margin: 0;
+    background-color: #252A34;
+    background-image: url(../Photos/Mainpage.jpg);
+    font-family: MontserratMedium;
+}
+
+@media only screen and (min-width: 750px) {
+    .cart {
+        display: flex;
+        margin: 50px 150px;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .checkout input {
+        text-align: center;
+        border: #FF2E63 solid;
+        border-radius: 12px;
+        font-size: 16px;
+        padding: 4px 20px;
+        font-family: 'MontserratMedium';
+    }
+
+    .checkout {
+        width: 30%;
+        margin: 0px 0px 0px 50px;
+    }
+
+    .elements {
+        width: 70%;
+        margin: 0px 50px 0px 0px;
+    }
+
+    .Info {
+        background-color: #ffffff;
+        border-radius: 26px;
+        padding: 40px;
+    }
+
+    .prdoucticon {
+        display: flex;
+        align-items: center;
+    }
+
+        .prdoucticon img {
+            margin: 0px 10px 0px 0px;
+        }
+
+    .iconinfo {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+        .iconinfo p {
+            display: table;
+            width: min-content;
+        }
+
+    .changeableelements {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        font-weight: 800;
+    }
+
+        .changeableelements p {
+            font-size: 18px;
+            width: 180px;
+        }
+
+    .total-price {
+        font-weight: 800;
+        margin: 50px 0px 0px 0px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .cart {
+        display: flex;
+        flex-direction: column;
+        margin: 50px 20px;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .checkout input {
+        text-align: center;
+        border: #FF2E63 solid;
+        border-radius: 12px;
+        font-family: 'MontserratMedium';
+    }
+
+    .checkout {
+        margin: 20px 0px 0px 0px;
+        width: 100%;
+    }
+
+    .elements {
+        width: 70%;
+    }
+
+    .Info {
+        background-color: #ffffff;
+        border-radius: 26px;
+        padding: 10px;
+    }
+
+    .prdoucticon {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+        .prdoucticon img {
+            margin: 0px 0px 0px 0px;
+        }
+
+    .iconinfo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+        .iconinfo p {
+            display: table;
+            width: min-content;
+        }
+
+    .changeableelements {
+        display: flex;
+        align-items: center;
+        flex-direction:column;
+        justify-content: space-between;
+        font-weight: 800;
+    }
+
+        .changeableelements p {
+            font-size: 18px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            width: 180px;
+        }
+
+    .total-price {
+        font-weight: 800;
+        margin: 10px 0px 10px 0px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+.price {
+    margin: 0px 40px;
+}
+
+
+    .total-price p {
+        margin: 0px 0px;
+        font-size: 34px;
+        font-weight: bolder;
+    }
+
+    .total-price h1 {
+        font-weight: 400;
+        color: #252A34;
+        margin: 8px 0px;
+    }
+
+.coupIn {
+    display: flex;
+}
+
+.checkout {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 400px;
+    text-align: center;
+}
+
+    .checkout button {
+        color: #ffffff;
+        background-color: #FF2E63;
+        border-radius: 12px;
+        font-size: 18px;
+        padding: 10px 20px;
+        border: transparent;
+        text-decoration: none;
+        font-family: 'MontserratMedium';
+    }
+
+    .checkout a {
+        color: #d22550;
+    }
+
+.buttons a {
+    color: #ffffff !important;
+    background-color: #FF2E63;
+    border-radius: 12px;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: transparent;
+    text-decoration: none;
+    font-family: 'MontserratMedium';
+}
+
+
+
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+/*                 */
+
+input[type="number"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+.number-input {
+    border: 2px solid #ddd;
+    display: inline-flex;
+}
+
+    .number-input,
+    .number-input * {
+        box-sizing: border-box;
+    }
+
+        .number-input button {
+            outline: none;
+            -webkit-appearance: none;
+            background-color: transparent;
+            border: none;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            cursor: pointer;
+            margin: 0;
+            position: relative;
+        }
+
+            .number-input button:after {
+                display: inline-block;
+                position: absolute;
+                font-family: 'MontserratMedium';
+                font-weight: 800;
+                content: '\f077';
+                transform: translate(-50%, -50%) rotate(180deg);
+            }
+
+            .number-input button.plus:after {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+        .number-input input[type=number] {
+            font-family: 'MontserratMedium';
+            max-width: 5rem;
+            padding: .5rem;
+            border: solid #ddd;
+            border-width: 0 2px;
+            font-size: 2rem;
+            height: 3rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+.countInput {
+    padding: 4px;
+    border: #FF2E63 solid 3px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+}
+
+    .countInput input {
+        font-size: 16px;
+        font-weight: 800;
+        font-family: 'MontserratMedium' !important;
+        text-align: center;
+        border: none;
+        background: transparent;
+    }
+
+    .countInput button {
+        font-size: 16px;
+        font-weight: 800;
+        font-family: 'MontserratMedium' !important;
+        cursor: pointer;
+        border: #ffffff00 1px solid;
+        background: transparent;
+    }
+
+.trashcan {
+    border: none;
+    cursor: pointer;
+    background: transparent;
+}
+
+.show-read-more .more-text {
+    display: none;
+}

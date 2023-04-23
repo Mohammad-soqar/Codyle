@@ -1,0 +1,88 @@
+﻿@model ShoppingCart
+
+<head>
+    <link rel="stylesheet" href="~/css/EventDetails.css" asp-append-version="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <title>@Model.Event.Title</title>
+    <meta name="description" content="@Model.Event.Title">
+    <meta name="keywords" content="Bootcamps, Event, Events">
+</head>
+
+<form method="post" class="EventForm">
+    <input hidden asp-for="EventId" />
+    <div class="event">
+
+        <div>
+            <img class="eventpic" src="@Model.Event.ImageUrl" style="border-radius: 14px;" alt="@Model.Event.Title" draggable="false">
+        </div>
+
+        <div class="eventwriting">
+
+            <h1 style="font-size:20pt ;">@Model.Event.Title</h1>
+            <p><img class="dateimg" src="~/Photos/date2.png" height="18px" alt="date image" draggable="false">@Html.DisplayFor(modelItem => Model.Event.Date) </p>
+            <div>
+                <h2 style="font-size:12pt ; margin:10px 0px 5px 0px ">
+                    <img class="dateimg" src="~/Photos/location2.png" height="18px" alt="date image" draggable="false">
+                    @Model.Event.Location
+                </h2>
+
+                <a target="_blank" href="@Model.Event.LocationUrl">show on map</a>
+            </div>
+
+            @if (Model.Event.Price > 0)
+            {
+                <p>Price: @Model.Event.Price TL</p>
+            }
+            else if (Model.Event.Price == 0)
+            {
+                <p>Price: Free!</p>
+            }
+
+
+
+
+
+            <div>
+                @if(Model.Event.Finished == "Yes"){
+                                    <a class="ticket" href="@Model.Event.Slides" style="margin-top:5px;">Download Slides</a>
+
+                }
+                else
+                {
+                    if (Model.Event.Price > 0)
+                    {
+                        <button type="submit" class="ticket" href="#" value="book a ticket">Buy a ticket</button>
+                    }
+                    else if (Model.Event.Price == 0)
+                    {
+                        <a class="ticket" asp-controller="Home" asp-action="ReserveASeat" asp-area="User">Reserve a seat!</a>
+
+                    }
+                }
+               
+
+                @if (Model.Event.Price > 0)
+                {
+                    <input type="number" asp-for="Count" class="tickett">
+                }
+                else if (Model.Event.Price == 0)
+                {
+
+                }
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="eventdetails">
+
+        <p>@Html.Raw(Model.Event.Description)</p>
+
+
+
+    </div>
+</form>
+
+

@@ -1,0 +1,170 @@
+﻿@using CodyleOffical.Utility
+@using Microsoft.AspNetCore.Identity
+@using System.Security.Claims
+
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       <link rel="icon" href="/Photos/pageicon.png">
+    <meta name="author" content="Mohammad Soqar">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+  
+</head>
+<body>
+   <header>
+    <nav class="nav">
+            <a asp-area="User" asp-controller="Home" asp-action="index" class="logolink"><img alt="Codyle" src="/Photos/Logo.png" height="60px" draggable="false"></a>
+      <ul class="navGlinks">
+
+        <li class="navlinks"><a asp-controller="Home" asp-action="Events" asp-area="User">Events</a></li>
+        <li class="navlinks"><a asp-controller="Home" asp-action="Services" asp-area="User">Services</a></li>
+                <li class="navlinks"><a asp-controller="Home" asp-action="RoadMaps" asp-area="User">RoadMaps</a></li>
+                <li class="navlinks"><a asp-controller="Home" asp-action="Blogs" asp-area="User">Blogs</a></li>
+
+
+                <li class="navlinks"><a asp-controller="Home" asp-action="Aboutus" asp-area="User" >About us</a></li>
+
+                @if (User.IsInRole(SD.Role_Admin))
+                {
+                    <li class="navlinks"> 
+                        <a asp-area="Admin" asp-controller="Admins" asp-action="Index">Admin Page</a>
+                        </li>
+
+                }
+
+        @if (SignInManager.IsSignedIn(User))
+        { 
+            <li class="navlinks ">
+            <a id="manage" asp-area="User" asp-controller="Cart" asp-action="index" title="Manage">
+                            <img alt="Shopping Cart" src="~/Photos/Icons/Shoppingcart.png" height="25px" style="margin: 5px 5px 0px 0px" draggable="false" />
+            </a>
+            </li>
+
+            <li class="navlinks ">
+            <a id="manage" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
+                            <img alt="Profile" src="~/Photos/Icons/myprofile.png" height="40px" style="margin: 5px 0px 0px 0px" draggable="false" />
+            </a>
+            </li>
+        }
+        else
+        {  
+             <li class="navlinks login">
+             <a class="  logout" id="login" asp-area="User" asp-controller="Home" asp-action="CheckSign">Login</a>
+             </li>
+        }
+               
+
+      </ul>
+         
+      <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+
+        <ul id="mobile-menu" class="mobile-menu">
+                    <li><a asp-controller="Home" asp-action="Events" asp-area="User">Events</a></li>
+                    <li><a asp-controller="Home" asp-action="Services" asp-area="User">Services</a></li>
+                    <li><a asp-controller="Home" asp-action="RoadMaps" asp-area="User">RoadMaps</a></li>
+                    <li><a asp-controller="Home" asp-action="Blogs" asp-area="User">Blog</a></li>
+                    <li><a asp-controller="Home" asp-action="Aboutus" asp-area="User">About us</a></li>
+                    @if (User.IsInRole(SD.Role_Admin))
+                    {
+                        <li> <a asp-area="Admin" asp-controller="Admins" asp-action="Index">Admin Page</a></li>
+
+                    }
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                       
+                        <li>
+
+                            <a id="manage" asp-area="User" asp-controller="Cart" asp-action="index" title="Manage"><img alt="Shopping cart" src="~/Photos/Icons/Shoppingcart.png" height="25px" style="margin: 5px 5px 0px 0px" /></a>
+                        </li>
+                        <li >
+
+                            <a id="manage" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><img alt="Profile" src="~/Photos/Icons/myprofile.png" height="40px" style="margin: 5px 0px 0px 0px" /></a>
+                        </li>
+                      
+                    }
+                    else
+                    {
+                       
+                        <li class="nav-item">
+                            <a  id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                        </li>
+                    }
+
+        </ul>
+      
+      </div>
+    </nav>
+  
+    <script src="index.js"></script>
+  </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <section class="footerSection">
+    <footer class="footer">
+        <div class="logoInfo">
+                <img alt="Codyle" src="/Photos/Logo.png" height="60px" draggable="false">
+                <p>Codyle makes it easy __ all in one platform! It is a platform where business owners, business starters, university students and technology enthusiasts meet.</p>
+        </div>
+
+        <div class="footer-heading footer-1">
+            <h2>Links</h2>
+
+                <a asp-area="User" asp-controller="Home" asp-action="Services"> Services </a>
+                <a asp-area="User" asp-controller="Home" asp-action="Roadmaps"> Roadmaps </a>
+                <a asp-area="User" asp-controller="Home" asp-action="Blogs"> Blogs </a>
+           
+        </div>
+
+        <div class="footer-heading footer-2">
+            <h2>Explore</h2>
+
+                <a asp-controller="Home" asp-action="Events" asp-area="User">Events</a>
+                <a asp-area="User" asp-controller="Home" asp-action="Aboutus"> About us </a>
+                <a asp-controller="Home" asp-action="CSC" asp-area="User">Codyle Student CLub</a>
+            </div>
+
+        <div class="footer-heading footer-3">
+            <h2>Contacts</h2>
+                <a href="mailto: support@codyle.com">Support@codyle.com</a>
+           @* <a>Phone Number</a>*@
+            <div class="SocialmediaIcons">
+                    <a href="https://www.instagram.com/codyle_official/" target="_blank"> <img alt="Codyle Instegram" src="/Photos/socialMedia/Instegram2.png" height="30px" draggable="false"></a>
+
+                    @*  <a href="https://www.facebook.com/profile.php?id=100068896367166" target="_blank"> <img alt="Codyle Facebook" src="/Photos/socialMedia/Facebook2.png" height="30px" draggable="false"></a>*@
+
+                    <a href="https://twitter.com/CodyleOfficial" target="_blank"> <img alt="Codyle Twitter" src="/Photos/socialMedia/Twitter2.png" height="34px" draggable="false"></a>
+
+                    <a href="https://youtube.com/@@codyle" target="_blank"> <img alt="Codyle Youtube" src="/Photos/socialMedia/Youtube2.png" height="34px" draggable="false"> </a>
+
+                    <a href="https://www.tiktok.com/@@_codyle" target="_blank"> <img alt="Codyle Tiktok" src="/Photos/socialMedia/TikTok.png" height="34px " draggable="false"></a>
+            </div>
+
+        </div>
+
+    </footer>
+        <p class="copyrights">© All Rights Reserved. CODYLE<a asp-area="User" asp-controller="Home" asp-action="Privacy"> Privacy Policy</a></p>
+</section>
+    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="// cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

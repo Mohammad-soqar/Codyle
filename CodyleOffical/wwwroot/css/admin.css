@@ -1,0 +1,150 @@
+* {
+    -webkit-tap-highlight-color: transparent;
+    /*to stop blue highlight while clicking on mobile phones*/
+}
+
+@font-face {
+    font-family: MontserratMedium;
+    src: url(fonts/medium/Montserrat-Medium.ttf);
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #252A34;
+}
+
+
+
+.SocialJoin h1 {
+    color: #ffffff;
+    font-family: 'MontserratMedium';
+    text-align: center;
+}
+
+@media only screen and (max-width: 770px) {
+
+    .Social {
+        display: grid;
+        margin: 30px 30px 98px 30px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        justify-content: center;
+        justify-items: center;
+    }
+
+        .Social a {
+            display: flex;
+            color: #ffffff;
+            flex-direction: column;
+            margin: 20px 5px 20px 5px;
+            text-align: center;
+            align-items: center;
+            font-family: 'MontserratMedium';
+            text-decoration: none;
+        }
+
+    .adminButtons {
+        display: grid;
+        justify-content: center;
+        margin: 10px 20px 0px 20px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .placeHolder {
+        display: none;
+        position: absolute;
+        background: transparent !important;
+        color: transparent !important;
+        -webkit-user-select: none !important;
+        /* Safari */
+        -ms-user-select: none !important;
+        /* IE 10 and IE 11 */
+        user-select: none !important;
+        /* Standard syntax */
+    }
+
+    .adminButtons a {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        margin: 20px 5px 20px 5px;
+        align-items: center;
+        background: linear-gradient(#DE1749, #FF2E63);
+        color: #ffffff;
+        padding: 40px 0px;
+        border-radius: 14px;
+        font-family: 'MontserratMedium';
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: 800;
+    }
+
+    .Social img {
+        margin: 0px 0px 10px 0px;
+    }
+
+    .adminButtons img {
+        margin: 0px 0px 20px 0px;
+    }
+}
+
+@media only screen and (min-width: 770px) {
+    .Social {
+        display: grid;
+        margin: 98px 200px 98px 200px;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        justify-content: center;
+        justify-items: center;
+    }
+
+    .adminButtons {
+        display: grid;
+        justify-content: center;
+        margin: 80px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .Social a {
+        display: flex;
+        color: #ffffff;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        font-family: 'MontserratMedium';
+        text-decoration: none;
+    }
+
+    .placeHolder {
+        background: transparent !important;
+        color: transparent !important;
+        -webkit-user-select: none !important;
+        /* Safari */
+        -ms-user-select: none !important;
+        /* IE 10 and IE 11 */
+        user-select: none !important;
+        /* Standard syntax */
+    }
+
+    .Social img {
+        margin: 0px 0px 10px 0px;
+    }
+
+    .adminButtons a {
+        display: flex;
+        flex-direction: column;
+        margin: 20px 50px 20px 50px;
+        align-items: center;
+        background: linear-gradient(#DE1749, #FF2E63);
+        color: #ffffff;
+        padding: 40px 0px;
+        border-radius: 14px;
+        font-family: 'MontserratMedium';
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: 800;
+    }
+
+    .adminButtons img {
+        margin: 0px 0px 20px 0px;
+    }
+}

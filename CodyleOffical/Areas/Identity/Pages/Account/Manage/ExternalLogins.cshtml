@@ -1,0 +1,114 @@
+﻿@page
+@model ExternalLoginsModel
+@inject SignInManager<IdentityUser> SignInManager
+
+@{
+    var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+    ViewData["Title"] = "Manage your external logins";
+    ViewData["ActivePage"] = ManageNavPages.ExternalLogins;
+}
+
+<partial name="_StatusMessage" for="StatusMessage" />
+<head>
+    <title>Extrenal Login</title>
+    <link rel="stylesheet" href="~/css/profile.css" asp-append-version="true" />
+</head>
+
+
+<section class="profile">
+    <div class="linksSide">
+        <div class="links">
+
+            <a asp-page="./Index"><img class="anchorImg" draggable="false" src="~/Photos/icons/profile.png" height="30px">Profile</a>
+        </div>
+
+        <div class="links">
+            <a asp-page="./ChangePassword">
+                <img class="anchorImg" draggable="false" src="~/Photos/icons/password.png" height="30px">Password
+            </a>
+        </div>
+        @if (hasExternalLogins)
+        {
+            <div class="links">
+
+                <a asp-page="./ExternalLogins"><img class="anchorImg" draggable="false" src="~/Photos/icons/external.png" height="30px">External logins</a>
+            </div>
+        }
+
+
+
+
+        <div class="links">
+
+            <a asp-page="./PersonalData">  <img class="anchorImg" draggable="false" src="~/Photos/icons/datainfo.png" height="30px">Personal data</a>
+        </div>
+
+        <div class="links">
+
+            <a href="mailto: support@codyle.com"><img class="anchorImg" draggable="false" src="~/Photos/icons/support.png" height="30px">Support</a>
+        </div>
+
+
+        <div class="links">
+
+            <form id="logoutForm" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button id="logout" type="submit">  <img class="anchorImg" draggable="false" src="~/Photos/icons/logout.png" height="30px">Logout</button>
+            </form>
+
+
+        </div>
+
+    </div>
+    <div class="inputSide">
+        <div class="WebForm">
+    @if (Model.CurrentLogins?.Count > 0)
+    {
+        <table class="table">
+            <tbody>
+                @foreach (var login in Model.CurrentLogins)
+                {
+                    <tr>
+                        <td id="@($"login-provider-{login.LoginProvider}")">@login.ProviderDisplayName</td>
+                        <td>
+                            @if (Model.ShowRemoveButton)
+                            {
+                                <form id="@($"remove-login-{login.LoginProvider}")" asp-page-handler="RemoveLogin" method="post">
+                                    <div>
+                                        <input asp-for="@login.LoginProvider" name="LoginProvider" type="hidden" />
+                                        <input asp-for="@login.ProviderKey" name="ProviderKey" type="hidden" />
+                                                <button type="submit" style="color:#FF2E63;" class="ExternalLogins" title="Remove this @login.ProviderDisplayName login from your account">Remove</button>
+                                    </div>
+                                </form>
+                            }
+                            else
+                            {
+                                @: &nbsp;
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    @if (Model.OtherLogins?.Count > 0)
+    {
+        <h4>Add another service to log in.</h4>
+        <hr />
+        <form id="link-login-form" asp-page-handler="LinkLogin" method="post" class="form-horizontal">
+            <div id="socialLoginList">
+                        <div class="externalbuttons">
+                            <div class="button">
+                                <button type="submit" class="ExternalLogins" name="provider" value="Google"
+                                    title="Log in using your Google account">
+                                    <img src="~/Photos/socialMedia/Google.png"
+                                     height="34px" />
+                                </button>
+                            </div>
+                            </div>
+            </div>
+        </form>
+
+    }
+        </div>
+    </div>
+</section>

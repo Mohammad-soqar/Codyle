@@ -1,0 +1,47 @@
+﻿@model CodyleOffical.Models.ViewModels.BlogVM
+<head>
+    <link rel="stylesheet" href="~/css/BlogDetails.css" asp-append-version="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="description" content="@Model.blog.Title">
+    <meta name="keywords" content="Writing, Blog, Blogs">
+    <title>@Model.blog.Title</title>
+</head>
+
+<section class="blogmain">
+   
+
+    <div class="blog">
+        <div class="coverPhoto">
+            <img alt="@Model.blog.Title" src="@Model.blog.ImageUrl" draggable="false">
+        </div>
+        <div class="blog content">
+
+            <h1>@Model.blog.Title</h1>
+
+
+            <p class="blogcontent">@Html.Raw(Model.blog.blogContent)</p>
+
+            <div class="info">
+                <div class="infoContent">
+                    <div class="line1">
+                        <p><img alt="Date Published" src="~/Photos/Icons/Vector2.png" width="30px" draggable="false"> Published in:<br><br>@Model.blog.Date</p>
+
+                        <p class="secnd"><img alt="Author" src="~/Photos/Icons/Vector.png" width="30px" draggable="false"> Author:<br><br>@Model.blog.Author</p>
+
+                    </div>
+
+                   @* <p><img src="~/Photos/Icons/Vector3.png" width="30px"> Share via:</p>
+                    <a><img src="Photos/socialMedia/Facebook.png" width="40px"></a>
+                    <a><img src="Photos/socialMedia/Instegram.png" width="40px"></a>
+                    <a><img src="Photos/socialMedia/LinkedIn.png" width="40px"></a>
+
+*@
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="blog ads">
+        <p>Ads side</p>
+    </div>
+</section>

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<CompType>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <link rel="stylesheet"  href="~/css/tableDesign.scss" asp-append-version="true" />
+     <link rel="stylesheet"  href="~/css/tableDesign.css" asp-append-version="true" />
+     <script src="~/js/tableJs.js"></script>
+    <title>Companies types</title>
+
+</head>
+   
+
+<div class="container">
+     <div class="createButton">
+        <a asp-controller="CompType" asp-action="Create">Create New Category</a>
+    </div>
+<table class="" style="width: 100%">
+    <thead>
+        <tr>
+              <th>
+                Category Name
+            </th>
+            <th>
+                Category Id
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in Model)
+        {
+            <tr>
+                <td width="50%">
+                    @obj.Name
+                </td>
+                 <td width="30%">
+                    @obj.Id
+                </td>
+                <td>
+                    <div >
+                            <a asp-controller="CompType" asp-action="Edit" asp-route-id="@obj.Id"><img src="https://i.ibb.co/M8CWKSM/Group-416.png" height="25px"></a>
+                        
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+</div>
+
+
+     

@@ -1,0 +1,142 @@
+﻿* {
+    -webkit-tap-highlight-color: transparent;
+    /*to stop blue highlight while clicking on mobile phones*/
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+@font-face {
+    font-family: 'MontserratMedium';
+    src: local('Montserrat-Medium'),url('../fonts/medium/Montserrat-Medium.ttf') format('truetype');
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #252A34;
+}
+
+.logolink {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0px 0px 0px
+}
+
+.formSection {
+    margin-top: 30px;
+    width: 100%;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    max-width: 370px;
+}
+
+.logoIcon {
+    margin: 0px 0px 10px 0px;
+}
+
+.form {
+    display: flex;
+    background: #ffffff;
+    padding: 20px 40px 20px 40px;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 14px;
+}
+
+    .form h1 {
+        font-family: 'MontserratMedium';
+        font-size: 28px;
+        margin-top: 40px;
+    }
+
+    .form p {
+        font-family: 'MontserratMedium';
+        font-size: 14px;
+        text-align: center;
+        margin: 10px 0px 40px 0px;
+    }
+
+    .form a {
+        margin: 0px 5px 0px 5px;
+        color: #FF2E63;
+        text-decoration: none;
+    }
+
+        .form a:hover {
+            color: #e02251;
+            text-decoration: none;
+        }
+
+    .form button {
+        color: #ffffff;
+        margin-top: 10px;
+        background-color: #FF2E63;
+        border-radius: 20px;
+        width: 80%;
+        font-size: 18px;
+        padding: 10px 20px;
+        border: transparent;
+        text-decoration: none;
+        font-family: 'MontserratMedium';
+    }
+
+    .form small {
+        font-family: 'MontserratMedium';
+        color: #FF2E63;
+        font-size: 10px;
+    }
+
+    .form input {
+        margin-top: 10px;
+        border: #FF2E63 solid;
+        border-radius: 20px;
+        font-size: 16px;
+        padding: 8px 20px;
+        width: 80%;
+        font-family: 'MontserratMedium';
+    }
+
+.mt-3 {
+    display: flex;
+    margin: 0px 0px 0px 15px;
+    width: 90%;
+}
+
+.message {
+    font-family: 'MontserratMedium';
+    color: #000000;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.password {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#passwordmeter {
+    margin: 10px 0px 4px 15px;
+    height: 6px !important;
+    background-color: #eee !important;
+    position: relative !important;
+    overflow: hidden !important;
+    border-radius: 10px !important;
+}
+
+.alert-warning {
+    text-align :left;
+    font-family: 'MontserratMedium';
+    color: #FF2E63;
+    font-size: 10px;
+    margin-top: 4px;
+}

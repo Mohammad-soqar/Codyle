@@ -1,0 +1,313 @@
+﻿body {
+    padding: 0;
+    margin: 0;
+    background-image: url("../Photos/Mainpage.jpg");
+    background-color: #252A34;
+    color: #ffffff;
+    font-family: 'MontserratMedium';
+}
+
+@media only screen and (min-width: 750px) {
+    .description {
+        display: flex;
+
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 60px;
+        margin-left: 10pt;
+        margin-right: 10pt;
+        margin : 160px 10px 160px 10px
+    }
+    .descriptiontext {
+        font-size: 15pt;
+        color: #eaeaea;
+        width: 40%;
+        max-width: 50%;
+        margin-right: 10pt;
+    }
+    .image {
+        max-width: 40%;
+        flex-basis: 70%;
+       
+        margin-left: 10pt;
+    }
+}
+@media only screen and (max-width: 750px) {
+    .description {
+        display: flex;
+        flex-direction:column;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 60px;
+        margin-left: 10pt;
+        margin-right: 10pt;
+    }
+    .descriptiontext {
+        font-size: 15pt;
+        color: #eaeaea;
+        width: 80%;
+    
+        margin-right: 10pt;
+    }
+    .image {
+      
+        flex-basis: 70%;
+       
+        margin-left: 10pt;
+    }
+}
+ul {
+    margin: 16px 0px !important;
+}
+
+    .EventSection {
+        margin: 80px 0px 100px 0px !important;
+    }
+    a{
+        text-decoration:none !important;
+    }
+
+.welcome {
+    margin: 63px 0px 40px 0px;
+}
+.welcome p {
+    background-color: #252a34a4;
+    font-size: 28pt;
+    font-weight: 800;
+    text-align: center;
+    color: #ffffff;
+}
+
+   
+
+    img {
+        max-width: 100%
+    }
+p {
+    margin-top: 16.333px;
+}
+  
+
+    
+
+
+    .eventsheader {
+        font-size: 20pt;
+        font-weight: 800;
+        text-align: center;
+        color: #ffffff;
+        font-family: 'MontserratMedium';
+    }
+
+    .instagramheader {
+        font-size: 20pt;
+        font-weight: 800;
+        text-align: center;
+        color: #ffffff;
+        font-family: 'MontserratMedium';
+    }
+
+    .joinustext {
+        margin-bottom: 0;
+        text-align: center;
+        font-size: 10pt;
+        font-weight: 300;
+    }
+
+    .scroller > span {
+        position: absolute;
+        top: 0;
+        animation: slide 5s infinite;
+        font-weight: bold;
+    }
+
+    @keyframes slide {
+        0% {
+            top: 0;
+        }
+
+        25% {
+            top: -1.2em;
+        }
+
+        50% {
+            top: -2.4em;
+        }
+
+        75% {
+            top: -3.6em;
+        }
+    }
+
+    .button {
+        display: inline-flex;
+        height: 60px;
+        width: 220px;
+        border: 2px solid #ffffff;
+        margin: 20px 20px 20px 20px;
+        color: #ffffff;
+        border-radius: 12px;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 18px;
+        letter-spacing: 1.5px;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .join-us-btn {
+        margin: 60px 0px 40px 0px;
+        display: flex;
+        justify-content: center;
+        margin-top: 0;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    #button-3 p {
+        color: #ffffff;
+        font-weight: 600;
+        text-decoration: none;
+        letter-spacing: 1px;
+    }
+
+
+    /* Third Button */
+
+    #button-3 {
+        padding: 1px;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+        #button-3 p {
+            position: relative;
+            transition: all .45s ease-Out;
+        }
+
+    #circle {
+        width: 0%;
+        height: 0%;
+        opacity: 0;
+        line-height: 40px;
+        border-radius: 50%;
+        background: #ff2e62;
+        position: absolute;
+        transition: all .5s ease-Out;
+        top: 20px;
+        left: 75px;
+    }
+
+    .button:hover {
+        border: 2px solid #ff2e62;
+        transition: all .5s ease-Out;
+    }
+
+    #button-3:hover #circle {
+        width: 200%;
+        height: 500%;
+        opacity: 1;
+        top: -70px;
+        left: -70px;
+    }
+
+    #button-3:hover p {
+        color: #ffffff;
+    }
+
+.section-team {
+    font-family: "Poppins", sans-serif;
+    padding: 80px 0;
+}
+
+    .section-team .header-section {
+        margin-bottom: 50px;
+    }
+
+        .section-team .header-section .small-title {
+            margin-bottom: 25px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #3e64ff;
+        }
+
+        .section-team .header-section .title {
+            font-weight: 700;
+            font-size: 45px;
+        }
+
+    .section-team .single-person {
+        margin-top: 30px;
+        padding: 30px;
+        background-color: #fff;
+        border-radius: 5px;
+    }
+
+        .section-team .single-person:hover {
+            background: linear-gradient(to right, #FF698F, #FF2E63);
+        }
+
+        .section-team .single-person .person-image {
+            position: relative;
+            margin-bottom: 50px;
+            border-radius: 50%;
+            border: 4px dashed transparent;
+            transition: padding .3s;
+        }
+
+        .section-team .single-person:hover .person-image {
+            padding: 12px;
+            border: 4px dashed #fff;
+        }
+
+        .section-team .single-person .person-image img {
+            width: 100%;
+            border-radius: 50%;
+        }
+
+        .section-team .single-person .person-image .icon {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%,50%);
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            background: linear-gradient(to right, #FF698F, #FF2E63);
+            color: #FFF;
+            border-radius: 50%;
+            font-size: 24px;
+        }
+
+        .section-team .single-person:hover .person-image .icon {
+            background: none;
+            background-color: #fff;
+            color: #FF2E63;
+        }
+
+        .section-team .single-person .person-info .full-name {
+            margin-bottom: 10px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .section-team .single-person .person-info .speciality {
+            text-transform: uppercase;
+            font-size: 14px;
+            color: #FF2E63;
+        }
+
+.full-name {
+    color: #FF2E63;
+}
+
+.section-team .single-person:hover .full-name,
+.section-team .single-person:hover .speciality {
+    color: #FFF;
+}

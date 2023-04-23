@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Blog>
+@{
+    ViewData["Title"] = "BlogCreation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="~/css/tableDesign.scss" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/tableDesign.css" asp-append-version="true" />
+  
+    <title>Blogs list</title>
+
+</head>
+
+
+<div class="container">
+    <div class="createButton">
+        <a asp-controller="Blog" asp-action="Upsert">Create New Blog</a>
+    </div>
+    <table id="tbldata" class="" style="width: 100%">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Date</th>
+                <th>Category</th>
+                <th>Img</th>
+                <th></th>
+            </tr>
+        </thead>
+
+    </table>
+
+</div>
+
+@section Scripts{
+    <script src="~/js/Blogs - Copy.js"></script>
+}

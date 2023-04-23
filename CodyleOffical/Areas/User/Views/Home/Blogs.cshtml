@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Blog>
+@{
+    ViewData["Title"] = "Blogs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+      <link rel="stylesheet" href="~/css/Blogs.css" asp-append-version="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="description" content="Codyle Blogs">
+    <meta name="keywords" content="Writing, Blog, Blogs">
+    <title>Blogs</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7382268700986539"
+            crossorigin="anonymous"></script>
+   
+</head>
+<!-----------------------Welcome----------------------------->
+          <section class="welcome">
+              
+            <div class="welcomegrid">
+        <img alt="Blog Page" class="weclomephoto" src="/Photos/welcomeBlogs2.png" draggable="false">
+              <div class="textandstartbutton">
+                <h1>Blogs</h1>
+                <p class="welcometext">Our blog content is about new technologies, News, Problem-solving and other things that we as CODYLE family recommend</p>
+       
+            </div>
+            </section>
+              <!-----------------------blogs----------------------------->
+        <section class="BlogSection">
+           
+            <div class="blogBox">
+        @foreach (var blog in Model.OrderByDescending(p => p.Date).ToList())
+        {
+            <a asp-action="BlogDetails" asp-route-id="@blog.Id">
+                <div class="blog right">
+
+                    <img alt="@blog.Title" src="@blog.ImageUrl" height="200" draggable="false">
+                    <p>@blog.Date</p>
+                    <h3 class="show-read-more">@blog.Title</h3>
+                    <p style="color: #ffffff;">READ MORE</p>
+
+                </div>
+            </a>
+                }
+            </div>
+          </section>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var maxLength = 35;
+        $(".show-read-more").each(function () {
+            var myStr = $(this).text();
+            if ($.trim(myStr).length > maxLength) {
+                var newStr = myStr.substring(0, maxLength);
+                var removedStr = myStr.substring(maxLength, $.trim(myStr).length);
+                $(this).empty().html(newStr);
+                $(this).append(' <span href="javascript:void(0);" class="read-more">...</span>');
+                $(this).append('<span class="more-text">' + removedStr + '</span>');
+            }
+        });
+        $(".read-more").click(function () {
+            $(this).siblings(".more-text").contents().unwrap();
+            $(this).remove();
+        });
+    });
+</script>
