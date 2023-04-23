@@ -21,8 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CodyleOffical.Models\CodyleOffical.Models.csproj" />
-    <ProjectReference Include="..\CodyleOffical.Utility\CodyleOffical.Utility.csproj" />
+    <ProjectReference Include="..\CodyleOffical.Models\CodyleOfficial.Models.csproj" />
+    <ProjectReference Include="..\CodyleOffical.Utility\CodyleOfficial.Utility.csproj" />
   </ItemGroup>
 
 </Project>

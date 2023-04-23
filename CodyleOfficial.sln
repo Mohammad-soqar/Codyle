@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodyleOffical", "CodyleOffical\CodyleOffical.csproj", "{8AE9C838-39EE-4F9B-A92F-EECD0A565ED8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodyleOfficial", "CodyleOffical\CodyleOfficial.csproj", "{8AE9C838-39EE-4F9B-A92F-EECD0A565ED8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodyleOffical.DataAccess", "CodyleOffical.DataAccess\CodyleOffical.DataAccess.csproj", "{6450B1B0-CFB2-49DD-BA00-EBB3E7041875}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodyleOfficial.DataAccess", "CodyleOffical.DataAccess\CodyleOfficial.DataAccess.csproj", "{6450B1B0-CFB2-49DD-BA00-EBB3E7041875}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodyleOffical.Models", "CodyleOffical.Models\CodyleOffical.Models.csproj", "{60FC00EA-0D31-45D3-8001-D9FEFF3B623B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodyleOfficial.Models", "CodyleOffical.Models\CodyleOfficial.Models.csproj", "{60FC00EA-0D31-45D3-8001-D9FEFF3B623B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodyleOffical.Utility", "CodyleOffical.Utility\CodyleOffical.Utility.csproj", "{BE4CD699-B4B0-4A16-8575-1045781CB23B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodyleOfficial.Utility", "CodyleOffical.Utility\CodyleOfficial.Utility.csproj", "{BE4CD699-B4B0-4A16-8575-1045781CB23B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CodyleOffical.Models\CodyleOffical.Models.csproj" />
+    <ProjectReference Include="..\CodyleOffical.Models\CodyleOfficial.Models.csproj" />
   </ItemGroup>
 
 </Project>
