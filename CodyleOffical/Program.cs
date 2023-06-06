@@ -22,7 +22,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
     ));
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(o => {
-   
+
     o.Password.RequireDigit = true;
     o.Password.RequireLowercase = true;
     o.Password.RequireUppercase = true;
@@ -51,6 +51,15 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.LogoutPath = $"/Identity/Account/Logout";
     options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
 });
+
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(100);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -67,9 +76,10 @@ app.UseStaticFiles();
 
 app.UseRouting();
 SeedDatabase();
-app.UseAuthentication();;
+app.UseAuthentication(); ;
 
 app.UseAuthorization();
+app.UseSession();
 app.MapRazorPages();
 app.MapControllerRoute(
     name: "default",

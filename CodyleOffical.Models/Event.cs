@@ -26,6 +26,12 @@ namespace CodyleOffical.Models
         public string Finished { get; set; }
 
         [ValidateNever]
+        public bool OnlineEvent { get; set; }
+
+        [ValidateNever]
+        public string EventLiveLink { get; set; }
+
+        [ValidateNever]
         public string Slides { get; set; }
         [ValidateNever]
         public string ImageUrl { get; set; }
@@ -41,6 +47,9 @@ namespace CodyleOffical.Models
         public int? ApplicationCompanyId { get; set; }
         [ValidateNever]
         public ApplicationCompany? Sponsor { get; set; }
+
+        public string Speaker { get; set; }
+        public string SpeakerLinkedIn { get; set; }
 
     }
 }

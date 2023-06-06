@@ -20,24 +20,35 @@
         <div class="eventwriting">
 
             <h1 style="font-size:20pt ;">@Model.Event.Title</h1>
-            <p><img class="dateimg" src="~/Photos/date2.png" height="18px" alt="date image" draggable="false">@Html.DisplayFor(modelItem => Model.Event.Date) </p>
-            <div>
+            <p><img class="dateimg" src="~/Photos/date2.png" height="18px" alt="date image" draggable="false">  @Html.DisplayFor(modelItem => Model.Event.Date) </p>
+          
+            @if (Model.Event.OnlineEvent == true)
+            {
                 <h2 style="font-size:12pt ; margin:10px 0px 5px 0px ">
-                    <img class="dateimg" src="~/Photos/location2.png" height="18px" alt="date image" draggable="false">
+                   Event Type: 
                     @Model.Event.Location
                 </h2>
-
-                <a target="_blank" href="@Model.Event.LocationUrl">show on map</a>
-            </div>
-
-            @if (Model.Event.Price > 0)
-            {
-                <p>Price: @Model.Event.Price TL</p>
             }
-            else if (Model.Event.Price == 0)
+            else
             {
-                <p>Price: Free!</p>
+                <div>
+                    <h2 style="font-size:12pt ; margin:10px 0px 5px 0px ">
+                        <img class="dateimg" src="~/Photos/location2.png" height="18px" alt="date image" draggable="false">
+                        @Model.Event.Location
+                    </h2>
+
+                    <a target="_blank" href="@Model.Event.LocationUrl">show on map</a>
+                </div>
+                if (Model.Event.Price > 0)
+                {
+                    <p>Price: @Model.Event.Price TL</p>
+                }
+                else if (Model.Event.Price == 0)
+                {
+                    <p>Price: Free!</p>
+                }
             }
+           
 
 
 
@@ -45,7 +56,12 @@
 
             <div>
                 @if(Model.Event.Finished == "Yes"){
-                                    <a class="ticket" href="@Model.Event.Slides" style="margin-top:5px;">Download Slides</a>
+                    <a class="ticket" href="@Model.Event.Slides" style="margin-top:5px;">Download Slides</a>
+
+                }
+                else if(Model.Event.OnlineEvent == true)
+                {
+                    <a class="ticket" href="https://www.youtube.com/channel/UCzBPG25gN0FKfOBYS9H1gXg" target="_blank" style="margin-top:5px;">YouTube Channel</a>
 
                 }
                 else
@@ -80,6 +96,14 @@
 
         <p>@Html.Raw(Model.Event.Description)</p>
 
+        <div >
+            <a class="Speaker_Details" href="@Model.Event.SpeakerLinkedIn" target="_blank">
+                <img src="~/Photos/socialMedia/LinkedIn.png" />
+                <p>@Model.Event.Speaker</p>
+
+            </a>
+          
+        </div>
 
 
     </div>

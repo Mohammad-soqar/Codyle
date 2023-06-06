@@ -1,7 +1,9 @@
 ﻿@using CodyleOffical.Utility
 @using Microsoft.AspNetCore.Identity
 @using System.Security.Claims
+﻿@using Microsoft.AspNetCore.Http
 
+@inject IHttpContextAccessor HttpContextAccessor
 
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
@@ -27,7 +29,9 @@
                 <li class="navlinks"><a asp-controller="Home" asp-action="RoadMaps" asp-area="User">RoadMaps</a></li>
                 <li class="navlinks"><a asp-controller="Home" asp-action="Blogs" asp-area="User">Blogs</a></li>
                 <li class="navlinks"><a asp-controller="Home" asp-action="Aboutus" asp-area="User" >About us</a></li>
-
+                <li class="navlinks">
+                    <a asp-controller="Home" asp-action="CSC" asp-area="User">CSC</a>
+                </li>
                 @if (User.IsInRole(SD.Role_Admin))
                 {
                     <li class="navlinks"> 
@@ -37,11 +41,11 @@
 
         @if (SignInManager.IsSignedIn(User))
         { 
-            <li class="navlinks ">
+           @* <li class="navlinks ">
             <a id="manage" asp-area="User" asp-controller="Cart" asp-action="index" title="Manage">
                             <img alt="Shopping Cart" src="~/Photos/Icons/Shoppingcart.png" height="25px" style="margin: 5px 5px 0px 0px" draggable="false" />
             </a>
-            </li>
+            </li>*@
 
             <li class="navlinks ">
             <a id="manage" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
@@ -68,6 +72,10 @@
                     <li><a asp-controller="Home" asp-action="RoadMaps" asp-area="User">RoadMaps</a></li>
                     <li><a asp-controller="Home" asp-action="Blogs" asp-area="User">Blog</a></li>
                     <li><a asp-controller="Home" asp-action="Aboutus" asp-area="User">About us</a></li>
+                    <li>
+                        <a asp-controller="Home" asp-action="CSC" asp-area="User">CSC</a>
+                    </li>
+
                     @if (User.IsInRole(SD.Role_Admin))
                     {
                         <li> <a asp-area="Admin" asp-controller="Admins" asp-action="Index">Admin Page</a></li>
@@ -76,10 +84,10 @@
                     @if (SignInManager.IsSignedIn(User))
                     {
                        
-                        <li>
+                       @* <li>
 
                             <a id="manage" asp-area="User" asp-controller="Cart" asp-action="index" title="Manage"><img alt="Shopping cart" src="~/Photos/Icons/Shoppingcart.png" height="25px" style="margin: 5px 5px 0px 0px" /></a>
-                        </li>
+                        </li>*@
                         <li >
 
                             <a id="manage" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><img alt="Profile" src="~/Photos/Icons/myprofile.png" height="40px" style="margin: 5px 0px 0px 0px" /></a>
@@ -126,7 +134,7 @@
 
                 <a asp-controller="Home" asp-action="Events" asp-area="User">Events</a>
                 <a asp-area="User" asp-controller="Home" asp-action="Aboutus"> About us </a>
-                <a asp-controller="Home" asp-action="CSC" asp-area="User">Codyle Student CLub</a>
+                <a asp-controller="Home" asp-action="CSC" asp-area="User">Codyle Student Club</a>
             </div>
 
         <div class="footer-heading footer-3">
@@ -150,6 +158,8 @@
     </footer>
         <p class="copyrights">© All Rights Reserved. CODYLE<a asp-area="User" asp-controller="Home" asp-action="Privacy"> Privacy Policy</a></p>
 </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="~/js/show-on-scroll.js"></script>
     
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

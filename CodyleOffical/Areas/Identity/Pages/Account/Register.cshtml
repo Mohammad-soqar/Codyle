@@ -26,6 +26,7 @@
                 <h1>Create A New Account</h1>
             </div>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
             <div class="inputQue">
                 <div class="twoInRowC">
                     <div class="tworow1C">
@@ -101,7 +102,7 @@
     @if (!User.IsInRole(SD.Role_Admin))
     {
 
-        <section class="externalSection">
+       @* <section class="externalSection">
             <h3>Use another service to register.</h3>
             <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post"
               class="form-horizontal">
@@ -126,7 +127,7 @@
 
                 </div>
             </form>
-        </section>
+        </section>*@
     }
 
 

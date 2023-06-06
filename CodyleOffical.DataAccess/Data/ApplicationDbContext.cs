@@ -24,6 +24,7 @@ namespace CodyleOffical.DataAccess
         public DbSet<BlogCart> Blogcarts { get; set; }
         public DbSet<Attendence> Attendences { get; set; }
         public DbSet<ClubMembers> ClubMember { get; set; }
+        public DbSet<Sponsor> Sponsors { get; set; }
 
     }
 }
