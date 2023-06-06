@@ -26,7 +26,8 @@ namespace CodyleOffical.DataAccess.Repository
             Services = new ServicesRepository(_db);
             Attendences = new AttendenceRepository(_db);
             ClubMembers = new ClubMembersRepository(_db);
-            
+            Sponsors = new SponsorRepository(_db);
+
         }
 
         public ICategoryRepository Category {get; private set;}
@@ -39,6 +40,7 @@ namespace CodyleOffical.DataAccess.Repository
         public IServicesRepository Services { get; private set; }
         public IAttendenceRepository Attendences { get; private set; }
         public IClubMembersRepository ClubMembers { get; private set; }
+        public ISponsorRepository Sponsors { get; private set; }
 
 
         public void Save()

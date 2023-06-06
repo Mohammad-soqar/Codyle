@@ -18,8 +18,9 @@ namespace CodyleOffical.DataAccess.Repository.IRepository
         IServicesRepository Services { get; }
         IAttendenceRepository Attendences { get; }
 
-        //IClubMembersRepository ClubMembers { get; }
+        IClubMembersRepository ClubMembers { get; }
+        ISponsorRepository Sponsors { get; }
 
-    void Save();
+        void Save();
     }
 }
