@@ -17,7 +17,7 @@ function loadDataTable() {
             { "data": "location", "width": "15%" },
             { "data": "price", "width": "15%" },
             { "data": "finished", "width": "15%" },
-            { "data": "slides", "width": "15%" },
+           
             { "data": "numberOfTickets", "width": "15%" },
             { "data": "category.name", "width": "15%" },
             { "data": "imageUrl", "width": "15%" },

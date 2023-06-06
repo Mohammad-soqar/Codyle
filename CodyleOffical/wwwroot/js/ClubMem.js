@@ -23,8 +23,8 @@ function loadDataTable() {
                 "render": function (data) {
                     return `
                         <div class="editdelete">
-                        <a class="edit" href = "/Admin/Event/Upsert?id=${data}"><img src="https://i.ibb.co/M8CWKSM/Group-416.png" height="25px"></a >
-                            <a class="delete" onClick=Delete('/Admin/Event/DeletePost/${data}')><img src="https://i.ibb.co/PWwbzb3/Group-417.png" height="25px"></a>
+                        <a class="edit" href = "/Admin/ClubMembers/Upsert?id=${data}"><img src="https://i.ibb.co/M8CWKSM/Group-416.png" height="25px"></a >
+                            <a class="delete" onClick=Delete('/Admin/ClubMembers/DeletePost/${data}')><img src="https://i.ibb.co/PWwbzb3/Group-417.png" height="25px"></a>
                         </div >`
                       
                     
