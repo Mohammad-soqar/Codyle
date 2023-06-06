@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using System.Security.Claims;
 using Microsoft.Extensions.Hosting;
-
+using CodyleOffical.Utility;
 
 namespace CodyleOffical.Areas.User.Controllers
 {
@@ -64,6 +64,8 @@ namespace CodyleOffical.Areas.User.Controllers
         {
             return View();
         }
+
+       
         public IActionResult Thankyou()
         {
             return View();
@@ -87,7 +89,10 @@ namespace CodyleOffical.Areas.User.Controllers
         [Authorize]
         public IActionResult EventDetails(ShoppingCart shoppingCart)
         {
-           if(shoppingCart.Price > 0)
+            shoppingCart.Event = _unitOfWork.Event.GetFirstOrDefault(u => u.Id == shoppingCart.EventId);
+            shoppingCart.Price = shoppingCart.Event.Price;
+
+           if (shoppingCart.Price > 0)
             {
                 var claimsIdentity = (ClaimsIdentity)User.Identity;
                 var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
@@ -99,6 +104,8 @@ namespace CodyleOffical.Areas.User.Controllers
                 if (cartFromDb == null)
                 {
                     _unitOfWork.ShoppingCart.Add(shoppingCart);
+                    HttpContext.Session.SetInt32(SD.SessionCart,
+               _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == claim.Value).ToList().Count);
                 }
                 else
                 {
@@ -115,19 +122,7 @@ namespace CodyleOffical.Areas.User.Controllers
 
         }
 
-        public IActionResult FreeEventDetails(int eventId)
-        {
-
-            Attendence reserveobj = new()
-            {
-         
-                EventId = eventId,
-                Event = _unitOfWork.Event.GetFirstOrDefault(u => u.Id == eventId, includeProperties: "Category"),
-                
-            };
-            return View(reserveobj);
-        }
-
+    
         
      
 
@@ -233,36 +228,60 @@ namespace CodyleOffical.Areas.User.Controllers
             return Redirect("/ads.txt");
         }
 
-
         public IActionResult Services()
         {
             return View();
         }
+
+       
         public IActionResult CSC()
         {
             IEnumerable<Event> eventList = _unitOfWork.Event.GetAll(includeProperties: "Category");
             return View(eventList);
         }
-        //public IActionResult CSCClubMembers(int? Id)
-        //{
-        //    ClubMembersVM ClubMembersVM = new()
-        //    {
-        //        ClubMembers = new(),
 
-        //    };
+        public IActionResult CSCClubMembers(int? Id)
+        {
+            ClubMembersVM ClubMembersVM = new()
+            {
+                ClubMembers = new(),
 
-        //    if (Id == null || Id == 0)
-        //    {
-        //        return View(ClubMembersVM);
-        //    }
-        //    else
-        //    {
-        //        ClubMembersVM.ClubMembers = _unitOfWork.ClubMembers.GetFirstOrDefault(u => u.Id == Id);
-        //        return View(ClubMembersVM);
-        //    }
-        //    return View();
-           
-        //}
+            };
+
+            if (Id == null || Id == 0)
+            {
+                return View(ClubMembersVM);
+            }
+            else
+            {
+                ClubMembersVM.ClubMembers = _unitOfWork.ClubMembers.GetFirstOrDefault(u => u.Id == Id);
+                return View(ClubMembersVM);
+            }
+            return View();
+
+        }
+
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CSCClubMembers(ClubMembersVM obj)
+        {
+            if (ModelState.IsValid)
+            {
+                _unitOfWork.ClubMembers.Add(obj.ClubMembers);
+                _unitOfWork.Save();
+                return RedirectToAction("JoinUskudar", "Home");
+            }
+            return View(obj);
+
+        }
+
+
+        public IActionResult JoinUskudar()
+        {
+            return View();
+        }
 
         public string CreateSitemapInRootDirectory()
         {
@@ -296,19 +315,7 @@ namespace CodyleOffical.Areas.User.Controllers
             return "sitemap.xml file should be create in root directory";
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public IActionResult CSCClubMembers(ClubMembersVM obj)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _unitOfWork.ClubMembers.Add(obj.ClubMembers);
-        //        _unitOfWork.Save();
-        //        return RedirectToAction("Thankyou", "Home");
-        //    }
-        //    return View(obj);
-
-        //}
+        
         public IActionResult Aboutus()
         {
             return View();

@@ -1,5 +1,4 @@
-﻿
-@model CodyleOffical.Models.ViewModels.ShoppingCartVM
+﻿@model CodyleOffical.Models.ViewModels.ShoppingCartVM
 
 
 <!DOCTYPE html>
@@ -13,67 +12,42 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="~/css/checkout.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            var maxLength = 15;
-            $(".show-read-more").each(function () {
-                var myStr = $(this).text();
-                if ($.trim(myStr).length > maxLength) {
-                    var newStr = myStr.substring(0, maxLength);
-                    var removedStr = myStr.substring(maxLength, $.trim(myStr).length);
-                    $(this).empty().html(newStr);
-                    $(this).append(' <span href="javascript:void(0);" class="read-more">...</span>');
-                    $(this).append('<span class="more-text">' + removedStr + '</span>');
-                }
-            });
-            $(".read-more").click(function () {
-                $(this).siblings(".more-text").contents().unwrap();
-                $(this).remove();
-            });
-        });
-    </script>
+   
 </head>
 
 <body>
- 
+
     <section class="cart">
         <div class="elements Info">
-
-            @foreach (var item in Model.ListCart)
-            {
-               
-                <div class="changeableelements">
-                    <div class="prdoucticon">
-
-                        <img src="~/Photos/WelcomeEvents.png" width="80px">
-                        <div class="iconinfo">
-                            <p class="show-read-more">@item.Event.Title</p>
-                            <div class="countInput">
-                                <a asp-action="minus" asp-route-cartId="@item.Id" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                                    class="minus">
-                                    -
-                                </a>
-                                <input type="number" min="1" max="5" value="@item.Count">
-                                <a asp-action="plus" asp-route-cartId="@item.Id" onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                                    class="plus">
-                                    +
-                                </a>
+            <div id="cart-items-container">
+                @foreach (var item in Model.ListCart)
+                {
+                    <div class="changeableelements">
+                        <div class="prdoucticon">
+                            <img src="~/Photos/WelcomeEvents.png" width="80px">
+                            <div class="iconinfo">
+                                <p class="show-read-more">@item.Event.Title</p>
+                                <div class="countInput">
+                                    <button class="decrease-btn minus" data-id="@item.Id">-</button>
+                                    <input id="quantity-" type="number" min="1" max="5" value="@item.Count">
+                                    <button class="increase-btn plus" data-id="@item.Id">+</button>
+                                </div>
                             </div>
                         </div>
+                        <p class="price">@item.Event.Price TL  <span id="total-price-" class="spancount">x @item.Count</span></p>
+                    
+                        <button class="remove-btn" data-cart-id="@item.Id"><img src="~/icons/trashcan.png" width="15px"></button>
                     </div>
-                    <p class="price">@item.Event.Price TL  <span class="spancount">x @item.Count</span></p>
-                    <a asp-action="remove" asp-route-cartId="@item.Id" class="trashcan"><img src="~/icons/trashcan.png" width="15px"></a>
+                    <br>
+                    <br>
+                    <hr>
+                }
 
-                </div>
-                <br> <br>
-                <hr>
-            }
-           
+            </div>
 
-            <div class="total-price"> 
+            <div class="total-price">
                 <h1>Total</h1>
-                <p>@Model.CartTotal.ToString() TL</p>
+                <p id="cart-total">@Model.CartTotal.ToString() TL</p>
             </div>
 
         </div>
@@ -93,7 +67,167 @@
             <p>any problem? contact <a href="mailto: support@codyle.com">support@codyle.com</a></p>
         </div>
     </section>
-   
+
 </body>
 
 </html>
+
+@section Scripts{
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+          
+            var maxLength = 15;
+            $(".show-read-more").each(function () {
+                var myStr = $(this).text();
+                if ($.trim(myStr).length > maxLength) {
+                    var newStr = myStr.substring(0, maxLength);
+                    var removedStr = myStr.substring(maxLength, $.trim(myStr).length);
+                    $(this).empty().html(newStr);
+                    $(this).append(' <span href="javascript:void(0);" class="read-more">...</span>');
+                    $(this).append('<span class="more-text">' + removedStr + '</span>');
+                }
+            });
+            $(".read-more").click(function () {
+                $(this).siblings(".more-text").contents().unwrap();
+                $(this).remove();
+            });
+        });
+    </script>
+
+
+
+      <script>
+        $(document).ready(function () {
+            console.log('jQuery code is running!');
+
+            $('#cart-items-container').on('click', '.increase-btn', function () {
+                updateQuantity($(this).data('id'), 1);
+            });
+
+            $('#cart-items-container').on('click', '.decrease-btn', function () {
+                updateQuantity($(this).data('id'), -1);
+            });
+
+            $('#cart-items-container').on('click', '.remove-btn', function () {
+                removeItem($(this).data('cart-id'));
+            });
+
+            function updateQuantity(cartId, change) {
+
+                $.ajax({
+                    url: 'Cart/UpdateQuantity',
+                    method: 'POST',
+                    data: {
+                        cartId: cartId, 
+                        change: change
+
+                    },
+                    
+                    success: function (data) {
+                        console.log(data)
+
+                        // Update quantity and total price in the UI
+                        var quantityElement = $('#quantity-' + data.CartId);
+                        var totalPriceElement = $('#total-price-' + data.CartId);
+                        quantityElement.val(data.Count);
+                        totalPriceElement.text(data.TotalPrice.toFixed(2) + ' TL');
+                        // Update the total price in the UI
+                        var cartTotalElement = $('#cart-total');
+                        var newCartTotal = parseFloat(cartTotalElement.text()) + (parseFloat(data.TotalPrice) - parseFloat(totalPriceElement.text()));
+                        cartTotalElement.text(newCartTotal.toFixed(2) + ' TL');
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.error('Error:', errorThrown);
+                    }
+                });
+            }
+
+            function removeItem(cartId) {
+                $.ajax({
+                    url: 'Cart/Remove',
+                    method: 'POST',
+                    data: { cartId: cartId },
+                    success: function () {
+                        // Remove the item from the UI
+                        $('#cart-item-' + cartId).remove();
+
+                        // Update the total price in the UI
+                        var cartTotalElement = $('#cart-total');
+                        var removedItemPrice = parseFloat($('#total-price-' + cartId).text());
+                        var newCartTotal = parseFloat(cartTotalElement.text()) - removedItemPrice;
+                        cartTotalElement.text(newCartTotal.toFixed(2) + ' TL');
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.error('Error:', errorThrown);
+                    }
+                });
+            }
+        });
+
+
+        //$(document).ready(function () {
+        //    console.log('jQuery code is running!');
+        //    $('#cart-items-container').on('click', '.increase-btn', function () {
+        //        updateQuantity($(this).data('id'), 1);
+        //        console.log('jQuery btn is running!');
+        //    });
+
+        //    $('#cart-items-container').on('click', '.decrease-btn', function () {
+        //        updateQuantity($(this).data('id'), -1);
+        //    });
+
+        //    $('#cart-items-container').on('click', '.remove-btn', function () {
+        //        removeItem($(this).data('id'));
+        //    });
+
+        //    function updateQuantity(cartId, change) {
+        //        $.ajax({
+        //            alert("btnclicked")
+        //            url: 'Cart/UpdateQuantity',
+        //            method: 'POST',
+        //            data: {
+        //                cartId: cartId,
+        //                change: change
+        //            },
+        //            success: function (data) {
+        //                // Update quantity and total price in the UI
+        //                var quantityElement = $('#quantity-' + data.CartId);
+        //                var totalPriceElement = $('#total-price-' + data.CartId);
+        //                quantityElement.val(data.Count);
+        //                totalPriceElement.text(data.TotalPrice.toFixed(2) + ' TL');
+        //            },
+        //            error: function (jqXHR, textStatus, errorThrown) {
+        //                console.error('Error:', errorThrown);
+        //            }
+        //        });
+        //    }
+
+
+        //    function removeItem(cartId) {
+        //        $.ajax({
+        //            url: 'Cart/Remove',
+        //            method: 'POST',
+        //            data: { cartId: cartId },
+        //            success: function () {
+                   
+        //                $('#cart-item-' + cartId).remove();
+
+        //                var cartTotalElement = $('#cart-total');
+        //                var newCartTotal = parseFloat(cartTotalElement.text()) - parseFloat($('#total-price-' + cartId).text());
+        //                cartTotalElement.text(newCartTotal.toFixed(2) + ' TL');
+        //            },
+        //            error: function (jqXHR, textStatus, errorThrown) {
+        //                console.error('Error:', errorThrown);
+        //            }
+        //        });
+        //    }
+        //    }
+        //});
+
+
+    </script>
+        }
+
