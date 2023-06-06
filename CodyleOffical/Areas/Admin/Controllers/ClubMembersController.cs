@@ -14,12 +14,12 @@ namespace CodyleOffical.Controllers
     [Area("Admin")]
     [Authorize(Roles = SD.Role_Admin)]
 
-    public class ClubMembers : Controller
+    public class ClubMembersController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IWebHostEnvironment _HostEnvironment;
 
-        public ClubMembers(IUnitOfWork unitOfWork, IWebHostEnvironment hostEnvironment)
+        public ClubMembersController(IUnitOfWork unitOfWork, IWebHostEnvironment hostEnvironment)
         {
             _unitOfWork = unitOfWork;
             _HostEnvironment = hostEnvironment;
@@ -39,33 +39,33 @@ namespace CodyleOffical.Controllers
 
         }
 
-        //#region API CALLS
-        //[HttpGet]
-        //public IActionResult GetAll()
-        //{
-        //    var MembersList = _unitOfWork.ClubMembers.GetAll;
-        //    return Json(new { data = MembersList });
-        //}
+        #region API CALLS
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var MembersList = _unitOfWork.ClubMembers.GetAll;
+            return Json(new { data = MembersList });
+        }
 
-        //[HttpDelete]
-        //public IActionResult DeletePost(int? Id)
-        //{
-        //    var obj = _unitOfWork.ClubMembers.GetFirstOrDefault(u => u.Id == Id);
+        [HttpDelete]
+        public IActionResult DeletePost(int? Id)
+        {
+            var obj = _unitOfWork.ClubMembers.GetFirstOrDefault(u => u.Id == Id);
 
-        //    if (obj == null)
-        //    {
-        //        return Json(new {success = false, message = "Error while deleting"});
-        //    }
-        //    _unitOfWork.ClubMembers.Remove(obj);
-        //    _unitOfWork.Save();
-        //    return RedirectToAction("Index");
+            if (obj == null)
+            {
+                return Json(new { success = false, message = "Error while deleting" });
+            }
+            _unitOfWork.ClubMembers.Remove(obj);
+            _unitOfWork.Save();
+            return RedirectToAction("Index");
 
-        //    return View(Id);
+            return View(Id);
 
-        //}
+        }
 
 
-        //#endregion
+        #endregion
 
 
     }
