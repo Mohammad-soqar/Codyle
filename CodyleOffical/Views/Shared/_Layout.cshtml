@@ -28,8 +28,6 @@
         <li class="navlinks"><a asp-controller="Home" asp-action="Services" asp-area="User">Services</a></li>
                 <li class="navlinks"><a asp-controller="Home" asp-action="RoadMaps" asp-area="User">RoadMaps</a></li>
                 <li class="navlinks"><a asp-controller="Home" asp-action="Blogs" asp-area="User">Blogs</a></li>
-
-
                 <li class="navlinks"><a asp-controller="Home" asp-action="Aboutus" asp-area="User" >About us</a></li>
                 <li class="navlinks">
                     <a asp-controller="Home" asp-action="CSC" asp-area="User">CSC</a>
@@ -38,8 +36,7 @@
                 {
                     <li class="navlinks"> 
                         <a asp-area="Admin" asp-controller="Admins" asp-action="Index">Admin Page</a>
-                        </li>
-
+                    </li>
                 }
 
         @if (SignInManager.IsSignedIn(User))
@@ -62,8 +59,6 @@
              <a class="  logout" id="login" asp-area="User" asp-controller="Home" asp-action="CheckSign">Login</a>
              </li>
         }
-               
-
       </ul>
          
       <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
@@ -97,7 +92,7 @@
 
                             <a id="manage" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><img alt="Profile" src="~/Photos/Icons/myprofile.png" height="40px" style="margin: 5px 0px 0px 0px" /></a>
                         </li>
-                      
+
                     }
                     else
                     {
@@ -108,7 +103,6 @@
                     }
 
         </ul>
-      
       </div>
     </nav>
   
@@ -133,7 +127,6 @@
                 <a asp-area="User" asp-controller="Home" asp-action="Services"> Services </a>
                 <a asp-area="User" asp-controller="Home" asp-action="Roadmaps"> Roadmaps </a>
                 <a asp-area="User" asp-controller="Home" asp-action="Blogs"> Blogs </a>
-           
         </div>
 
         <div class="footer-heading footer-2">
