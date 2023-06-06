@@ -6,6 +6,7 @@
 /*--------------welcome-web browser--------*/
 
 
+
 @media only screen and (min-width: 750px) {
     .welcomegrid {
         display: flex;
@@ -15,29 +16,11 @@
         align-items: center;
     }
 
-    .welcome h1 {
-        color: #ffffff;
-        font-size: 60px;
-        font-family: 'MontserratMedium';
-    }
-
-    .welcometext {
-        color: #ffffff;
-        font-size: 18px;
-        font-family: 'MontserratMedium';
-    }
-
-    .welcometext2 {
-        color: #ffffff;
-        font-size: 16px;
-        font-family: 'MontserratMedium';
-    }
-
     .weclomephoto {
         height: 440px;
     }
 
-    .textandstartbutton {
+    .heading {
         width: 34%;
     }
 
@@ -46,7 +29,6 @@
         margin: 112px 0px 0px 0px;
         justify-content: space-around;
     }
-
 }
 
 /*--------------welcome-mobile--------*/
@@ -59,30 +41,14 @@
         justify-content: space-around;
         align-items: center;
     }
-    .welcome h1 {
-        color: #ffffff;
-        font-size: 60px;
-        font-family: 'MontserratMedium';
-    }
 
-  
-
-    .welcometext2 {
-        color: #ffffff;
-        font-size: 16px;
-        font-family: 'MontserratMedium';
-    }
     .weclomephoto {
         height: 300px;
     }
 
-    .welcometext {
-        color: #ffffff;
-        font-size: 40px;
-        font-family: 'MontserratMedium';
-    }
 
-    .textandstartbutton a {
+
+    .heading a {
         padding: 5px 15px 5px 15px;
         border-radius: 10px;
         font-size: 16px;
@@ -94,22 +60,20 @@
     .servicesSection {
         display: grid;
         margin: 112px 0px 0px 0px;
-
         grid-gap: 80px;
         grid-template-columns: repeat(1, minmax(0, 1fr));
     }
-
 }
 
 
-    .servicesSection h1 {
-        text-align: center;
-        color: #ffffff;
-        font-size: 40px;
-        font-family: 'MontserratMedium';
-        width: 20%;
-        margin: 0px 0px 0px 0px;
-    }
+.servicesSection h1 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 40px;
+    font-family: 'MontserratMedium';
+    width: 20%;
+    margin: 0px 0px 0px 0px;
+}
 
 .boldtext {
     text-align: center;

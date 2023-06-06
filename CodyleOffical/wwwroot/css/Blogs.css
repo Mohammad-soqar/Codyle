@@ -6,6 +6,30 @@
 }
 
 /*--------------welcome-web browser--------*/
+* {
+    scroll-behavior: smooth;
+    font-family: 'MontserratMedium';
+}
+
+#search-input {
+    box-sizing: border-box;
+    border: solid #FF2E63 2px;
+    border-radius: 14px;
+    margin: 0.5rem 0rem 0rem 0rem;
+    padding: 10px 15px;
+}
+
+.Search-Input label {
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.Search-Input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/*--------------welcome-web browser--------*/
 @media only screen and (min-width: 750px) {
     .welcomegrid {
         display: flex;
@@ -15,39 +39,28 @@
         align-items: center;
     }
 
-    .welcome h1 {
-        color: #ffffff;
-        font-size: 60px;
-        font-family: 'MontserratMedium';
-    }
 
-    .welcometext {
-        color: #ffffff;
-        font-size: 18px;
-        font-family: 'MontserratMedium';
-    }
-
-    .welcometext2 {
-        color: #ffffff;
-        font-size: 16px;
-        font-family: 'MontserratMedium';
-    }
 
     .weclomephoto {
         height: 420px;
     }
 
-    .textandstartbutton {
+    .heading {
         width: 34%;
- 
-        }
+    }
+
     .blogBox {
-        margin: 60px 0px 0px 0px;
+        margin: 60px 10rem 0px 10rem;
         display: grid;
-        grid-gap: 20px;
+        grid-gap: 5rem;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         justify-items: center;
+        list-style: none;
     }
+}
+
+.blogBox {
+    padding: 0 !important;
 }
 
 /*--------------welcome-mobile--------*/
@@ -60,25 +73,15 @@
         justify-content: space-around;
         align-items: center;
     }
-    .welcome h1 {
-        color: #ffffff;
-        font-size: 60px;
-     
-        font-family: 'MontserratMedium';
-    }
+
     .weclomephoto {
         height: 300px;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
     }
 
-    .welcometext {
-        color: #ffffff;
-        font-size: 16px;
-        font-family: 'MontserratMedium';
-    }
 
-    .textandstartbutton a {
+    .heading a {
         background: linear-gradient(#DE1749, #FF2E63);
         padding: 5px 15px 5px 15px;
         border-radius: 10px;
@@ -87,15 +90,16 @@
         font-family: 'MontserratMedium';
         cursor: pointer;
     }
+
     .blogBox {
-        margin: 60px 0px 0px 0px;
+        margin: 60px 0rem 0px 0rem;
         display: grid;
         grid-gap: 20px;
         grid-template-columns: repeat(1, minmax(0, 1fr));
         justify-items: center;
     }
-
 }
+
 .right img {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -129,7 +133,7 @@
     .BlogSection h3 {
         width: 250px;
         color: #252A34;
-        font-size: 24px;
+        font-size: 18px;
         font-family: 'MontserratMedium';
         margin: 15px 0px 0px 20px;
     }

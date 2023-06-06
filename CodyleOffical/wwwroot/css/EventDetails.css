@@ -21,11 +21,22 @@ body {
     box-shadow: 0 0px 5px 0 #ff2e6270;
 }
 
+.Speaker_Details {
+    display: flex;
+    text-decoration: none !important;
+    align-items: center;
+}
 
+.Speaker_Details p{
+    margin-left: 1rem;
+    
+}
+
+   
 
 .eventwriting h1,
 a,
-p,h2 {
+p, h2 {
     color: white;
     font-family: MontserratMedium;
 }
@@ -64,6 +75,7 @@ p,h2 {
         margin: 60px 0px 0px 40px;
         align-items: center;
         display: flex;
+    
     }
 
     .eventwriting {
@@ -71,6 +83,8 @@ p,h2 {
         flex-direction: column;
         align-content: flex-start;
         margin-left: 90px;
+        gap: 2rem;
+        justify-content: center;
     }
 
     .eventpic {
@@ -97,14 +111,18 @@ p,h2 {
         flex-direction: column;
     }
 
+
+
     .eventwriting {
         display: flex;
         flex-direction: column;
         align-content: flex-start;
+        justify-content: space-between;
+        gap: 2rem;
     }
 
     .eventpic {
-        height: 250px;
+        height: 200px;
     }
 
 
