@@ -277,3 +277,4 @@ __pycache__/
 # End of https://www.toptal.com/developers/gitignore/api/aspnetcore
 /CodyleOffical.DataAccess/DbInitializer/DbInitializer.cs
 CodyleOffical/appsettings.json
+CodyleOffical/appsettings.json
