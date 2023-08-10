@@ -22,6 +22,21 @@ namespace CodyleOffical.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("ApplicationCompanyEvent", b =>
+                {
+                    b.Property<int>("EventsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SponsorId")
+                        .HasColumnType("int");
+
+                    b.HasKey("EventsId", "SponsorId");
+
+                    b.HasIndex("SponsorId");
+
+                    b.ToTable("EventSponsors", (string)null);
+                });
+
             modelBuilder.Entity("CodyleOffical.Models.ApplicationCompany", b =>
                 {
                     b.Property<int>("Id")
@@ -184,11 +199,11 @@ namespace CodyleOffical.Migrations
                     b.Property<int?>("ApplicationCompanyId")
                         .HasColumnType("int");
 
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
-
-                    b.Property<DateTime?>("Date")
-                        .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DatePosted")
                         .HasColumnType("datetime2");
@@ -197,17 +212,12 @@ namespace CodyleOffical.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("EventLiveLink")
+                    b.Property<string>("Duration")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Finished")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime?>("EndDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Location")
                         .IsRequired()
@@ -217,24 +227,34 @@ namespace CodyleOffical.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("NumberOfLikes")
+                        .HasColumnType("int");
+
                     b.Property<int>("NumberOfTickets")
                         .HasColumnType("int");
 
-                    b.Property<bool>("OnlineEvent")
-                        .HasColumnType("bit");
-
                     b.Property<double>("Price")
                         .HasColumnType("float");
+
+                    b.Property<string>("ScheduleUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Slides")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Speaker")
+                    b.Property<int?>("SpeakerpId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SpeakerLinkedIn")
+                    b.Property<string>("Thumbnail")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -242,9 +262,17 @@ namespace CodyleOffical.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("YouTubeLink")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("ApplicationCompanyId");
+                    b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("CategoryId");
 
@@ -349,19 +377,6 @@ namespace CodyleOffical.Migrations
                     b.ToTable("ShoppingCarts");
                 });
 
-            modelBuilder.Entity("CodyleOffical.Models.Sponsor", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Sponsors");
-                });
-
             modelBuilder.Entity("CodyleOffical.Models.UserInformation", b =>
                 {
                     b.Property<int>("Id")
@@ -426,6 +441,112 @@ namespace CodyleOffical.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ClubMember");
+                });
+
+            modelBuilder.Entity("CodyleOfficial.Models.EventFollowers", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EventId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("EventFollowers");
+                });
+
+            modelBuilder.Entity("CodyleOfficial.Models.EventLike", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EventId");
+
+                    b.ToTable("EventLike");
+                });
+
+            modelBuilder.Entity("CodyleOfficial.Models.Speaker", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Behance")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("GitHub")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Instagram")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LinkedIn")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PersonalWebsite")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Speakers");
+                });
+
+            modelBuilder.Entity("EventSpeaker", b =>
+                {
+                    b.Property<int>("EventsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SpeakersId")
+                        .HasColumnType("int");
+
+                    b.HasKey("EventsId", "SpeakersId");
+
+                    b.HasIndex("SpeakersId");
+
+                    b.ToTable("EventSpeakers", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -655,6 +776,21 @@ namespace CodyleOffical.Migrations
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });
 
+            modelBuilder.Entity("ApplicationCompanyEvent", b =>
+                {
+                    b.HasOne("CodyleOffical.Models.Event", null)
+                        .WithMany()
+                        .HasForeignKey("EventsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CodyleOffical.Models.ApplicationCompany", null)
+                        .WithMany()
+                        .HasForeignKey("SponsorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("CodyleOffical.Models.ApplicationCompany", b =>
                 {
                     b.HasOne("CodyleOffical.Models.CompType", "CompType")
@@ -701,9 +837,9 @@ namespace CodyleOffical.Migrations
 
             modelBuilder.Entity("CodyleOffical.Models.Event", b =>
                 {
-                    b.HasOne("CodyleOffical.Models.ApplicationCompany", "Sponsor")
-                        .WithMany()
-                        .HasForeignKey("ApplicationCompanyId");
+                    b.HasOne("CodyleOffical.Models.ApplicationUser", null)
+                        .WithMany("Events")
+                        .HasForeignKey("ApplicationUserId");
 
                     b.HasOne("CodyleOffical.Models.Category", "Category")
                         .WithMany()
@@ -712,8 +848,6 @@ namespace CodyleOffical.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
-
-                    b.Navigation("Sponsor");
                 });
 
             modelBuilder.Entity("CodyleOffical.Models.ShoppingCart", b =>
@@ -733,6 +867,51 @@ namespace CodyleOffical.Migrations
                     b.Navigation("ApplicationUser");
 
                     b.Navigation("Event");
+                });
+
+            modelBuilder.Entity("CodyleOfficial.Models.EventFollowers", b =>
+                {
+                    b.HasOne("CodyleOffical.Models.Event", "Event")
+                        .WithMany("Followers")
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CodyleOffical.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Event");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("CodyleOfficial.Models.EventLike", b =>
+                {
+                    b.HasOne("CodyleOffical.Models.Event", "Event")
+                        .WithMany("EventLikes")
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Event");
+                });
+
+            modelBuilder.Entity("EventSpeaker", b =>
+                {
+                    b.HasOne("CodyleOffical.Models.Event", null)
+                        .WithMany()
+                        .HasForeignKey("EventsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CodyleOfficial.Models.Speaker", null)
+                        .WithMany()
+                        .HasForeignKey("SpeakersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -795,6 +974,18 @@ namespace CodyleOffical.Migrations
                         .IsRequired();
 
                     b.Navigation("Company");
+                });
+
+            modelBuilder.Entity("CodyleOffical.Models.Event", b =>
+                {
+                    b.Navigation("EventLikes");
+
+                    b.Navigation("Followers");
+                });
+
+            modelBuilder.Entity("CodyleOffical.Models.ApplicationUser", b =>
+                {
+                    b.Navigation("Events");
                 });
 #pragma warning restore 612, 618
         }

@@ -22,7 +22,7 @@ namespace CodyleOffical.DataAccess.Repository
 
         public void Update(Sponsor obj)
         {
-            _db.Sponsors.Update(obj);
+            //_db.Sponsors.Update(obj);
         }
     }
 }

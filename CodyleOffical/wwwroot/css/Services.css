@@ -26,12 +26,84 @@
 
     .servicesSection {
         display: flex;
-        margin: 112px 0px 0px 0px;
-        justify-content: space-around;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 6rem 0px 0px 0px;
     }
+    .service1 {
+        position: relative;
+        overflow: hidden;
+        box-shadow: #FF2E63 1px 1px 12px;
+        background-color: #262a35;
+        padding: 2rem 1rem;
+        border: 2px solid #FF2E63;
+        height: 15rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-between;
+        transition: all 1s ease;
+    }
+
+        .service1 h3 {
+            color: #ffffff;
+            font-family: 'MontserratMedium';
+            font-size: 24pt;
+            margin: 10rem 0 0 0;
+            transition: margin-top 1s ease;
+        }
+
+    .Services-Section h2 {
+        text-align: center;
+        color: #ffffff;
+        font-size: 40px;
+        font-family: 'MontserratMedium';
+        margin: 0px 0px 0px 0px;
+    }
+
+
+    .service1 a {
+        background-color: #ffffff;
+        padding: 0.4rem 1rem;
+        border-radius: 27px;
+        color: #FF2E63;
+        font-size: 14pt;
+        font-weight: 600;
+        font-family: 'MontserratMedium';
+    }
+
+    .service1-unvisible p {
+        font-size: 12pt;
+        color: #252A34;
+        font-family: 'MontserratMedium';
+        font-weight: 600;
+        margin: 1.2rem 0 3rem 0;
+    }
+
+    .service1:hover .service1-unvisible {
+        display: block;
+    }
+
+    .prevent-select {
+        -webkit-user-select: none; /* Safari */
+        -ms-user-select: none; /* IE 10 and IE 11 */
+        user-select: none; /* Standard syntax */
+    }
+
+}
+
+
+
+.service-Section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem 4rem;
+    margin: 2rem 14rem;
 }
 
 /*--------------welcome-mobile--------*/
+
 @media only screen and (max-width: 750px) {
     .welcomegrid {
         display: grid;
@@ -42,10 +114,52 @@
         align-items: center;
     }
 
+    .service-Section {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 2rem 4rem;
+        margin: 2rem 1rem;
+    }
+
+    .service1 h3 {
+        color: #ffffff;
+        font-family: 'MontserratMedium';
+        font-size: 24pt;
+        margin: 0rem !important;
+        transition: margin-top 1s ease;
+    }
+
+    .service1 {
+        position: relative;
+        overflow: hidden;
+        padding: 2rem 1rem;
+        border: 2px solid #FF2E63;
+        height: 10rem;
+        display: flex;
+        border-radius: 2rem !important;
+        background-color: #FF2E63 !important;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+        transition: all 1s ease;
+    }
+
+    .service1-unvisible p {
+        font-size: 10pt;
+        color: #252A34;
+        font-weight: 600;
+        margin: 1.2rem 0 1.2rem 0;
+    }
+
     .weclomephoto {
         height: 300px;
     }
-
+    .service-Section {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 2rem 4rem;
+        margin: 2rem 1rem;
+    }
 
 
     .heading a {
@@ -62,56 +176,21 @@
         margin: 112px 0px 0px 0px;
         grid-gap: 80px;
         grid-template-columns: repeat(1, minmax(0, 1fr));
-    }
-}
+ 
+        }
 
+        .servicesSection h2 {
+            text-align: center;
+            color: #ffffff;
+            font-size: 40px;
+            font-family: 'MontserratMedium';
+            margin: 0px 0px 0px 0px;
+        }
 
-.servicesSection h1 {
-    text-align: center;
-    color: #ffffff;
-    font-size: 40px;
-    font-family: 'MontserratMedium';
-    width: 20%;
-    margin: 0px 0px 0px 0px;
-}
-
-.boldtext {
-    text-align: center;
-    color: #ffffff;
-    font-size: 43px;
-    font-family: 'MontserratMedium';
-    margin: 0px 0px 0px 0px;
-}
-
-.servicesMainPage {
-    display: flex;
-    max-width: fit-content;
-    margin: 80px 30px 0px 30px;
-}
-
-.service {
-    box-shadow: 0 -1px 10px 0 #ff2e6270;
-    width: 340px;
-    height: 100px;
-    background: linear-gradient(#DE1749, #FF2E63);
-    border-radius: 16px;
-    padding: 20px 20px 20px 20px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-
-    .service h3 {
-        margin: 0px 0px 0px 30px;
-        width: 80%;
-        color: #ffffff;
-        font-family: 'MontserratMedium';
-        text-align: center;
+    .servicesSection {
+        margin: 6rem 0px 0px 0px;
     }
 
-.servicesSection a {
-    cursor: pointer;
-    display: contents;
-    text-decoration: none;
+
+
 }

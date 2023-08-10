@@ -14,7 +14,11 @@ namespace CodyleOffical.Models.ViewModels
         public Event Event { get; set; }
         [ValidateNever]
         public IEnumerable<SelectListItem> CategoryList { get; set; }
-        
+        [ValidateNever]
+        public IEnumerable<SelectListItem> SponsorList { get; set; }
+        [ValidateNever]
+        public IEnumerable<SelectListItem> SpeakerList { get; set; }
+
 
     }
 }

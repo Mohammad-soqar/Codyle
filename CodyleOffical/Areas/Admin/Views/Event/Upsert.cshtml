@@ -2,21 +2,27 @@
 @{
 
 }
+
 <head>
-    <script src="https://cdn.tiny.cloud/1/17ey362kygya3onsmqifoumhul549v4sc5s58njdpa731on7/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <script src="https://cdn.tiny.cloud/1/17ey362kygya3onsmqifoumhul549v4sc5s58njdpa731on7/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
     <link rel="stylesheet" href="~/css/form.css" asp-append-version="true" />
+    <link rel="stylesheet" href="style.css" asp-append-version="true" />
     <script src="~/js/tableJs.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Create an Event</title>
 </head>
 <div class="WebSection">
     <div class="logo-image" width="50%">
 
-        <img src="@Model.Event.ImageUrl" width="60%" />
+        <img src="@Model.Event.Thumbnail" width="60%" />
 
     </div>
     <form width="100%" method="post" class="WebForm" asp-action="Upsert" enctype="multipart/form-data">
         <input asp-for="Event.Id" hidden />
-        <input asp-for="Event.ImageUrl" hidden />
+        <input asp-for="Event.Thumbnail" hidden />
         <div class="Left-Side">
 
             <h2 class="">@(Model.Event.Id != 0 ? "Update" : "Create") Event</h2>
@@ -31,63 +37,124 @@
                 <textarea asp-for="Event.Description" rows="3" placeholder="Description"></textarea>
                 <span asp-validation-for="Event.Description" class="alert-warning"></span>
             </div>
-            <div class="inputQue">
-                <label>Date</label>
-                <input type="datetime-local" asp-for="Event.Date" placeholder="Date">
-                <span asp-validation-for="Event.Date" class="alert-warning"></span>
+
+            <div class="Multiple-Inputs-Line">
+
+                <div class="inputQue">
+                    <label>Start Date</label>
+                    <input  asp-for="Event.StartDate" placeholder="Date">
+                    <span asp-validation-for="Event.StartDate" class="alert-warning"></span>
+                </div>
+
+                <div class="inputQue">
+                    <label>End Date</label>
+                    <input asp-for="Event.EndDate" placeholder="Date">
+                    <span asp-validation-for="Event.EndDate" class="alert-warning"></span>
+                </div>
+
             </div>
+
+
             <div class="inputQue">
-                <label>Location</label>
-                <input asp-for="Event.Location" placeholder="Location">
-                <span asp-validation-for="Event.Location" class="alert-warning"></span>
+                <label>Thumbnail</label>
+                <input asp-for="Event.Thumbnail" id="uploadBox" type="file" name="file" placeholder="ImageUrl">
             </div>
+
+            
             <div class="inputQue">
-                <label>Location Url</label>
-                <input asp-for="Event.LocationUrl" placeholder="LocationUrl">
-                <span asp-validation-for="Event.LocationUrl" class="alert-warning"></span>
+                <label>Schedule</label>
+                <input asp-for="Event.ScheduleUrl" placeholder="Schedule">
+                <span asp-validation-for="Event.ScheduleUrl" class="alert-warning"></span>
             </div>
-            <div class="inputQue">
-                <label>Price</label>
-                <input asp-for="Event.Price">
-                <span asp-validation-for="Event.Price" class="alert-warning"></span>
-            </div>
-            <div class="inputQue">
-                <label>Event Slides</label>
-                <input asp-for="Event.Slides">
+
+
+
+            <div class="Multiple-Inputs-Line">
+
+                <div class="inputQue">
+                    <label>Location</label>
+                    <input asp-for="Event.Location" placeholder="Location">
+                    <span asp-validation-for="Event.Location" class="alert-warning"></span>
+                </div>
+
+                <div class="inputQue">
+                    <label>Location Url</label>
+                    <input asp-for="Event.LocationUrl" value="https://goo.gl/maps/r4zPjhuHDij9D32L7" 
+                        id="locationInput" placeholder="Select location">
+
+                    <span asp-validation-for="Event.LocationUrl" class="alert-warning"></span>
+                </div>
+
             </div>
 
             <div class="inputQue">
-                <label>Is the event online?</label>
-                <input asp-for="Event.OnlineEvent">
-            </div>
-
-            <div hidden class="inputQue">
-                <input value="https://www.youtube.com/channel/UCzBPG25gN0FKfOBYS9H1gXg" asp-for="Event.EventLiveLink">
+                <!-- <label>Price</label> -->
+                <input value="0" hidden asp-for="Event.Price">
+                <!-- <span asp-validation-for="Event.Price" class="alert-warning"></span> -->
             </div>
 
             <div class="inputQue">
-                <label>Speaker FullName?</label>
-                <input asp-for="Event.Speaker">
-            </div>
-
-            <div class="inputQue">
-                <label>Speaker LinkedIn?</label>
-                <input asp-for="Event.SpeakerLinkedIn">
-            </div>
-
-            <div class="inputQue">
-                <label>Is the event Finished</label>
-                <select asp-for="Event.Finished" class="selectC">
-                    <option disabled selected>Select</option>
-                    <option>Yes</option>
-                    <option>No</option>
+                <label>Type of the event</label>
+                <select id="eventType" asp-for="Event.Type">
+                    <option selected disabled>Select</option>
+                    <option value="Online">Online</option>
+                    <option value="F2F">F2F</option>
+                    <option value="Both">Both</option>
                 </select>
             </div>
+
+            <div class="inputQue" id="youtubeInput" style="display: none;">
+                <label>YouTube URL</label>
+                <input asp-for="Event.YouTubeLink" value="https://goo.gl/maps/r4zPjhuHDij9D32L7" placeholder="Enter YouTube URL" />
+              </div>
+
             <div class="inputQue">
-                <label>Date Posted</label>
-                <input id="datePicker" asp-for="Event.DatePosted" type="date" placeholder="Price5">
-                <span asp-validation-for="Event.DatePosted" class="alert-warning"></span>
+                <label>Duration</label>
+                <input asp-for="Event.Duration"  placeholder="Event Duration" />
+                <span asp-validation-for="Event.Duration" class="alert-warning"></span>
             </div>
+
+            <div class="inputQue">
+                <label>Sponsors</label>
+                <select asp-for="Event.SpeakerpId" asp-items="@Model.SpeakerList" multiple class="selectC">
+                    <option disabled selected>Select Speakers</option>
+                </select>
+                <span asp-validation-for="Event.Speakers" class="alert-warning"></span>
+            </div>
+
+
+            <!--  <div class="inputQue" id="sponsorFields">
+                <div class="sponsorField">
+                    <select asp-for="Event.Sponsor" name="sponsorId[0]" multiple>
+                        <option value="">Select Sponsor</option>
+                        <option value="1">Sponsor 1</option>
+                        <option value="2">Sponsor 2</option>
+                        
+                    </select>
+                </div>
+            </div>
+            <button type="button" id="addSponsorBtn">Add Sponsor</button> -->
+            <div class="inputQue">
+                <label>Sponsors</label>
+                <select asp-for="Event.ApplicationCompanyId" asp-items="@Model.SponsorList" multiple class="selectC">
+                    <option disabled selected>Select Sponsors</option>
+                </select>
+                <span asp-validation-for="Event.Sponsor" class="alert-warning"></span>
+            </div>
+
+
+
+            <!-- <div class="inputQue" id="speakerFields">
+                <div class="speakerField">
+                    <select name="speakerId[0]">
+                        <option value="">Select speaker</option>
+                        <option value="1">speaker 1</option>
+                        <option value="2">speaker 2</option>
+                    </select>
+                </div>
+            </div>
+            <button type="button" id="addspeakerBtn">Add Speaker</button> -->
+
 
             <div class="inputQue">
                 <label>Number Of Ticket</label>
@@ -97,64 +164,80 @@
                     <option>100</option>
                     <option>150</option>
                     <option>200</option>
-
-
                 </select>
             </div>
+
+
             <div class="inputQue">
-                <label>Thumbnail</label>
-                <input asp-for="Event.ImageUrl" id="uploadBox" type="file" name="file" placeholder="ImageUrl">
-
-                <div class="inputQue">
-                    <label>Category</label>
-                    <select asp-for="Event.CategoryId" asp-items="@Model.CategoryList" class="selectC">
-                        <option disabled selected>Select Category</option>
-                    </select>
-                    <span asp-validation-for="Event.CategoryId" class="alert-warning"></span>
-
-                </div>
-
-                @if (Model.Event.Id != 0)
-                {
-                    <button type="submit">Update</button>
-                }
-                else
-                {
-                    <button oneclick="return ValidateInput()" type="submit">Create</button>
-                }
-
-
-
-                <a class="can" asp-controller="Event" asp-action="Index">Cancel</a>
+                <label>Is the event Finished</label>
+                <select asp-for="Event.Status" class="selectC">
+                    <option disabled selected>Yes/No</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
             </div>
+
+            <div class="inputQue">
+                <label>Event Slides</label>
+                <input asp-for="Event.Slides">
+            </div>
+
+            <input id="datePicker" hidden class="datetime" asp-for="Event.DatePosted"  placeholder="Price5">
+
+
+            <div class="inputQue">
+                <label>Category</label>
+                <select asp-for="Event.CategoryId" asp-items="@Model.CategoryList" class="selectC">
+                    <option disabled selected>Select Category</option>
+                </select>
+                <span asp-validation-for="Event.CategoryId" class="alert-warning"></span>
+
+            </div>
+
+            @if (Model.Event.Id != 0)
+            {
+            <button type="submit">Update</button>
+            }
+            else
+            {
+            <button oneclick="return ValidateInput()" type="submit">Create</button>
+            }
+
+
+
+            <a class="can" asp-controller="Event" asp-action="Index">Cancel</a>
     </form>
 
+
+
+
 </div>
-@section Scripts{
+ @section Scripts{
     @{
         <partial name="_ValidationScriptsPartial" />
     }
 
 
-    <script>
-        //document.getElementById('datePicker').valueAsDate = new Date();
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
-        tinymce.init({
-            selector: 'textarea',
-            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
-            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
-        });
+<script>
 
-        function ValidateInput() {
-            if (document.getElementById("uploadBox").value == "") {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Please upload an image',
+   
+    tinymce.init({
+        selector: 'textarea',
+        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+    });
 
-                })
-            }
+    function ValidateInput() {
+        if (document.getElementById("uploadBox").value == "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Please upload an image',
+
+            })
         }
-    </script>
-        }
-
+    }
+</script>
+}

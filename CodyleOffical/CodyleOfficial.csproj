@@ -16,11 +16,13 @@
   <ItemGroup>
     <Content Remove="Areas\User\Views\Home\BlogDetails - Copy.cshtml" />
     <Content Remove="wwwroot\ads.txt" />
+    <Content Remove="wwwroot\js\balls.js" />
   </ItemGroup>
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\css\aboutus.css" />
     <_ContentIncludedByDefault Remove="wwwroot\css\ClubPage.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\balls.js" />
   </ItemGroup>
 
   <ItemGroup>
@@ -50,12 +52,15 @@
     <Folder Include="Areas\Student\Views\" />
     <Folder Include="Helpers\" />
     <Folder Include="wwwroot\ads\" />
+    <Folder Include="wwwroot\Images\Blogs\" />
     <Folder Include="wwwroot\Images\Events\" />
     <Folder Include="wwwroot\Images\CompanyLogo\" />
+    <Folder Include="wwwroot\Images\Speaker\" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="wwwroot\ads.txt" />
+    <None Include="wwwroot\js\balls.js" />
   </ItemGroup>
 
   <ItemGroup>

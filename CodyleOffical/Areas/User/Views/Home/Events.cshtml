@@ -29,95 +29,51 @@
 
     <div class="eventBox">
         @foreach (var Event in Model.OrderByDescending(p => p.DatePosted).ToList())
-        { 
-          
-      <div class="Event right">
-          @if (Event.Price > 0){
-                    <a asp-action="EventDetails" asp-route-eventId="@Event.Id">
+        {
 
-                        <img alt="@Event.Title" class="EventImg" src="@Event.ImageUrl" draggable="false">
-                        <div class="EventTicket">
-                            <div class="line">
-                                <div style="color: transparent ; -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;">
-                                    3
-                                </div>
-                            </div>
-                            <div class="Eventinfo">
+            <div class="Event right">
+
+                <a asp-action="EventDetails" asp-route-eventId="@Event.Id">
+
+                    <img alt="@Event.Title" class="EventImg" src="@Event.Thumbnail" draggable="false">
+
+                    <div class="EventTicket">
+
+                        <div class="line"></div>
+                        <div class="Eventinfo">
+
+                            <div class="Title-Location">
                                 <div class="EventTitle">
                                     <h3 class="show-read-more">@Event.Title</h3>
-                                    
-                                    <div class="Eventlocation">
-                                        <img alt="Event Location" src="/icons/location.png" height="14px" draggable="false">
-                                        @if(Event.OnlineEvent == true)
-                                        {
-                                            <p>Online</p>
-
-                                        }
-                                        else
-                                        {
-                                        <p>Üsküdar University Central Campus</p>
-                                            
-                                        }
-                                    </div>
                                 </div>
-                                <div class="Eventdate">
-                                    <img alt="Event Date" src="/icons/Date.png" height="14px" draggable="false">
-                                    <p>@Html.DisplayFor(modelItem => Event.Date)</p>
+
+                                <div class="Eventlocation">
+                                    <img alt="Event Location" src="~/icons/location.png" height="14px" draggable="false">
+                                    <p>@Event.Location</p>
                                 </div>
                             </div>
+
+
+                            <div class="Eventdate">
+                                <img alt="Event Date" src="~/icons/Date.png" height="14px" draggable="false">
+
+
+
+                                @if (@Event.StartDate.HasValue)
+                                {
+                                    <p>@Event.StartDate.Value.ToString("dd MMM")</p>
+                                }
+                                else
+                                {
+                                    <p>Date not available.</p>
+                                }
+                            </div>
+
                         </div>
-                    </a>
-          }
+                    </div>
 
-
-                else if (Event.Price == 0){
-                    <a asp-action="EventDetails" asp-route-eventId="@Event.Id">
-
-                        <img alt="@Event.Title" class="EventImg" src="@Event.ImageUrl" draggable="false">
-                        <div class="EventTicket">
-                            <div class="line">
-                                <div style="color: transparent ; -webkit-touch-callout: none;
-                             -webkit-user-select: none;
-                             -khtml-user-select: none;
-                               -moz-user-select: none;
-                                     -ms-user-select: none;
-                                             user-select: none;">
-                                    3
-                                </div>
-                            </div>
-                            <div class="Eventinfo">
-                                <div class="EventTitle">
-                                    <h3 class="show-read-more">@Event.Title</h3>
-                                    <div class="Eventlocation">
-                                        <img alt="Event Location" src="/icons/location.png" height="14px" draggable="false">
-                                        @if (Event.OnlineEvent == true)
-                                        {
-                                            <p>Online</p>
-
-                                        }
-                                        else
-                                        {
-                                            <p>Üsküdar University Central Campus</p>
-
-                                        }
-                                    </div>
-                                </div>
-                                <div class="Eventdate">
-                                    <img alt="Event Date" src="/icons/Date.png" height="14px" draggable="false">
-                                    <p>@Html.DisplayFor(modelItem => Event.Date)</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                }
-              
-      </div>
-
+                </a>
+            </div>
     
       }
     </div>

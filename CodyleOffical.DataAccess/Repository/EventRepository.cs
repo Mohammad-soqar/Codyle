@@ -1,6 +1,9 @@
 ﻿using CodyleOffical.DataAccess.Repository.IRepository;
 using CodyleOffical.Models;
 using CodyleOffical.Models.ViewModels;
+using CodyleOfficial.Models;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,17 +22,7 @@ namespace CodyleOffical.DataAccess.Repository
             
         }
 
-        public int DecrementCount(Event Event, int count)
-        {
-            Event.NumberOfTickets -= count;
-            return Event.NumberOfTickets;
-        }
-
-        public int IncrementCount(Event Event, int count)
-        {
-            Event.NumberOfTickets += count;
-            return Event.NumberOfTickets;
-        }
+        
 
         public void Update(Event obj)
         {
@@ -39,16 +32,24 @@ namespace CodyleOffical.DataAccess.Repository
                 objFromDb.Title = obj.Title;
                 objFromDb.Description = obj.Description;
                 objFromDb.Price = obj.Price;
+                objFromDb.EventLikes = obj.EventLikes;
+                objFromDb.StartDate = obj.StartDate;
+                objFromDb.EndDate = obj.EndDate;
+                objFromDb.ScheduleUrl = obj.ScheduleUrl;
+                objFromDb.Duration = obj.Duration;
                 objFromDb.Slides = obj.Slides;
-                objFromDb.Finished = obj.Finished;
-
+                objFromDb.Status = obj.Status;
+                objFromDb.Type = obj.Type;
+                objFromDb.YouTubeLink = obj.YouTubeLink;
+                objFromDb.ApplicationCompanyId = obj.ApplicationCompanyId;
+                objFromDb.Speakers = obj.Speakers;
+                objFromDb.Sponsor = obj.Sponsor;
                 objFromDb.CategoryId = obj.CategoryId;
-                objFromDb.Date = obj.Date;
                 objFromDb.Location = obj.Location;
                 objFromDb.LocationUrl = obj.LocationUrl;
-                if(objFromDb.ImageUrl != null)
+                if(objFromDb.Thumbnail != null)
                 {
-                    objFromDb.ImageUrl = obj.ImageUrl;
+                    objFromDb.Thumbnail = obj.Thumbnail;
                 }
 
             }

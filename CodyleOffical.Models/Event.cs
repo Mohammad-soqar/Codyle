@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+﻿using CodyleOfficial.Models;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 using System;
 using System.Collections.Generic;
@@ -16,28 +17,52 @@ namespace CodyleOffical.Models
         public string Description { get; set; }
 
         [ValidateNever]
+        public ICollection<EventFollowers> Followers { get; set; }
+
+        [ValidateNever]
+        public ICollection<EventLike> EventLikes { get; set; }
+
+        [ValidateNever]
+        public int NumberOfLikes { get; set; }
+
+        [ValidateNever]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy HH:mm tt}")]
-        public DateTime? Date { get; set; }
+        public DateTime? StartDate { get; set; }
+
+        [ValidateNever]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy HH:mm tt}")]
+        public DateTime? EndDate { get; set; }
+
+        [ValidateNever]
+        public string ScheduleUrl { get; set; }
+
+        [ValidateNever]
+        public string Duration { get; set; }
+
         public string Location { get; set; }
+
         public string LocationUrl { get; set; }
+
         public double Price { get; set; }
 
         [ValidateNever]
-        public string Finished { get; set; }
+        public string Status { get; set; }
 
         [ValidateNever]
-        public bool OnlineEvent { get; set; }
+        public string Type { get; set; } //Online //F2F //F2F & Online
 
         [ValidateNever]
-        public string EventLiveLink { get; set; }
+        public string YouTubeLink { get; set; }
 
         [ValidateNever]
         public string Slides { get; set; }
+
         [ValidateNever]
-        public string ImageUrl { get; set; }
+        public string Thumbnail { get; set; }
 
         [ValidateNever]
         public DateTime? DatePosted { get; set; }
+
         public int CategoryId { get; set; }
         [ValidateNever]
         public Category Category { get; set; }
@@ -45,11 +70,16 @@ namespace CodyleOffical.Models
         public int NumberOfTickets { get; set; }
 
         public int? ApplicationCompanyId { get; set; }
-        [ValidateNever]
-        public ApplicationCompany? Sponsor { get; set; }
 
-        public string Speaker { get; set; }
-        public string SpeakerLinkedIn { get; set; }
+        [ValidateNever]
+        public ICollection<ApplicationCompany>? Sponsor { get; set; }
+
+        public int? SpeakerpId { get; set; }
+        [ValidateNever]
+
+        public ICollection<Speaker> Speakers { get; set; } 
+
+
 
     }
 }

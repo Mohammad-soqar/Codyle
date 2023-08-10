@@ -1,141 +1,487 @@
 ﻿
-
 body {
+    height: 100%;
+}
 
-    background-color: #252A34;
+* {
+    font-family: 'MontserratMedium' !important;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+button:focus {
+    outline: none;
+    /* Remove the outline style */
 }
 
 
-.EventForm a:hover {
-    transition: 0.3s;
-    color: #FF2E63;
+
+.Event-Details {
+    margin: 1rem 0rem 0rem 0rem;
+    min-height: 100vh;
 }
 
-.tickett {
-    background-color: transparent;
-    width: 40px;
-    height: 30px;
-    border: solid #FF2E63 2px;
-    border-radius: 10px;
-    color: white;
-    box-shadow: 0 0px 5px 0 #ff2e6270;
-}
-
-.Speaker_Details {
+.Thumbnail {
     display: flex;
-    text-decoration: none !important;
+    justify-content: center;
+    width: 100%;
+    background: linear-gradient(90deg, #252A34 0%, rgba(255, 46, 99, 0.6) 50.41%, #252A34 100%);
+}
+
+.EventInfo {
+    margin: 0rem 8rem;
+}
+
+.Title-CTA {
+    margin: 2rem 0rem 0rem 0rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.CTA-BTN {
+    display: flex;
+}
+
+    .CTA-BTN button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+.Title-Date {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    width: 50%;
+}
+
+    .Title-Date h1 {
+        font-size: 26pt;
+        font-weight: 800;
+    }
+
+    .Title-Date h3 {
+        font-size: 14pt;
+        font-weight: 600;
+    }
+
+.Event-Details-Sec-2 {
+    display: flex;
+    color: #fff;
+    margin: 2rem 0rem 0rem 0rem;
+    justify-content: space-between;
+}
+
+.Event-Details-Sec-Left {
+    width: 60%;
+    margin: 3rem 0rem 0rem 0rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.Followers-Sec {
+    display: flex;
+    border: 2px solid #fff;
+    padding: 1rem 2.2rem;
+    justify-content: space-between;
+    border-radius: 1rem;
     align-items: center;
 }
 
-.Speaker_Details p{
-    margin-left: 1rem;
-    
-}
+    .Followers-Sec p {
+        font-size: 16pt;
+        font-weight: 800;
+    }
 
-   
-
-.eventwriting h1,
-a,
-p, h2 {
-    color: white;
-    font-family: MontserratMedium;
-}
-
-.dateimg {
-    margin: 0px;
+.WAW-Content {
+    display: flex;
+    margin: 2rem 0rem 0rem 0rem;
+    gap: 3rem;
+    justify-content: space-between;
 }
 
 
+.WAW-sup-sec {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.WAW-sec h2 {
+    font-size: 18pt;
+    font-weight: 800;
+}
+
+.Speakers-sup-sec h2 {
+    font-size: 18pt;
+    font-weight: 800;
+}
+
+.Speakers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+    margin: 2rem 0rem 0rem 0rem;
+}
+
+.Speaker {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #ffffff;
+}
+
+    .Speaker span {
+        font-size: 14pt;
+    }
+
+.ball {
+    opacity: 0.3 !important;
+}
 
 
-.ticket {
-    box-shadow: 0 0px 5px 0 #ff2e6270;
-    text-decoration: none;
-    color: white !important;
-    background-color: #FF2E63;
-    margin: 0px 10px 0px 0px;
-    padding: 10px 15px 10px 15px;
-    border: none !important;
+.WAW-sup-sec-txt {
+    margin: 0rem 0rem 0rem 1rem;
+}
+
+.WAW-sup-sec-txt a{
+    color: #fff;
+}
+
+
+    .WAW-sup-sec-txt h3 {
+        font-size: 14pt;
+        font-weight: 800;
+    }
+
+    .WAW-sup-sec-txt p {
+        font-size: 10pt;
+        margin: 0.5rem 0rem 0rem 0rem;
+    }
+
+.separator {
+    border: 1px solid #FF2E63;
+}
+
+.About-Event {
+    margin: 2rem 0rem 0rem 0rem;
+}
+
+.Event-Details-Sec-Right {
+    width: 30%;
+}
+
+
+
+.countInput {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    justify-content: center;
+    background-color: #FE2E62;
     border-radius: 10px;
-    font-family: MontserratMedium;
-    cursor: pointer;
+}
+
+    .countInput button {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+        background-color: #ffffff;
+        color: #FE2E62;
+        /* Update button color */
+        border: none;
+        cursor: pointer;
+    }
+
+    .countInput input {
+        width: 20px;
+        height: 30px;
+        text-align: center;
+        font-size: 16px;
+        padding: 0 5px;
+        background-color: #FE2E62;
+        border: none;
+        color: #ffffff;
+        /* Update number color */
+        appearance: none;
+        -moz-appearance: textfield;
+    }
+
+        .countInput input::-webkit-inner-spin-button,
+        .countInput input::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .countInput input:focus {
+            outline: none;
+            border-color: #ffffff;
+        }
+
+    .countInput button:hover {
+        background-color: #d3d3d3;
+    }
+
+    .countInput .minus {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-radius: 10px 0px 0px 10px;
+        margin: 0px 0px 0px 2px;
+    }
+
+    .countInput .plus {
+        border-top-left-radius: 0;
+        border-radius: 0px 10px 10px 0px;
+        margin: 0px 2px 0px 0px;
+        border-bottom-left-radius: 0;
+    }
+
+.info-reserve {
+    display: flex;
+    justify-content: space-between;
+}
+
+    .info-reserve p {
+        font-size: 10pt;
+        width: 60%;
+    }
+
+.Reserve-A-Spot button {
+    padding: 0.5rem;
+    font-size: 12pt;
+}
+
+.Reserve-A-Spot {
+    margin: 2rem 0rem 0rem 0rem;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 767px) {
+    .Reserve-btn {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color:#FE2E62;
+        padding: 0rem 0rem 1rem 0rem;
+    }
+}
+@media (min-width: 767px) {
+    .Reserve-btn {
+        position: sticky;
+        top: 20px;
+        z-index: 999;
+        border-radius: 1rem;
+        border: 2px solid #fff;
+        /* Adjust to match your design */
+        padding: 1rem;
+        /* Adjust as needed */
+    }
 }
 
 
 
-.sponsors h2 {
-    color: white;
-    font-family: MontserratMedium;
-}
+/* Your existing CSS */
 
+@media (max-width: 767px) {
 
+    /* Apply responsive styles for mobile screens */
 
-@media only screen and (min-width: 750px) {
-    .event {
-        margin: 60px 0px 0px 40px;
-        align-items: center;
+    .EventInfo {
+        margin: 0rem 2rem;
+    }
+
+    .Title-CTA {
         display: flex;
+        gap: 1rem;
+        flex-direction: column;
+    }
+
+    .Title-Date,
+    .WAW-Content,
+    .Speakers-grid,
+    .Event-Details-Sec-2 {
+        flex-direction: column;
+   
+    }
+
+    .Event-Details-Sec-Left {
+        width: 100%;
+        margin-top: 2rem;
+    }
+
+    .Title-Date h1 {
+        font-size: 20pt;
+    }
+
+    .Title-Date h3 {
+        font-size: 12pt;
+    }
+
+    .Followers-Sec,
+    .WAW-sup-sec,
+    .Speaker {
+        
+        align-items: flex-start !important;
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        align-items: center;
+    }
+
     
+
+    .WAW-sec h2,
+    .Speakers-sup-sec h2 {
+        font-size: 16pt;
     }
 
-    .eventwriting {
+    .WAW-sup-sec-txt {
+        margin: 1rem 0rem 0rem 0rem;
+    }
+
+    .separator {
+        margin: 1rem 0;
+    }
+
+    .Event-Details-Sec-Right {
+        width: 100%;
+        margin-top: 2rem;
+    }
+
+    .Reserve-btn {
+        position: fixed;
+        bottom: 0;
+        left: 0;
         display: flex;
-        flex-direction: column;
-        align-content: flex-start;
-        margin-left: 90px;
-        gap: 2rem;
-        justify-content: center;
-    }
-
-    .eventpic {
-        height: 380px;
-    }
-
-    .eventdetails p {
-        width: 40%;
-        font-family: MontserratMedium;
-    }
-
-    .eventdetails {
-        margin: 40px 0px 0px 40px;
-        display: flex;
-        flex-direction: column;
-    }
-}
-
-@media only screen and (max-width: 750px) {
-    .event {
-        margin: 60px 0px 0px 30px;
-        align-items: flex-start;
-        display: flex;
-        flex-direction: column;
-    }
-
-
-
-    .eventwriting {
-        display: flex;
-        flex-direction: column;
-        align-content: flex-start;
-        justify-content: space-between;
-        gap: 2rem;
-    }
-
-    .eventpic {
-        height: 200px;
-    }
-
-
-
-    .eventdetails p {
-        width: 90%;
-        font-family: MontserratMedium;
-    }
-
-    .eventdetails {
-        margin: 60px 0px 0px 0px;
-        display: flex;
-        flex-direction: column;
+        width: 100%;
         align-items: center;
+        flex-direction: column;
+    }
+
+    .info-reserve {
+        flex-direction: column;
+     
+    }
+
+    .Thumbnail img{
+        height:200px;
+        width: 290px;
+
+    }
+
+    .info-reserve p {
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .Reserve-A-Spot {
+        margin-top: 1rem;
     }
 }

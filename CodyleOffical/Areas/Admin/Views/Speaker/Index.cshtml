@@ -1,0 +1,37 @@
+﻿@using CodyleOfficial.Models;
+@model IEnumerable<Speaker>
+@{
+    ViewData["Title"] = "EventsCreation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="~/css/tableDesign.scss" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/tableDesign.css" asp-append-version="true" />
+
+    <title>Events list</title>
+</head>
+
+
+<div class="container">
+    <div class="createButton">
+        <a asp-controller="Speaker" asp-action="Upsert">Add new speaker</a>
+    </div>
+    <table id="tbldata" class="" style="width: 100%">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>LinkedIn</th>
+                <th>Instagram</th>
+                
+                <th></th>
+            </tr>
+        </thead>
+
+    </table>
+
+</div>
+
+@section Scripts{
+    <script src="~/js/SpeakerTAble.js"></script>
+}

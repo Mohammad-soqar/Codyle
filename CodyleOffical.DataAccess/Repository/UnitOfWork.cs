@@ -1,6 +1,9 @@
 ﻿using CodyleOffical.DataAccess.Repository.IRepository;
 using CodyleOffical.Models;
 using CodyleOffical.Models.ViewModels;
+using CodyleOfficial.Models;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,9 +27,11 @@ namespace CodyleOffical.DataAccess.Repository
             ApplicationUser = new ApplicationUserRepository(_db);
             ShoppingCart = new ShoppingCartRepository(_db);
             Services = new ServicesRepository(_db);
+            Speaker = new SpeakerRepository(_db);
             Attendences = new AttendenceRepository(_db);
             ClubMembers = new ClubMembersRepository(_db);
             Sponsors = new SponsorRepository(_db);
+            EventLike = new EventLikeRepository(_db);
 
         }
 
@@ -41,7 +46,18 @@ namespace CodyleOffical.DataAccess.Repository
         public IAttendenceRepository Attendences { get; private set; }
         public IClubMembersRepository ClubMembers { get; private set; }
         public ISponsorRepository Sponsors { get; private set; }
+        public ISpeakerRepository Speaker { get; private set; }
+        public IEventLikeRepository EventLike { get; private set; }
 
+        public IEnumerable<Speaker> GetSpeakersByEventId(int eventId)
+        {
+            string query = "SELECT Speakers.* " +
+                           "FROM Speakers " +
+                           "JOIN EventSpeakers ON EventSpeakers.SpeakersId = Speakers.Id " +
+                           "WHERE EventSpeakers.EventsId = @eventId";
+
+            return _db.Speakers.FromSqlRaw(query, new SqlParameter("@eventId", eventId)).ToList();
+        }
 
         public void Save()
         {

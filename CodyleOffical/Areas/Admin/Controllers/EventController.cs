@@ -28,21 +28,36 @@ namespace CodyleOffical.Controllers
         public IActionResult Index()
         {
             return View();
+
         }
 
-  
-      
+
+
         public IActionResult Upsert(int? Id)
         {
             EventVM EventVM = new()
             {
+
+
                 Event = new(),
                
                 CategoryList = _unitOfWork.Category.GetAll().Select(i => new SelectListItem
                 {
                     Text = i.Name,
                     Value = i.Id.ToString()
-                })
+                }),
+
+                 SponsorList = _unitOfWork.ApplicationCompany.GetAll().Select(i => new SelectListItem
+                 {
+                     Text = i.Name,
+                     Value = i.Id.ToString()
+                 }),
+
+                  SpeakerList = _unitOfWork.Speaker.GetAll().Select(i => new SelectListItem
+                  {
+                      Text = i.Name,
+                      Value = i.Id.ToString()
+                  }),
             };
             if (Id == null || Id == 0)
             {
@@ -54,7 +69,6 @@ namespace CodyleOffical.Controllers
                 return View(EventVM);
             }
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Upsert(EventVM obj, IFormFile file)
@@ -62,41 +76,68 @@ namespace CodyleOffical.Controllers
             if (ModelState.IsValid)
             {
                 string wwwRootPath = _HostEnvironment.WebRootPath;
-                if(file != null)
+                if (file != null)
                 {
                     string fileName = Guid.NewGuid().ToString();
                     var uploads = Path.Combine(wwwRootPath, @"Images\Events");
                     var extension = Path.GetExtension(file.FileName);
 
-                    if (obj.Event.ImageUrl !=null)
+                    if (obj.Event.Thumbnail != null)
                     {
-                        var oldImagePath = Path.Combine(wwwRootPath,obj.Event.ImageUrl.TrimStart('\\'));
+                        var oldImagePath = Path.Combine(wwwRootPath, obj.Event.Thumbnail.TrimStart('\\'));
                         if (System.IO.File.Exists(oldImagePath))
                         {
                             System.IO.File.Delete(oldImagePath);
                         }
                     }
-                    using(var fileStreams = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
+                    using (var fileStream = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
                     {
-                        file.CopyTo(fileStreams);
+                        file.CopyTo(fileStream);
                     }
-                    obj.Event.ImageUrl = @"\Images\Events\" + fileName + extension;
+                    obj.Event.Thumbnail = @"\Images\Events\" + fileName + extension;
                 }
+
                 if (obj.Event.Id == 0)
                 {
+                    // Retrieve the selected sponsor IDs from the form
+
+                    var selectedSponsorIds = Request.Form["Event.ApplicationCompanyId"];
+                    var sponsors = _unitOfWork.ApplicationCompany.GetAll().Where(s => selectedSponsorIds.Contains(s.Id.ToString())).ToList();
+                    obj.Event.Sponsor = sponsors;
+
+
+
+                    var selectedSpeakerIds = Request.Form["Event.SpeakerpId"];
+                    var Speakers = _unitOfWork.Speaker.GetAll().Where(s => selectedSpeakerIds.Contains(s.Id.ToString())).ToList();
+                    obj.Event.Speakers = Speakers;
+
+                    // Add the Event object to the unit of work
                     _unitOfWork.Event.Add(obj.Event);
                 }
                 else
                 {
+                    // Retrieve the selected sponsor IDs from the form
+                    var selectedSponsorIds = Request.Form["Event.ApplicationCompanyId"];
+                    var sponsors = _unitOfWork.ApplicationCompany.GetAll().Where(s => selectedSponsorIds.Contains(s.Id.ToString())).ToList();
+                    obj.Event.Sponsor = sponsors;
+
+
+                    var selectedSpeakerIds = Request.Form["Event.SpeakerpId"];
+                    var Speakers = _unitOfWork.Speaker.GetAll().Where(s => selectedSpeakerIds.Contains(s.Id.ToString())).ToList();
+                    obj.Event.Speakers = Speakers;
+                    // Update the Event object in the unit of work
                     _unitOfWork.Event.Update(obj.Event);
                 }
 
-            
+                // Save changes to the database
                 _unitOfWork.Save();
+
                 return RedirectToAction("Index");
             }
+
             return View(obj);
         }
+
 
 
         public IActionResult Delete(int? Id)
@@ -136,7 +177,7 @@ namespace CodyleOffical.Controllers
                 return Json(new {success = false, message = "Error while deleting"});
             }
 
-            var oldImagePath = Path.Combine(_HostEnvironment.WebRootPath, obj.ImageUrl.TrimStart('\\'));
+            var oldImagePath = Path.Combine(_HostEnvironment.WebRootPath, obj.Thumbnail.TrimStart('\\'));
             if (System.IO.File.Exists(oldImagePath))
             {
                 System.IO.File.Delete(oldImagePath);

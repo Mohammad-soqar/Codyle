@@ -1,4 +1,6 @@
 ﻿using CodyleOffical.DataAccess.Repository.IRepository;
+using CodyleOfficial.Models;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -74,6 +76,8 @@ namespace CodyleOffical.DataAccess.Repository
         {
             dbSet.Remove(entity); 
         }
+
+        
 
         public void RemoveRange(IEnumerable<T> entity)
         {

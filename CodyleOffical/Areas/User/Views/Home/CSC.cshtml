@@ -47,7 +47,7 @@
                     {
                         <a asp-action="EventDetails" asp-route-eventId="@Event.Id">
 
-                            <img alt="@Event.Title" class="EventImg" src="@Event.ImageUrl" draggable="false">
+                            <img alt="@Event.Title" class="EventImg" src="@Event.Thumbnail" draggable="false">
                             <div class="EventTicket">
                                 <div class="line">
                                     <div style="color: transparent ; -webkit-touch-callout: none;
@@ -69,7 +69,7 @@
                                     </div>
                                     <div class="Eventdate">
                                         <img alt="Event Date" src="/icons/Date.png" height="14px" draggable="false">
-                                        <p>@Html.DisplayFor(modelItem => Event.Date)</p>
+                                        <p>@Html.DisplayFor(modelItem => Event.StartDate)</p>
                                     </div>
                                 </div>
                             </div>
@@ -81,7 +81,7 @@
                     {
                         <a asp-action="FreeEventDetails" asp-route-eventId="@Event.Id">
 
-                            <img alt="@Event.Title" class="EventImg" src="@Event.ImageUrl" draggable="false">
+                            <img alt="@Event.Title" class="EventImg" src="@Event.Thumbnail" draggable="false">
                             <div class="EventTicket">
                                 <div class="line">
                                     <div style="color: transparent ; -webkit-touch-callout: none;
@@ -103,7 +103,7 @@
                                     </div>
                                     <div class="Eventdate">
                                         <img alt="Event Date" src="/icons/Date.png" height="14px" draggable="false">
-                                        <p>@Html.DisplayFor(modelItem => Event.Date)</p>
+                                        <p>@Html.DisplayFor(modelItem => Event.StartDate)</p>
                                     </div>
                                 </div>
                             </div>

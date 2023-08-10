@@ -13,14 +13,13 @@ function loadDataTable() {
 
             { "data": "id", "width": "15%" },
             { "data": "title", "width": "15%" },
-            { "data": "date", "width": "15%" },
+            { "data": "startDate", "width": "15%" },
             { "data": "location", "width": "15%" },
             { "data": "price", "width": "15%" },
-            { "data": "finished", "width": "15%" },
-           
+            { "data": "status", "width": "15%" },
             { "data": "numberOfTickets", "width": "15%" },
             { "data": "category.name", "width": "15%" },
-            { "data": "imageUrl", "width": "15%" },
+        
             {
                 "data": "id",
                 "render": function (data) {

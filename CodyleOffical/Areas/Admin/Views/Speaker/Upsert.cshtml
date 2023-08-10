@@ -1,0 +1,127 @@
+﻿@model CodyleOfficial.Models.Speaker
+@{
+
+}
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <script src="https://cdn.tiny.cloud/1/17ey362kygya3onsmqifoumhul549v4sc5s58njdpa731on7/tinymce/6/tinymce.min.js"
+            referrerpolicy="origin"></script>
+    <link rel="stylesheet" href="~/css/form.css" asp-append-version="true" />
+    <link rel="stylesheet" href="style.css" asp-append-version="true" />
+    <script src="~/js/tableJs.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create an Event</title>
+</head>
+<div class="WebSection">
+    <div class="logo-image" width="50%">
+
+        <img src="@Model.Id" width="60%" />
+
+    </div>
+    <form width="100%" method="post" class="WebForm" asp-action="Upsert" enctype="multipart/form-data">
+        <input asp-for="@Model.Id" hidden />
+        <input asp-for="@Model.ImageUrl" hidden />
+        <div class="Left-Side">
+
+            <h2 class="">@(Model.Id != 0 ? "Update" : "Create") Event</h2>
+
+            <div class="inputQue">
+                <label>Title</label>
+                <input asp-for="@Model.Name" placeholder="Title">
+                <span asp-validation-for="@Model.Name" class="alert-warning"></span>
+            </div>
+            <div class="inputQue">
+                <label>Description</label>
+                <textarea asp-for="@Model.Description" rows="3" placeholder="Description"></textarea>
+                <span asp-validation-for="@Model.Description" class="alert-warning"></span>
+            </div>
+
+            <div class="Multiple-Inputs-Line">
+
+                <div class="inputQue">
+                    <label>Start Date</label>
+                    <input asp-for="@Model.LinkedIn" placeholder="LinkedIn">
+                    <span asp-validation-for="@Model.LinkedIn" class="alert-warning"></span>
+                </div>
+
+                    <label>End Date</label>
+                <input asp-for="@Model.Instagram" placeholder="Instagram">
+                <span asp-validation-for="@Model.Instagram" class="alert-warning"></span>
+                </div>
+
+            </div>
+
+        <div class="inputQue">
+            <label>Schedule</label>
+            <input asp-for="@Model.Behance" placeholder="Behance">
+            <span asp-validation-for="@Model.Behance" class="alert-warning"></span>
+        </div>
+
+        <div class="inputQue">
+            <label>Schedule</label>
+            <input asp-for="@Model.GitHub" placeholder="GitHub">
+            <span asp-validation-for="@Model.GitHub" class="alert-warning"></span>
+        </div>
+
+        <div class="inputQue">
+            <label>Schedule</label>
+            <input asp-for="@Model.PersonalWebsite" placeholder="Personal Website">
+            <span asp-validation-for="@Model.PersonalWebsite" class="alert-warning"></span>
+        </div>
+
+            <div class="inputQue">
+                <label>Thumbnail</label>
+            <input asp-for="@Model.ImageUrl" id="uploadBox" type="file" name="file" placeholder="ImageUrl">
+            </div>
+
+           
+
+            @if (Model.Id != 0)
+            {
+                <button type="submit">Update</button>
+            }
+            else
+            {
+                <button oneclick="return ValidateInput()" type="submit">Create</button>
+            }
+
+
+
+            <a class="can" asp-controller="Event" asp-action="Index">Cancel</a>
+    </form>
+
+
+
+
+</div>
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <script>
+
+
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+        });
+
+        function ValidateInput() {
+            if (document.getElementById("uploadBox").value == "") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please upload an image',
+
+                })
+            }
+        }
+    </script>
+}

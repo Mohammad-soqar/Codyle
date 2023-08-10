@@ -2,6 +2,9 @@
 @model CodyleOffical.Models.ViewModels.IndexVM
 
 @{
+   
+
+
     ViewData["Title"] = "Home Page";
 }
 <head>
@@ -38,30 +41,80 @@
         Checkout our <p class="boldtext">Services</p>
 
     </h2>
-    <div class="servicesMainPage">
-        <a class="service webDev breathing-shadow" asp-controller="Home" asp-action="WebDevelopment" asp-area="User">
-            <div class="align-cen">
-                <img alt="Graphic Design" src="~/Photos/webDev.webp" height="130px" draggable="false">
-                <h3>Web Development</h3>
-                <p>You want to take your business to the digital world ? CODYLE is the answer</p>
-            </div>
-        </a>
+    <section class="service-Section">
 
-        <a class="service graphicDesign breathing-shadow" asp-controller="Home" asp-action="GraphicDesign" asp-area="User">
-            <div class="align-cen">
-                <img alt="Graphic Design" src="~/Photos/graphicDesign.webp" height="130px" draggable="false">
-                <h3>Graphic Design</h3>
-                <p>You want to enter a world full of Creativity ? CODYLE is your journey guidance</p>
+        <div class="service1">
+            <h3>Web Design & Rebrand</h3>
+
+            <div class="service1-unvisible prevent-select">
+                <p>
+                    Transform your online presence with customized website design and branding that aligns with your
+                    vision.
+                </p>
+                <a href="#">Get A Free Consult</a>
             </div>
-        </a>
-        <a class="service events breathing-shadow" asp-controller="Home" asp-action="SMManagement" asp-area="User">
-            <div class="align-cen">
-                <img alt="Graphic Design" src="~/Photos/socialMedia2.webp" height="130px" draggable="false">
-                <h3>Social Media Management</h3>
-                <p>Your new World is waiting for you!</p>
+        </div>
+
+        <div class="service1">
+            <h3>Front-End Development</h3>
+
+            <div class="service1-unvisible prevent-select">
+                <p>Create engaging web experiences with modern HTML, CSS, and JavaScript development techniques.</p>
+                <a href="#">Get A Free Consult</a>
             </div>
-        </a>
-    </div>
+        </div>
+
+        <div class="service1">
+            <h3>Back-End Development</h3>
+
+            <div class="service1-unvisible prevent-select">
+                <p>
+                    Build robust websites and applications with secure server-side scripting and database integration.
+                </p>
+                <a href="#">Get A Free Consult</a>
+            </div>
+        </div>
+
+        <div class="service1">
+            <h3>Website Maintenance</h3>
+
+            <div class="service1-unvisible prevent-select">
+                <p>
+                    Keep your website secure, up-to-date, and running smoothly with regular maintenance, and performance
+                    optimizations.
+                </p>
+                <a href="#">Get A Free Consult</a>
+            </div>
+        </div>
+
+        <div class="service1">
+            <h3>Search Engine Optimization</h3>
+
+            <div class="service1-unvisible prevent-select">
+                <p>
+                    Drive organic traffic and improve search rankings with strategic keyword optimization and SEO best
+                    practices.
+                </p>
+                <a href="#">Get A Free Consult</a>
+            </div>
+        </div>
+
+
+        <div class="service1">
+            <h3>WordPress Development</h3>
+
+            <div class="service1-unvisible prevent-select">
+                <p>
+                    Leverage the flexibility and functionality of WordPress to create dynamic and user-friendly websites.
+                </p>
+                <a href="#">Get A Free Consult</a>
+            </div>
+        </div>
+
+
+
+
+    </section>
 
     <!--  <img src="Photos/Web.png" alt="Web Development">
       <div class="textSide-Service">
@@ -85,7 +138,65 @@
   </section>
 *@
   <!-----------------------Events----------------------------->
+<section class="EventSection">
+    <h2>Upcoming Events</h2>
+    <div class="eventBox">
 
+           @foreach (var Event in Model.Event.OrderByDescending(p => p.DatePosted).ToList().Take(3))
+        {
+        <div class="Event right">
+
+                <a asp-action="EventDetails" asp-route-eventId="@Event.Id">
+
+                    <img alt="@Event.Title" class="EventImg" src="@Event.Thumbnail" draggable="false">
+
+                <div class="EventTicket">
+
+                    <div class="line"></div>
+                    <div class="Eventinfo">
+
+                        <div class="Title-Location">
+                            <div class="EventTitle">
+                                    <h3 class="show-read-more">@Event.Title</h3>
+                            </div>
+
+                            <div class="Eventlocation">
+                                <img alt="Event Location" src="icons/location.png" height="14px" draggable="false">
+                                    <p>@Event.Location</p>
+                            </div>
+                        </div>
+
+
+                        <div class="Eventdate">
+                            <img alt="Event Date" src="icons/Date.png" height="14px" draggable="false">
+                              
+                                    
+                              
+                                    @if (@Event.StartDate.HasValue)
+                                    {
+                                    <p>@Event.StartDate.Value.ToString("dd MMM")</p>
+                                    }
+                                    else
+                                    {
+                                    <p>Date not available.</p>
+                                    }
+                        </div>
+
+                    </div>
+                </div>
+
+            </a>
+        </div>
+        }
+
+
+
+
+
+    </div>
+</section>
+
+@*
   <section class="EventSection">
     <h2>Upcoming Events</h2>
     <div class="eventBox">
@@ -187,7 +298,7 @@
 
 
     </div>
-  </section>
+  </section>*@
 
 
 <section class="roadmapSection">
@@ -269,6 +380,7 @@
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="~/js/show-on-scroll.js"></script>
+<script src="~/js/Services-Index.js"></script>
 
 <script>
     $(document).ready(function () {

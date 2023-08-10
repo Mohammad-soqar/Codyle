@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <head>
-      <link rel="stylesheet" href="~/css/Services.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Services.css" asp-append-version="true" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8" />
     <meta name="description" content="Codyle Services">
@@ -34,43 +34,93 @@
 
              <!-----------------------Services----------------------------->
 
-  <section class="servicesSection">
-  
-    <div class="servicesMainPage">
-        <a asp-controller="Home" asp-action="WebDevelopment" asp-area="User">
-      <div class="service webDev">
+<section class="servicesSection">
+    
+    <section class="service-Section">
+
+        <div class="service1">
+            <h3>Web Design & Rebrand</h3>
+
+            <div class="service1-unvisible prevent-select">
+                <p>
+                    Transform your online presence with customized website design and branding that aligns with your
+                    vision.
+                </p>
+                <a href="#">Get A Free Consult</a>
+            </div>
+        </div>
+
+        <div class="service1">
+            <h3>Front-End Development</h3>
+
+            <div class="service1-unvisible prevent-select">
+                <p>Create engaging web experiences with modern HTML, CSS, and JavaScript development techniques.</p>
+                <a href="#">Get A Free Consult</a>
+            </div>
+        </div>
+
+        <div class="service1">
+            <h3>Back-End Development</h3>
+
+            <div class="service1-unvisible prevent-select">
+                <p>
+                    Build robust websites and applications with secure server-side scripting and database integration.
+                </p>
+                <a href="#">Get A Free Consult</a>
+            </div>
+        </div>
+
+        <div class="service1">
+            <h3>Website Maintenance</h3>
+
+            <div class="service1-unvisible prevent-select">
+                <p>
+                    Keep your website secure, up-to-date, and running smoothly with regular maintenance, and performance
+                    optimizations.
+                </p>
+                <a href="#">Get A Free Consult</a>
+            </div>
+        </div>
+
+        <div class="service1">
+            <h3>Search Engine Optimization</h3>
+
+            <div class="service1-unvisible prevent-select">
+                <p>
+                    Drive organic traffic and improve search rankings with strategic keyword optimization and SEO best
+                    practices.
+                </p>
+                <a href="#">Get A Free Consult</a>
+            </div>
+        </div>
 
 
-                <img src="/Photos/webDev2.png" height="100px" alt="Web Development">
-          <h3>Web Development</h3>
-     
-      </div>
-        </a>
-    </div>
+        <div class="service1">
+            <h3>WordPress Development</h3>
 
-    <div class="servicesMainPage">
-
-        <a asp-controller="Home" asp-action="GraphicDesign" asp-area="User">
-      <div class="service webDev">
-
-
-                <img src="/Photos/graphicDesign2.png" height="100px" alt="Graphic Design">
-          <h3>Graphic Design</h3>
-       
-      </div>
-      </a>
-    </div>
-
-    <div class="servicesMainPage">
-        <a asp-controller="Home" asp-action="SMManagement" asp-area="User" >
-      <div class="service webDev">
+            <div class="service1-unvisible prevent-select">
+                <p>
+                    Leverage the flexibility and functionality of WordPress to create dynamic and user-friendly websites.
+                </p>
+                <a href="#">Get A Free Consult</a>
+            </div>
+        </div>
 
 
-                <img src="/Photos/SocialMedia.png" height="100px" alt="Social media management">
-          <h3>Social Media Management</h3>
-        
-      </div>
-     </a>
-    </div>
-  </section>
 
+
+    </section>
+
+    <!--  <img src="Photos/Web.png" alt="Web Development">
+      <div class="textSide-Service">
+        <h2>Web Development</h2>
+        <p>You want to take your business to the digital world ? CODYLE is the answer. We deliver efficient work
+          services with creativity adding more value to your Business</p>
+        <a class="getstarted" href="WebDev.html">Learn
+          More..</a>
+
+      </div> -->
+
+</section>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="~/js/Services-Index.js"></script>

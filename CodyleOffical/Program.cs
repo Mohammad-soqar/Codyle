@@ -11,6 +11,7 @@ using CodyleOffical.Utility;
 using CodyleOffical.Models;
 using CodyleOffical.DataAccess.DbInitializer;
 using AspNetCore.SEOHelper;
+using CodyleOffical.Models.ViewModels;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +31,9 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(o => {
     o.Password.RequiredLength = 12;
 }).AddDefaultTokenProviders()
     .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddScoped<UserManager<IdentityUser>>();
+
+
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IDbInitializer, DbInitializer>();
 builder.Services.AddSingleton<IEmailSender, EmailSender>();

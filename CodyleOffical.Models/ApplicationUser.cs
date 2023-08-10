@@ -17,9 +17,12 @@ namespace CodyleOffical.Models
         public string Name { get; set; }
         public string Surname { get; set; }
         public int? CompanyId { get; set; }
+
         [ForeignKey("CompanyId")]
         [ValidateNever]
         public ApplicationCompany Company { get; set; }
+
+        public ICollection<Event> Events { get; set; } 
 
     }
 }

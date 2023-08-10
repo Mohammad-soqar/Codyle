@@ -12,8 +12,7 @@ namespace CodyleOffical.DataAccess.Repository.IRepository
     {
         void Update(Event obj);
 
-        int IncrementCount(Event Event, int count);
-        int DecrementCount(Event Event, int count);
+      
        
     }
 }

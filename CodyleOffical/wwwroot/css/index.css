@@ -1,5 +1,4 @@
 ﻿
-
 @media only screen and (min-width: 885px) {
     .welcomegrid {
         display: flex;
@@ -57,7 +56,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        margin: 112px 0px 0px 0px;
+        margin: 6rem 0px 0px 0px;
     }
 
         .servicesSection h2 {
@@ -93,15 +92,6 @@
         justify-content: center;
     }
 
-    .service {
-        text-decoration: none;
-        border: solid;
-        border-color: #FF2E63;
-        border-radius: 10px;
-        width: 100%;
-        margin: 0px 80px 0px 80px;
-        padding: 20px 0px 10px 0px;
-    }
 
 
     .whatiscodyletext img {
@@ -113,7 +103,7 @@
         margin: 60px 0px 0px 0px;
         display: grid;
         grid-gap: 20px;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         justify-items: center;
     }
 
@@ -132,7 +122,7 @@
 
     .Eventdate {
         display: flex;
-        margin: 10px 0px 0px 40px !important;
+        margin: 0px 0px 0px 0.5rem !important;
     }
 
 
@@ -206,26 +196,9 @@
         }
 }
 
-.blog-link {
-    display: contents;
-}
 .right img {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-}
-.text-area {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 8rem;
-}
-
-.show-read-more {
-    margin-bottom: 10px; /* Adjust as needed */
-}
-
-.read-more-link {
-    margin-top: auto;
 }
 
 
@@ -243,6 +216,17 @@
 }
 
 @media only screen and (max-width: 885px) {
+    .servicesSection h2 {
+        text-align: center;
+        color: #ffffff;
+        font-size: 40px;
+        font-family: 'MontserratMedium';
+        margin: 0px 0px 0px 0px;
+    }
+
+    .servicesSection {
+        margin: 6rem 0px 0px 0px;
+    }
     .welcomegrid {
         display: grid;
         justify-items: center;
@@ -313,21 +297,6 @@
         font-family: 'MontserratMedium';
     }
 
-    .servicesSection {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        margin: 112px 0px 0px 0px;
-    }
-
-        .servicesSection h2 {
-            text-align: center;
-            color: #ffffff;
-            font-size: 40px;
-            font-family: 'MontserratMedium';
-            margin: 0px 0px 0px 0px;
-        }
 
     .weclomephoto {
         height: 300px;
@@ -443,31 +412,7 @@
     margin: 0px 0px 0px 0px;
 }
 
-.service p {
-    width: 70%;
-    color: #ffffff;
-    font-family: 'MontserratMedium';
-    text-align: center;
-}
 
-.service h3 {
-    width: 80%;
-    color: #ffffff;
-    font-family: 'MontserratMedium';
-    text-align: center;
-}
-
-.service a {
-    cursor: pointer;
-    display: contents;
-    text-decoration: none;
-}
-
-.service {
-    background: #252a34bf;
-    box-shadow: 0 -2px 16px 0 #ff2e6270;
-    transition: 0.3s;
-}
 
 .WhatIsCodyle {
     margin: 180px 0px 40px 0px;
@@ -493,6 +438,8 @@
     margin: 0px 0px 0px 30px;
     width: 200px;
 }
+
+
 
 .BlogSection a {
     text-decoration: none;
@@ -567,57 +514,188 @@
     margin: 0px 40px 0px 40px;
 }
 
-.Eventlocation p {
-    font-size: 10px;
-    font-family: 'SemiBold';
-    font-weight: 900;
-    color: #FF2E63;
-}
-
-.Eventlocation {
-    display: flex;
-    padding: 0px 0px 10px 0px;
-    margin: 25px 0px 0px 0px;
-}
-
-.Eventdate p {
-    text-align: right;
-    font-size: 10px;
-    font-family: 'MontserratMedium';
-    font-weight: 900;
-    margin: 0px 0px 0px 5px;
-    color: #FF2E63;
-}
-
-.Eventlocation p {
-    font-size: 10px;
-    font-family: 'MontserratMedium';
-    font-weight: 900;
-    margin: 0px 0px 0px 5px;
-    color: #FF2E63;
-}
-
-.Eventdate {
-    display: flex;
-    margin: 10px 20px 0px 0px;
-}
-
 .EventTicket {
-    border-radius: 0px 0px 5.67px 5.67px;
-    background: #ffffff;
     display: flex;
-    max-height: 100px;
     justify-content: flex-start;
+    border-radius: 5.67px 0px 5.67px 5.67px;
+    background: #ffffff;
+    box-sizing: border-box;
+    max-height: 100px;
 }
+
+    .EventTicket a {
+        text-decoration: none !important;
+    }
+
 
 .line {
-    border-radius: 0px 0px 0px 5px;
     width: 15px;
+    border-radius: 5px 0 0 5px;
     background: linear-gradient(#DE1749 60%, #FF2E63);
+}
+
+.Event a {
+    text-decoration: none;
 }
 
 .Eventinfo {
     display: flex;
-    margin: 0px 0px 0px 30px;
-    width: 200px;
+    justify-content: space-evenly;
+    align-items: start;
+    margin: 0px !important;
+    width: 100%;
+    padding: 1rem 0rem;
+}
+
+.EventTitle h3 {
+    margin: 0;
+    font-family: 'MontserratMedium', sans-serif;
+    font-size: 12pt;
+    font-weight: 900;
+    color: #FF2E63;
+}
+
+.Eventlocation, .Eventdate {
+    display: flex;
+    align-items: center;
+}
+
+    .Eventlocation img,
+    .Eventdate img {
+        margin-right: 5px;
+    }
+
+    .Eventlocation p,
+    .Eventdate p {
+        margin: 0;
+        font-family: 'MontserratMedium', sans-serif;
+        font-size: 12px;
+        font-weight: 900;
+        color: #FF2E63;
+    }
+
+.Title-Location {
+    display: flex;
+    width: 60%;
+    padding: 0rem 0rem 0rem 0rem;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+body {
+    background-color: #252A34;
+}
+
+a {
+    text-decoration: none;
+}
+
+.Services-Section {
+    margin: 6rem 0rem 0rem 0rem;
+}
+
+.service-Section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem 4rem;
+    margin: 2rem 14rem;
+}
+
+.service1 {
+    position: relative;
+    overflow: hidden;
+    box-shadow: #FF2E63 1px 1px 12px;
+    background-color: #262a35;
+    padding: 2rem 1rem;
+    border: 2px solid #FF2E63;
+    height: 15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    transition: all 1s ease;
+}
+
+    .service1 h3 {
+        color: #ffffff;
+        font-family: 'MontserratMedium';
+        font-size: 24pt;
+        margin: 10rem 0 0 0;
+        transition: margin-top 1s ease;
+    }
+
+.Services-Section h2 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 40px;
+    font-family: 'MontserratMedium';
+    margin: 0px 0px 0px 0px;
+}
+
+
+.service1 a {
+    background-color: #ffffff;
+    padding: 0.4rem 1rem;
+    border-radius: 27px;
+    color: #FF2E63;
+    font-size: 14pt;
+    font-weight: 600;
+    font-family: 'MontserratMedium';
+}
+
+.service1-unvisible p {
+    font-size: 12pt;
+    color: #252A34;
+    font-weight: 600;
+    margin: 1.2rem 0 3rem 0;
+}
+
+.service1:hover .service1-unvisible {
+    display: block;
+}
+
+.prevent-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+@media only screen and (max-width: 750px) {
+    .service-Section {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 2rem 4rem;
+        margin: 2rem 1rem;
+    }
+
+    .service1 h3 {
+        color: #ffffff;
+        font-family: 'MontserratMedium';
+        font-size: 24pt;
+        margin: 0rem !important;
+        transition: margin-top 1s ease;
+    }
+
+    .service1 {
+        position: relative;
+        overflow: hidden;
+        padding: 2rem 1rem;
+        border: 2px solid #FF2E63;
+        height: 10rem;
+        display: flex;
+        border-radius: 2rem !important;
+        background-color: #FF2E63 !important;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+        transition: all 1s ease;
+    }
+
+    .service1-unvisible p {
+        font-size: 10pt;
+        color: #252A34;
+        font-weight: 600;
+        margin: 1.2rem 0 1.2rem 0;
+    }
 }

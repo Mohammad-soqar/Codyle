@@ -14,14 +14,14 @@
     <div class="event">
 
         <div>
-            <img class="eventpic" src="@Model.Event.ImageUrl" style="border-radius: 14px;" alt="@Model.Event.Title" draggable="false">
+            <img class="eventpic" src="@Model.Event.Thumbnail" style="border-radius: 14px;" alt="@Model.Event.Title" draggable="false">
         </div>
 
         <div class="eventwriting">
             @*   <input asp-for="@Model.EventName" hidden placeholder="@Model.Event.Title" />*@
 
             <h1 style="font-size:20pt ;">@Model.Event.Title</h1>
-            <p><img class="dateimg" src="~/Photos/date2.png" height="18px" alt="date image" draggable="false">@Html.DisplayFor(modelItem => Model.Event.Date) </p>
+            <p><img class="dateimg" src="~/Photos/date2.png" height="18px" alt="date image" draggable="false">@Html.DisplayFor(modelItem => Model.Event.StartDate) </p>
             <div>
                 <h2 style="font-size:12pt ; margin:10px 0px 5px 0px ">
                     <img class="dateimg" src="~/Photos/location2.png" height="18px" alt="date image" draggable="false">
@@ -42,18 +42,18 @@
 
 
             <div>
-                @if (Model.Event.Price == 0)
+               @* @if (Model.Event.Price == 0)
                 {
-                    if(Model.Event.Finished == "Yes"){
+                   if(Model.Event.Finished == "Yes"){
                         <a class="ticket" href="@Model.Event.Slides" style="margin-top:5px;">Download Slides</a>
                     }
                     else
                     {
                         <a class="ticket" asp-controller="Home" asp-action="ReserveASeat" asp-area="User">Reserve a seat!</a>
-                        @* <button type="submit" class="ticket" href="#" value="book a ticket">Reserve a seat!</button>*@
+                        <button type="submit" class="ticket" href="#" value="book a ticket">Reserve a seat!</button>
                     }
                    
-                }
+                }*@
 
 
 

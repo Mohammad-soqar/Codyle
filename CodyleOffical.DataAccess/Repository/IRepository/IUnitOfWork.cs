@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CodyleOfficial.Models;
+using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +22,11 @@ namespace CodyleOffical.DataAccess.Repository.IRepository
 
         IClubMembersRepository ClubMembers { get; }
         ISponsorRepository Sponsors { get; }
+        ISpeakerRepository Speaker { get; }
+        IEventLikeRepository EventLike { get; }
+
+        IEnumerable<Speaker> GetSpeakersByEventId(int eventId);
+
 
         void Save();
     }

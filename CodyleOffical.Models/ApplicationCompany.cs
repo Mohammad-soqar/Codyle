@@ -23,6 +23,8 @@ namespace CodyleOffical.Models
         public int CompTypeId { get; set; }
         [ValidateNever]
         public CompType? CompType { get; set; }
+        public ICollection<Event> Events { get; set; }
+
 
     }
 }

@@ -1,112 +1,277 @@
-﻿@model ShoppingCart
-
+﻿@model CodyleOfficial.Models.ViewModels.EventDetailsVM
+@{
+    DateTime? eventDate = Model.ShoppingCart.Event.StartDate;
+}
 <head>
     <link rel="stylesheet" href="~/css/EventDetails.css" asp-append-version="true" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8" />
-    <title>@Model.Event.Title</title>
-    <meta name="description" content="@Model.Event.Title">
+    <title>@Model.</title>
+    <meta name="description" content="@Model.ShoppingCart.Event.Title">
     <meta name="keywords" content="Bootcamps, Event, Events">
 </head>
 
-<form method="post" class="EventForm">
-    <input hidden asp-for="EventId" />
-    <div class="event">
+<input hidden asp-for="@Model.ShoppingCart.EventId" />
+<div class="Event-Details">
 
-        <div>
-            <img class="eventpic" src="@Model.Event.ImageUrl" style="border-radius: 14px;" alt="@Model.Event.Title" draggable="false">
-        </div>
+    <div class="Thumbnail">
+        <img src="@Model.ShoppingCart.Event.Thumbnail" height="450px" alt="@Model.ShoppingCart.Event.Title" draggable="false">
+    </div>
 
-        <div class="eventwriting">
-
-            <h1 style="font-size:20pt ;">@Model.Event.Title</h1>
-            <p><img class="dateimg" src="~/Photos/date2.png" height="18px" alt="date image" draggable="false">  @Html.DisplayFor(modelItem => Model.Event.Date) </p>
-          
-            @if (Model.Event.OnlineEvent == true)
-            {
-                <h2 style="font-size:12pt ; margin:10px 0px 5px 0px ">
-                   Event Type: 
-                    @Model.Event.Location
-                </h2>
-            }
-            else
-            {
-                <div>
-                    <h2 style="font-size:12pt ; margin:10px 0px 5px 0px ">
-                        <img class="dateimg" src="~/Photos/location2.png" height="18px" alt="date image" draggable="false">
-                        @Model.Event.Location
-                    </h2>
-
-                    <a target="_blank" href="@Model.Event.LocationUrl">show on map</a>
-                </div>
-                if (Model.Event.Price > 0)
-                {
-                    <p>Price: @Model.Event.Price TL</p>
-                }
-                else if (Model.Event.Price == 0)
-                {
-                    <p>Price: Free!</p>
-                }
-            }
-           
-
-
-
-
-
-            <div>
-                @if(Model.Event.Finished == "Yes"){
-                    <a class="ticket" href="@Model.Event.Slides" style="margin-top:5px;">Download Slides</a>
-
-                }
-                else if(Model.Event.OnlineEvent == true)
-                {
-                    <a class="ticket" href="https://www.youtube.com/channel/UCzBPG25gN0FKfOBYS9H1gXg" target="_blank" style="margin-top:5px;">YouTube Channel</a>
-
-                }
-                else
-                {
-                    if (Model.Event.Price > 0)
+    <div class="EventInfo">
+        <div class="Title-CTA">
+            <div class="Title-Date">
+                <h3>
+                    @if (eventDate.HasValue)
                     {
-                        <button type="submit" class="ticket" href="#" value="book a ticket">Buy a ticket</button>
+                        <p>@eventDate.Value.ToString("dd MMM")</p>
                     }
-                    else if (Model.Event.Price == 0)
+                    else
                     {
-                        <a class="ticket" asp-controller="Home" asp-action="ReserveASeat" asp-area="User">Reserve a seat!</a>
-
+                        <p>Date not available.</p>
                     }
-                }
-               
+                </h3>
+                <h1>@Model.ShoppingCart.Event.Title</h1>
+            </div>
+            <div class="CTA-BTN">
 
-                @if (Model.Event.Price > 0)
-                {
-                    <input type="number" asp-for="Count" class="tickett">
-                }
-                else if (Model.Event.Price == 0)
-                {
+                <button class="like-button" data-eventid="@Model.ShoppingCart.EventId" onclick="likeEvent(@Model.ShoppingCart.EventId)">
+                    <img src="~/Photos/Like.png" alt="like btn">
+                </button>
 
-                }
-
+                <button><img src="~/Photos/share.png" alt="share btn"></button>
             </div>
 
         </div>
-    </div>
 
-    <div class="eventdetails">
+        <div class="Event-Details-Sec-2">
+            <!-- Left Side -->
+            <div class="Event-Details-Sec-Left">
+@*
+                <form>
+                    <div class="Followers-Sec">
+                        <p>@Model.ShoppingCart.Event.Followers</p>
 
-        <p>@Html.Raw(Model.Event.Description)</p>
+                        <button class="default-CTA-btn">Follow</button>
+                    </div>
+                </form>*@
+              
 
-        <div >
-            <a class="Speaker_Details" href="@Model.Event.SpeakerLinkedIn" target="_blank">
-                <img src="~/Photos/socialMedia/LinkedIn.png" />
-                <p>@Model.Event.Speaker</p>
 
-            </a>
-          
+                <div class="WAW-sec">
+                    <h2>When And Where</h2>
+                    <div class="WAW-Content">
+                        <div class="WAW-sup-sec">
+                            <img src="~/Photos/dateevent.png" alt="">
+
+                            <div class="WAW-sup-sec-txt">
+                                <h3>Date & Time:</h3>
+                                <p>@Model.ShoppingCart.Event.StartDate</p>
+                            </div>
+
+                        </div>
+                        <div class="separator">
+                        </div>
+                        <div class="WAW-sup-sec">
+                            <img src="~/Photos/locationevent.png" alt="">
+
+                            <div class="WAW-sup-sec-txt">
+                                <h3>Location:</h3>
+                                <a target="" href="@Model.ShoppingCart.Event.LocationUrl"><p>@Model.ShoppingCart.Event.Location</p></a>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+                <div class="WAW-sec About-Event">
+                    <h2>About This Event:</h2>
+                    <div class="WAW-Content">
+                        <div class="WAW-sup-sec">
+                            <img src="~/Photos/Durationevent.png" alt="">
+
+                            <div class="WAW-sup-sec-txt">
+                                <h3>
+                                    @if (eventDate.HasValue)
+                                    {
+                                        @eventDate.Value.ToString("dd MMM")
+                                    }
+                                    else
+                                    {
+                                        <p>Date not available.</p>
+                                    }  - @Model.ShoppingCart.Event.Duration Hours
+                                </h3>
+                            </div>
+
+                        </div>
+                        <div class="separator">
+                        </div>
+                        <div class="WAW-sup-sec">
+                            <img src="~/Photos/Eticketevent.png" alt="">
+
+                            <div class="WAW-sup-sec-txt">
+                                <h3>Mobile eTicket</h3>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="Speakers-sup-sec">
+                    <h2>Speakers</h2>
+                    <div class="Speakers-grid">
+                          @foreach (var Speaker in Model.Speaker)
+                          { 
+                        <a class="Speaker">
+                            <img src="@Speaker.ImageUrl" style="border-radius:50%;" height="35px" width="35px" alt="">
+                                <span>@Speaker.Name</span>
+                        </a>
+                           }                   
+                    </div>
+                </div>
+
+                <p>
+                    @Html.Raw(Model.ShoppingCart.Event.Description)
+                </p>
+
+            </div>
+
+            <!-- Right Side -->
+            <div class="Event-Details-Sec-Right">
+                <div class="Reserve-btn">
+                    <div class="info-reserve">
+                        <p>THE EVENT TITLE THE EVENT TITLE</p>
+                        <div class="countInput">
+                          @*  <button class="decrease-btn minus" data-id="@item.Id">-</button>
+                            <input disabled id="quantity-" type="number" min="1" max="2" value="1">
+                            <button class="increase-btn plus" data-id="@item.Id">+</button>*@
+                        </div>
+                    </div>
+
+                    <div class="Reserve-A-Spot">
+                        @if(Model.ShoppingCart.Event.Status == "Yes")
+                        {
+                            <button disabled class="default-CTA-btn">Event is Finished</button>
+
+                        }
+                        else if (Model.ShoppingCart.Event.Status == "No")
+                        {
+                            <button class="default-CTA-btn">Reserve A Spot</button>
+
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
         </div>
-
-
     </div>
-</form>
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+<script>
+    function likeEvent(eventId) {
+        console.log(eventId);
+
+        // Send an AJAX request to the server
+        $.ajax({
+            url: '/User/Home/LikeEvent',
+            type: 'POST',
+            data: { eventId: eventId },
+            success: function () {
+     
+                // Update the button's appearance
+                var likeButton = $('.like-button[data-eventid="' + eventId + '"]');
+                likeButton.find('img').attr('src', '@Url.Content("~/Photos/Liked.png")');
+
+                likeButton.attr('disabled', 'disabled');
+            },
+            error: function (xhr) {
+                // Handle the error response
+                if (xhr.status === 401) {
+                    // Redirect to the login page if user is not logged in (status code 401)
+                    window.location.href = '/Identity/Account/Login'; // Replace this with the actual URL of your login page
+                } else {
+                    // Handle other errors
+                    alert('An error occurred while liking the event.');
+                }
+            }
+        });
+    }
+
+</script>
 
 
+<script>
+    $(document).ready(function () {
+        var ballsContainer = $('#balls-container');
+
+        for (var i = 0; i < numBalls; i++) {
+            var ball = $('<div class="ball"></div>');
+            ballsContainer.append(ball);
+
+            var xPos = Math.floor(Math.random() * $(window).width());
+            var yPos = Math.floor(Math.random() * $(window).height());
+            var angle = Math.random() * 360;
+
+            ball.css({
+                left: xPos + 'px',
+                top: yPos + 'px',
+                transform: 'rotate(' + angle + 'deg)'
+            });
+        }
+    });
+
+
+    $(document).ready(function () {
+        const reserveButton = $('.Reserve-btn');
+        const eventDetails = $('.Event-Details');
+        const eventInfo = $('.EventInfo');
+        const eventInfoOffsetTop = eventInfo.offset().top;
+        const eventInfoHeight = eventInfo.outerHeight();
+
+        const updateReserveButtonPosition = () => {
+            const scrollPosition = $(window).scrollTop();
+
+            if (scrollPosition >= eventInfoOffsetTop && scrollPosition < eventInfoOffsetTop + eventInfoHeight) {
+                reserveButton.addClass('sticky');
+            } else {
+                reserveButton.removeClass('sticky');
+            }
+        };
+
+        // Initial position check
+        updateReserveButtonPosition();
+
+        // Update position on scroll
+        $(window).scroll(updateReserveButtonPosition);
+    });
+
+    $(document).ready(function () {
+        $('.decrease-btn').on('click', function () {
+            var input = $(this).siblings('input');
+            var currentValue = parseInt(input.val());
+            if (currentValue > 1) {
+                input.val(currentValue - 1);
+            }
+        });
+
+        $('.increase-btn').on('click', function () {
+            var input = $(this).siblings('input');
+            var currentValue = parseInt(input.val());
+            if (currentValue < 2) {
+                input.val(currentValue + 1);
+            }
+        });
+    });
+
+
+</script>
